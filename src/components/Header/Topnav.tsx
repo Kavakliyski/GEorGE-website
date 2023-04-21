@@ -9,7 +9,7 @@ export default function Topnav() {
             <ul>
                 <li className="">info@george-cosmetics.com</li>
                 <li>Phone: +359 123 888 999</li>
-                <li>facebook instagram</li>
+                <li>youtube facebook instagram</li>
             </ul>
         </div>
     )
