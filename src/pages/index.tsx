@@ -3,6 +3,7 @@ import Head from 'next/head'
 // components
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
+import Topnav from '@/components/Header/Topnav'
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
                 <meta name="theme-color" content="#bf8b00" />
             </Head>
 
-
+            <Topnav />
             <Header />
 
             <main>
