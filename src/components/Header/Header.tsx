@@ -1,5 +1,5 @@
 
-import '@/styles/styles.scss'
+import styles from './Header.module.scss'
 
 
 export default function Header() {
@@ -7,8 +7,11 @@ export default function Header() {
 
     return (
 
-        <div className="example">
-            <h1>Header.tsx</h1>
-        </div>
+        <header className={styles.header}>
+            <nav>
+                <h1>Header.tsx</h1>
+
+            </nav>
+        </header>
     )
 }
