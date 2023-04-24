@@ -24,7 +24,7 @@ export default function Topnav() {
                         </a>
                     </div>
 
-                    <strong> | </strong>
+                    <hr className={stlyes.TopnavHR}/>
 
                     <div>
                         <a href="tel: +359 888 999 777">

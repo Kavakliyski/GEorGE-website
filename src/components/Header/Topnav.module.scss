@@ -12,6 +12,12 @@
     text-align: center;
     align-items: center;
 
+    hr {
+        color: $color-tertiary;
+        box-shadow: $color-tertiary;
+        border-color: $color-tertiary;
+    }
+
     a {
         text-decoration: none;
         color: inherit;
