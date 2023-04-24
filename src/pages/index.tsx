@@ -1,4 +1,9 @@
+// next
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { GetStaticPropsContext } from 'next'
 
 // components
 import Header from '@/components/Header/Header'
@@ -8,6 +13,14 @@ import Topnav from '@/components/Header/Topnav'
 
 export default function Home() {
 
+    const { locale, locales, push } = useRouter();
+    const { t: translate } = useTranslation('common');
+
+
+    const handleClick = (local: any) => {
+
+        push('/', undefined, { locale: local })
+    };
 
     return (
         <>
@@ -24,14 +37,30 @@ export default function Home() {
                 <meta name="theme-color" content="#bf8b00" />
             </Head>
 
-            <Topnav />
-            <Header />
-
             <main>
-                <h1>Hello</h1>
+                <h1>Hello index.tsx</h1>
+                <div>
+                    <h1>{locale}</h1>
+                    <h2>{translate('home')}</h2>
+                </div>
             </main>
 
             <Footer />
         </>
     )
+}
+
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+    const { locale } = context;
+
+    if (!locale) {
+        throw new Error('Locale is not available in context');
+    }
+
+    return {
+        props: {
+            ... (await serverSideTranslations(locale, ['common']))
+        }
+    }
 }
