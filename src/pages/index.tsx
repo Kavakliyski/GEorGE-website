@@ -4,12 +4,15 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetStaticPropsContext } from 'next'
+import Image from 'next/image'
 
 // components
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import Topnav from '@/components/Header/Topnav'
 
+// images
+import Jar from '../../public/static/george-jar10.jpg'
 
 export default function Home() {
 
@@ -38,11 +41,12 @@ export default function Home() {
             </Head>
 
             <main>
-                <h1>Hello index.tsx</h1>
                 <div>
-                    <h1>{locale}</h1>
-                    <h2>{translate('home')}</h2>
                 </div>
+                <Image style={{
+                    width: '100%',
+                    height: '100%',
+                }} src={Jar} alt=''/>
             </main>
 
             <Footer />

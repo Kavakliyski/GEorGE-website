@@ -1,2 +1,91 @@
 @import '../../styles/variables';
 
+
+.NavigationWrapper {
+
+    background-color: $color-primary;
+    // color: $color-tertiary;
+    color: $color-secondary;
+
+    .NavigationContainer {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        align-items: center;
+        padding: 10px;
+
+        // overflow: hidden;
+
+        .NavigatioMiddleLinks {
+
+
+            .NavigationLinksContainer {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                text-transform: uppercase;
+                list-style-type: none;
+                font-size: x-large;
+
+                a {
+                    text-decoration: none;
+                    color: $color-secondary;
+
+                    background-image: linear-gradient(to right,
+                            $color-secondary,
+                            $color-secondary 50%,
+                            $color-tertiary 50%);
+                    background-size: 200% 100%;
+                    background-position: -100%;
+                    display: inline-block;
+                    padding: 5px 0;
+                    position: relative;
+                    background-clip: inherit;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    transition: all 0.3s ease-in-out;
+
+                    &:before {
+                        content: '';
+                        background: $color-secondary;
+                        display: block;
+                        position: absolute;
+                        bottom: -3px;
+                        left: 0;
+                        width: 0;
+                        height: 3px;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    &:hover::before {
+                        width: 100%;
+                    }
+
+                    &:hover {
+                        background-position: 0;
+                    }
+                }
+            }
+        }
+
+        .NavigatioRightLinks {
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .active {
+
+            // font-weight: bold;
+            // border-bottom: 2px solid $color-secondary;
+            a {
+                // background: red !important;
+            }
+        }
+    }
+}
