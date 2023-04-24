@@ -2,7 +2,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next/types";
 
-export default function about() {
+export default function About() {
 
     const {t: translate} = useTranslation('about')
 
