@@ -18,10 +18,10 @@ function App({ Component, pageProps }: AppProps) {
   return (
 
     <>
-      <Topnav />
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+        <Topnav />
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
     </>
   )
 }
