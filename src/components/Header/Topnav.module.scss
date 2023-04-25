@@ -29,7 +29,9 @@
 
     .TopnavText {
         display: flex;
-        gap: 100px;
+        // gap: 100px;
+        overflow: hidden;
+        width: 75%;
         justify-content: space-between;
         align-items: center;
 

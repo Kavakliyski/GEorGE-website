@@ -3,9 +3,11 @@
 
 .NavigationWrapper {
 
-    background-color: $color-primary;
+    // background-color: $color-primary;
+    background-color: transparent;
     // color: $color-tertiary;
     color: $color-secondary;
+    position: absolute;
 
     .NavigationContainer {
         display: grid;
