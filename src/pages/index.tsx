@@ -33,7 +33,7 @@ export default function Home() {
                 {/* Keywords (specify relevant keywords related to your web page content for SEO): */}
                 <meta name="keywords" content="keyword1, keyword2, keyword3" />
                 {/* Theme color (specifies the color of the browser's address bar on some mobile devices): */}
-                <meta name="theme-color" content="#bf8b00" />
+                <meta name="theme-color" content="#191716" />
             </Head>
 
             <main>
