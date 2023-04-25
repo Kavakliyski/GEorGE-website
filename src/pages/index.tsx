@@ -4,15 +4,11 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetStaticPropsContext } from 'next'
-import Image from 'next/image'
 
 // components
-import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer/Footer'
-import Topnav from '@/components/Header/Topnav'
+import { FeaturedProducts } from '@/components/HomepageCompoents/FeatruredProducts/FeaturedProducts'
+import { HeroBanner } from '@/components/HomepageCompoents/HeroBanner/HeroBanner'
 
-// images
-import Jar from '../../public/static/george-jar10.jpg'
 
 export default function Home() {
 
@@ -41,15 +37,10 @@ export default function Home() {
             </Head>
 
             <main>
-                <div>
-                </div>
-                <Image style={{
-                    width: '100%',
-                    height: '100%',
-                }} src={Jar} alt=''/>
+                <HeroBanner />
+                <FeaturedProducts />
             </main>
 
-            <Footer />
         </>
     )
 }

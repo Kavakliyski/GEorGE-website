@@ -4,9 +4,10 @@ import { appWithTranslation } from 'next-i18next';
 // styles
 import '@/styles/globals.scss';
 
-// components
+// Layout Components
 import Topnav from '@/components/Header/Topnav';
 import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 
 // i18n
 
@@ -20,6 +21,7 @@ function App({ Component, pageProps }: AppProps) {
       <Topnav />
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   )
 }

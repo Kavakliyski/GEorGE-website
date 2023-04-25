@@ -1,0 +1,25 @@
+//images
+import HeroImg from "../../../../public/static/george-jar10.jpg";
+import Image from "next/image";
+
+import styles from "./HeroBanner.module.scss"
+
+export const HeroBanner = () => {
+
+
+    return (
+        <div className={styles.HeroBannerWrapper}>
+            <div className={styles.HeroBannerContainer}>
+
+                <Image
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                    src={HeroImg}
+                    alt=""
+                    className="HeroBannneImage" />
+            </div>
+        </div>
+    )
+}

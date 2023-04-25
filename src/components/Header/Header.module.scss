@@ -9,6 +9,8 @@
     color: $color-secondary;
     position: absolute;
 
+    z-index: 5;
+
     .NavigationContainer {
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
