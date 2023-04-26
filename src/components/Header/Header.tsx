@@ -9,7 +9,7 @@ import Image from 'next/image';
 import GeorgeLogo from "../../../public/static/george-aurum.png";
 import GeorgeLogoText from "../../../public/static/george_thumbnail.png";
 import GeorgeLogoText2 from "../../../public/static/george.png";
-import CartSVG from '../../../public/icons/cart.svg';
+import CartSVGWhite from '../../../public/icons/cart-white.svg';
 
 
 export default function Header() {
@@ -57,7 +57,7 @@ export default function Header() {
 
                         <div className={styles.NavigatioRightLinks}>
                             <div className={styles.ShoppingCart}>
-                                <Image src={CartSVG} alt='' width={50}/>
+                                <Image src={CartSVGWhite} alt='' width={50}/>
                             </div>
 
                             <div className={styles.LanguageButton}>
