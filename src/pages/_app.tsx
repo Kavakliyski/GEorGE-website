@@ -1,3 +1,4 @@
+// next
 import type { AppProps } from 'next/app'
 import { appWithTranslation } from 'next-i18next';
 
@@ -8,22 +9,21 @@ import '@/styles/globals.scss';
 import Topnav from '@/components/Header/Topnav';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-
-// i18n
+import { Navbar } from '@/components/Header/Navbar';
 
 
 function App({ Component, pageProps }: AppProps) {
 
 
-  return (
-
-    <>
-        <Topnav />
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-    </>
-  )
+    return (
+        <>
+            <Topnav />
+            <Header />
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+        </>
+    )
 }
 
 export default appWithTranslation(App);

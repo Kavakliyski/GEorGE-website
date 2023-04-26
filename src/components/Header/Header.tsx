@@ -1,44 +1,32 @@
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-
 import styles from './Header.module.scss';
+
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link';
 import Image from 'next/image';
 
 // img
 import GeorgeLogo from "../../../public/static/george-aurum.png";
 import GeorgeLogoText from "../../../public/static/george_thumbnail.png";
 import GeorgeLogoText2 from "../../../public/static/george.png";
+import CartSVG from '../../../public/icons/cart.svg';
+
 
 export default function Header() {
 
-    const { locale, locales, push } = useRouter();
     const router = useRouter();
 
-    const isActive = (href: string) => router.pathname === href;
+    const { locale, push } = useRouter();
+    const { t: translate } = useTranslation('header');
 
-    const handleClick = (l: any) => {
+    const isLinkActive = (href: string) => router.pathname === href;
+    const isLanguagesActive = (value: string) => value === locale
 
-        push('/', undefined, { locale: l })
-    };
 
     return (
 
         <header>
             <nav>
-                {/* <h1>Header.tsx</h1>
-                <h2>{locale}</h2>
-                <p>
-                    {
-                        locales?.map(l => (
-                            <button key={l} onClick={() => handleClick(l)}>
-                                {l}
-                            </button>
-                        )
-                        )
-                    }
-                </p>
-                <h3 onClick={() => push('/about')}>About</h3> */}
-
                 <div className={styles.NavigationWrapper}>
                     <div className={styles.NavigationContainer}>
 
@@ -49,27 +37,40 @@ export default function Header() {
                         <div className={styles.NavigatioMiddleLinks}>
 
                             <div className={styles.NavigationLinksContainer}>
-                                <li className={isActive('/') ? styles.active : ''}>
-                                    <Link href="/">Home</Link>
+                                <li className={isLinkActive('/') ? styles.active : ''}>
+                                    <Link href="/">{translate('home')}</Link>
                                 </li>
-                                <li className={isActive('/about') ? styles.active : ''}>
+                                <li className={isLinkActive('/about') ? styles.active : ''}>
+                                    <Link href="/about">{translate('about')}</Link>
+                                </li>
+                                <li className={isLinkActive('/about') ? styles.active : ''}>
+                                    <Link href="/about">{translate('products')}</Link>
+                                </li>
+                                <li className={isLinkActive('/about') ? styles.active : ''}>
                                     <Link href="/about">About</Link>
                                 </li>
-                                <li className={isActive('/about') ? styles.active : ''}>
-                                    <Link href="/about">About</Link>
-                                </li>
-                                <li className={isActive('/about') ? styles.active : ''}>
-                                    <Link href="/about">About</Link>
-                                </li>
-                                <li className={isActive('/about') ? styles.active : ''}>
+                                <li className={isLinkActive('/about') ? styles.active : ''}>
                                     <Link href="/about">About</Link>
                                 </li>
                             </div>
                         </div>
 
                         <div className={styles.NavigatioRightLinks}>
-                            <p>BG / EN</p>
-                            <p>Cart</p>
+                            <div className={styles.ShoppingCart}>
+                                <Image src={CartSVG} alt='' width={50}/>
+                            </div>
+
+                            <div className={styles.LanguageButton}>
+                                <button
+                                    className={isLanguagesActive("bg") ? styles.Active : ''}
+                                    onClick={() => push('/', undefined, { locale: "bg" })}
+                                >BG</button>
+                                |
+                                <button
+                                    className={isLanguagesActive("en") ? styles.Active : ''}
+                                    onClick={() => push('/', undefined, { locale: "en" })}
+                                >EN</button>
+                            </div>
                         </div>
                     </div>
                 </div>

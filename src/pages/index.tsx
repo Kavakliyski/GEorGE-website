@@ -15,14 +15,8 @@ import styles from '@/styles/animatedbackground.module.scss'
 
 export default function Home() {
 
-    const { locale, locales, push } = useRouter();
     const { t: translate } = useTranslation('common');
 
-
-    const handleClick = (local: any) => {
-
-        push('/', undefined, { locale: local })
-    };
 
     return (
         <>
@@ -61,7 +55,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            ... (await serverSideTranslations(locale, ['common']))
+            ... (await serverSideTranslations(locale, ['common', 'header']))
         }
     }
 }
