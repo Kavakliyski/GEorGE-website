@@ -1,13 +1,24 @@
-import Image from "next/image";
 import styles from "./Navbar.module.scss";
-import { useEffect, useState } from "react";
+
+import CartSVGBlack from "../../../public/icons/cart-black.svg"
+import Image from "next/image";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
+import { useTranslation } from 'next-i18next'
 
 import LogoImage from "../../../public/static/george-aurum.png";
+import { InternalizationContext } from "@/context/InternalizationContext";
 
 
 export const Navbar = () => {
+
     const [showNavbar, setShowNavbar] = useState(false);
+
+    const { t: translate } = useTranslation('header');
+
+    const { isLanguagesActive, push } = useContext(InternalizationContext)
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,22 +40,34 @@ export const Navbar = () => {
         <nav className={showNavbar ? styles.NavbarWrapperVisible : styles.NavbarWrapper}>
             <div className={styles.NavbartContainer}>
 
+                <div className={styles.LanguageButton}>
+                    <button
+                        className={isLanguagesActive("bg") ? styles.Active : ''}
+                        onClick={() => push('/', undefined, { locale: "bg" })}
+                    >BG</button>
+                    |
+                    <button
+                        className={isLanguagesActive("en") ? styles.Active : ''}
+                        onClick={() => push('/', undefined, { locale: "en" })}
+                    >EN</button>
+                </div>
+
                 <div className={styles.NavbarLinksLeft}>
                     <ul>
                         <li>
-                            <Link href="/">test1</Link>
+                            <Link href="/">{translate('home')}</Link>
                         </li>
                         <li>
-                            <Link href="/">tekst2</Link>
+                            <Link href="/about">{translate('about')}</Link>
                         </li>
                         <li>
-                            <Link href="/">tekst3</Link>
+                            <Link href="/products">{translate('products')}</Link>
                         </li>
                     </ul>
                 </div>
 
                 <div className={styles.NavbarLinksMiddle}>
-                    <Image src={LogoImage} alt="" width={200} />
+                    <Image src={LogoImage} alt="" width={100} />
                 </div>
 
                 <div className={styles.NavbarLinksRight}>
@@ -59,6 +82,10 @@ export const Navbar = () => {
                             <Link href="/">tekst3</Link>
                         </li>
                     </ul>
+                </div>
+
+                <div className={styles.ShoppingCart}>
+                    <Image src={CartSVGBlack} alt='' width={50} />
                 </div>
 
             </div>

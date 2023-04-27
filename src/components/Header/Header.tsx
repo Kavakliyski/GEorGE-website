@@ -10,17 +10,20 @@ import GeorgeLogo from "../../../public/static/george-aurum.png";
 import GeorgeLogoText from "../../../public/static/george_thumbnail.png";
 import GeorgeLogoText2 from "../../../public/static/george.png";
 import CartSVGWhite from '../../../public/icons/cart-white.svg';
+import { InternalizationContext } from '@/context/InternalizationContext';
+import { useContext } from 'react';
 
 
 export default function Header() {
 
     const router = useRouter();
 
-    const { locale, push } = useRouter();
+    const { push } = useRouter();
     const { t: translate } = useTranslation('header');
 
     const isLinkActive = (href: string) => router.pathname === href;
-    const isLanguagesActive = (value: string) => value === locale
+
+    const { isLanguagesActive } = useContext(InternalizationContext)
 
 
     return (
@@ -44,7 +47,7 @@ export default function Header() {
                                     <Link href="/about">{translate('about')}</Link>
                                 </li>
                                 <li className={isLinkActive('/about') ? styles.active : ''}>
-                                    <Link href="/about">{translate('products')}</Link>
+                                    <Link href="/products">{translate('products')}</Link>
                                 </li>
                                 <li className={isLinkActive('/about') ? styles.active : ''}>
                                     <Link href="/about">About</Link>
@@ -57,7 +60,7 @@ export default function Header() {
 
                         <div className={styles.NavigatioRightLinks}>
                             <div className={styles.ShoppingCart}>
-                                <Image src={CartSVGWhite} alt='' width={50}/>
+                                <Image src={CartSVGWhite} alt='' width={50} />
                             </div>
 
                             <div className={styles.LanguageButton}>

@@ -1,10 +1,11 @@
 @import "../../styles/variables";
+@import "./Header.module.scss";
 
 .NavbarWrapper {
     display: none;
-    transform: translateY(-100%);
-    transition: transform 0.3s;
-    animation: slideDown 0.3s forwards;
+    // transform: translateY(-100%);
+    // transition: transform 0.3s;
+    // animation: slideUp 0.3s forwards;
 
 }
 
@@ -17,10 +18,18 @@
 
     // height: auto;
     width: 100%;
-    z-index: 10;
+    z-index: 11;
     animation: slideDown 0.3s forwards;
 
     .NavbartContainer {
+
+        .ShoppingCart {
+            transition: transform 1s;
+
+            &:hover {
+                animation: bounce 1s infinite;
+            }
+        }
 
         a {
             text-decoration: none;
@@ -62,7 +71,7 @@
         }
 
         display: grid;
-        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
         align-items: center;
         justify-content: center;
         padding: 10px;
@@ -75,6 +84,8 @@
                 display: flex;
                 list-style-type: none;
                 gap: 20px;
+                text-align: right;
+                justify-content: right;
             }
         }
 
@@ -90,16 +101,29 @@
                 gap: 20px;
             }
         }
-    }
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+        .LanguageButton {
 
-    to {
-        opacity: 1;
+            text-align: center;
+            font-size: xx-large;
+
+            button {
+
+                font-size: x-large;
+                color: $color-primary;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+
+            .Active {
+                text-shadow: 0px 0px 11px $color-secondary;
+                color: $color-secondary;
+            }
+        }
+
+
     }
 }
 

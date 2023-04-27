@@ -10,6 +10,8 @@ import Topnav from '@/components/Header/Topnav';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { Navbar } from '@/components/Header/Navbar';
+import { CartContextProvider } from '@/context/CartContext';
+import { InternalizationContextProvider } from '@/context/InternalizationContext';
 
 
 function App({ Component, pageProps }: AppProps) {
@@ -17,11 +19,15 @@ function App({ Component, pageProps }: AppProps) {
 
     return (
         <>
-            <Topnav />
-            <Header />
-            <Navbar />
-            <Component {...pageProps} />
-            <Footer />
+            <InternalizationContextProvider>
+                <CartContextProvider>
+                    <Topnav />
+                    <Header />
+                    <Navbar />
+                    <Component {...pageProps} />
+                    <Footer />
+                </CartContextProvider>
+            </InternalizationContextProvider>
         </>
     )
 }
