@@ -8,11 +8,13 @@ import { useTranslation } from 'next-i18next'
 
 import LogoImage from "../../../public/static/george-aurum.png";
 import { InternalizationContext } from "@/context/InternalizationContext";
+import { CartContext } from "@/context/CartContext";
 
 
 export const Navbar = () => {
 
     const [showNavbar, setShowNavbar] = useState(false);
+    const { isDrawerOpen, setIsDrawerOpen } = useContext(CartContext);
 
     const { t: translate } = useTranslation('header');
 
@@ -84,8 +86,10 @@ export const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className={styles.ShoppingCart}>
-                    <Image src={CartSVGBlack} alt='' width={50} />
+                <div className={styles.ShoppingCart} >
+                    <Image
+                        src={CartSVGBlack} alt='' width={50}
+                        onClick={() => setIsDrawerOpen(true)} />
                 </div>
 
             </div>

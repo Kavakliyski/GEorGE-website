@@ -12,6 +12,7 @@ import GeorgeLogoText2 from "../../../public/static/george.png";
 import CartSVGWhite from '../../../public/icons/cart-white.svg';
 import { InternalizationContext } from '@/context/InternalizationContext';
 import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 
 
 export default function Header() {
@@ -23,8 +24,8 @@ export default function Header() {
 
     const isLinkActive = (href: string) => router.pathname === href;
 
-    const { isLanguagesActive } = useContext(InternalizationContext)
-
+    const { isLanguagesActive } = useContext(InternalizationContext);
+    const { setIsDrawerOpen } = useContext(CartContext);
 
     return (
 
@@ -60,7 +61,7 @@ export default function Header() {
 
                         <div className={styles.NavigatioRightLinks}>
                             <div className={styles.ShoppingCart}>
-                                <Image src={CartSVGWhite} alt='' width={50} />
+                                <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)}/>
                             </div>
 
                             <div className={styles.LanguageButton}>

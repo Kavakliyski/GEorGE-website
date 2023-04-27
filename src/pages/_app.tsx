@@ -12,6 +12,7 @@ import Footer from '@/components/Footer/Footer';
 import { Navbar } from '@/components/Header/Navbar';
 import { CartContextProvider } from '@/context/CartContext';
 import { InternalizationContextProvider } from '@/context/InternalizationContext';
+import { Drawer } from '@/components/Drawer/Drawer';
 
 
 function App({ Component, pageProps }: AppProps) {
@@ -24,6 +25,7 @@ function App({ Component, pageProps }: AppProps) {
                     <Topnav />
                     <Header />
                     <Navbar />
+                    <Drawer />
                     <Component {...pageProps} />
                     <Footer />
                 </CartContextProvider>
