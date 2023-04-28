@@ -69,7 +69,11 @@ export const Navbar = () => {
                 </div>
 
                 <div className={styles.NavbarLinksMiddle}>
-                    <Image src={LogoImage} alt="" width={100} />
+                    <Image
+                        src={LogoImage}
+                        alt=""
+                        width={100}
+                    />
                 </div>
 
                 <div className={styles.NavbarLinksRight}>

@@ -17,6 +17,8 @@
 
         overflow: hidden;
 
+        .NavigatioLeftLinks {}
+
         .NavigatioMiddleLinks {
 
 
@@ -27,6 +29,7 @@
                 text-transform: uppercase;
                 list-style-type: none;
                 font-size: x-large;
+                text-align: center;
 
                 a {
                     text-decoration: none;
@@ -107,7 +110,24 @@
                 }
             }
         }
+    }
 
+    @media (max-width:1120px) {
+        position: relative;
+        background-color: $color-primary;
+
+        .NavigationContainer {
+            display: flex;
+            flex-direction: column;
+
+            .NavigatioMiddleLinks {
+                
+                .NavigationLinksContainer{
+
+                    flex-direction: column;
+                }
+            }
+        }
     }
 }
 

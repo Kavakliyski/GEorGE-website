@@ -61,7 +61,7 @@ export default function Header() {
 
                         <div className={styles.NavigatioRightLinks}>
                             <div className={styles.ShoppingCart}>
-                                <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)}/>
+                                <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
                             </div>
 
                             <div className={styles.LanguageButton}>
