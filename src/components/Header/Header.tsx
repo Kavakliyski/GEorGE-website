@@ -41,21 +41,23 @@ export default function Header() {
                         <div className={styles.NavigatioMiddleLinks}>
 
                             <div className={styles.NavigationLinksContainer}>
-                                <li className={isLinkActive('/') ? styles.active : ''}>
-                                    <Link href="/">{translate('home')}</Link>
-                                </li>
-                                <li className={isLinkActive('/about') ? styles.active : ''}>
-                                    <Link href="/about">{translate('about')}</Link>
-                                </li>
-                                <li className={isLinkActive('/about') ? styles.active : ''}>
-                                    <Link href="/products">{translate('products')}</Link>
-                                </li>
-                                <li className={isLinkActive('/about') ? styles.active : ''}>
-                                    <Link href="/about">About</Link>
-                                </li>
-                                <li className={isLinkActive('/about') ? styles.active : ''}>
-                                    <Link href="/about">About</Link>
-                                </li>
+                                <ul>
+                                    <li className={isLinkActive('/') ? styles.active : ''}>
+                                        <Link href="/">{translate('home')}</Link>
+                                    </li>
+                                    <li className={isLinkActive('/about') ? styles.active : ''}>
+                                        <Link href="/about">{translate('about')}</Link>
+                                    </li>
+                                    <li className={isLinkActive('/about') ? styles.active : ''}>
+                                        <Link href="/products">{translate('products')}</Link>
+                                    </li>
+                                    <li className={isLinkActive('/about') ? styles.active : ''}>
+                                        <Link href="/about">About</Link>
+                                    </li>
+                                    <li className={isLinkActive('/about') ? styles.active : ''}>
+                                        <Link href="/about">About</Link>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 

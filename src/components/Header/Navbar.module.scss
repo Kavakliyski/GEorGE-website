@@ -21,13 +21,21 @@
     z-index: 11;
     animation: slideDown 0.3s forwards;
 
+    box-shadow: 0px 0px 600px 0px $color-tertiary;
+
     .NavbartContainer {
 
         .ShoppingCart {
-            transition: transform 1s;
 
-            &:hover {
-                animation: bounce 1s infinite;
+            img {
+
+                cursor: pointer;
+
+                &:hover {
+                    // animation: bounce 1s infinite;
+                    // box-shadow: 0px 0px 200px 0px $color-secondary;
+                    transition: all 0.6s ease-in-out;
+                }
             }
         }
 
