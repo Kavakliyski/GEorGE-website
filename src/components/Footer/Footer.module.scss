@@ -1,2 +1,22 @@
 @import '../../styles/variables';
 
+
+.FooterWrapper {
+    background-color: $color-tertiary;
+    color: $color-primary;
+
+    padding: 100px;
+
+
+    .FooterContainer{
+
+        .FooterContacts{
+
+            .ContactsOnline {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    }
+}
