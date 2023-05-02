@@ -1,5 +1,8 @@
 {
     "home": "home",
     "about": "about",
-    "products": "products"
+    "foryou": "for you",
+    "products": "products",
+    "series": "series",
+    "reviews": "reviews"
 }

@@ -63,7 +63,7 @@ export const Navbar = () => {
                             <Link href="/about">{translate('about')}</Link>
                         </li>
                         <li>
-                            <Link href="/products">{translate('products')}</Link>
+                            <Link href="/foryou">{translate('foryou')}</Link>
                         </li>
                     </ul>
                 </div>
@@ -79,13 +79,13 @@ export const Navbar = () => {
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
-                            <Link href="/">test1</Link>
+                            <Link href="/products">{translate('products')}</Link>
                         </li>
                         <li>
-                            <Link href="/">tekst2</Link>
+                            <Link href="/series">{translate('series')}</Link>
                         </li>
                         <li>
-                            <Link href="/">tekst3</Link>
+                            <Link href="/reviews">{translate('reviews')}</Link>
                         </li>
                     </ul>
                 </div>

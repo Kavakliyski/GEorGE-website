@@ -7,7 +7,6 @@ export const Drawer = () => {
 
     const { isDrawerOpen, setIsDrawerOpen } = useContext(CartContext);
 
-    console.log('isDrawerOpen', isDrawerOpen)
 
     return (
 

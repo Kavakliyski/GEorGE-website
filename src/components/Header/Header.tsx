@@ -48,14 +48,17 @@ export default function Header() {
                                     <li className={isLinkActive('/about') ? styles.active : ''}>
                                         <Link href="/about">{translate('about')}</Link>
                                     </li>
-                                    <li className={isLinkActive('/about') ? styles.active : ''}>
+                                    <li className={isLinkActive('/foryou') ? styles.active : ''}>
+                                        <Link href="/foryou">{translate('foryou')}</Link>
+                                    </li>
+                                    <li className={isLinkActive('/products') ? styles.active : ''}>
                                         <Link href="/products">{translate('products')}</Link>
                                     </li>
-                                    <li className={isLinkActive('/about') ? styles.active : ''}>
-                                        <Link href="/about">About</Link>
+                                    <li className={isLinkActive('/series') ? styles.active : ''}>
+                                        <Link href="/series">{translate('series')}</Link>
                                     </li>
-                                    <li className={isLinkActive('/about') ? styles.active : ''}>
-                                        <Link href="/about">About</Link>
+                                    <li className={isLinkActive('/reviews') ? styles.active : ''}>
+                                        <Link href="/reviews">{translate('reviews')}</Link>
                                     </li>
                                 </ul>
                             </div>
