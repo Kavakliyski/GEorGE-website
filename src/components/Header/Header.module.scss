@@ -83,7 +83,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10vw;
+            gap: 2rem;
 
             .ShoppingCart {
                 transition: transform 1.3s;
@@ -115,7 +115,11 @@
         }
     }
 
-    @media (max-width:1120px) {
+}
+
+@media (max-width:1120px) {
+
+    .NavigationWrapper {
         position: relative;
         background-color: $color-primary;
 
@@ -126,8 +130,11 @@
             .NavigatioMiddleLinks {
 
                 .NavigationLinksContainer {
+                    padding-bottom: 30px;
 
-                    flex-direction: column;
+                    ul {
+                        flex-direction: column;
+                    }
                 }
             }
         }

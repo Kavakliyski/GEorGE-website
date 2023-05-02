@@ -14,7 +14,7 @@ import { CartContext } from "@/context/CartContext";
 export const Navbar = () => {
 
     const [showNavbar, setShowNavbar] = useState(false);
-    const { isDrawerOpen, setIsDrawerOpen } = useContext(CartContext);
+    const { setIsDrawerOpen } = useContext(CartContext);
 
     const { t: translate } = useTranslation('header');
 
@@ -40,7 +40,7 @@ export const Navbar = () => {
 
     return (
         <nav className={showNavbar ? styles.NavbarWrapperVisible : styles.NavbarWrapper}>
-            <div className={styles.NavbartContainer}>
+            <div className={styles.NavbarContainer}>
 
                 <div className={styles.LanguageButton}>
                     <button
