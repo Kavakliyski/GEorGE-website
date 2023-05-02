@@ -1,5 +1,6 @@
 import styles from './Header.module.scss';
 
+import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link';
@@ -10,8 +11,8 @@ import GeorgeLogo from "../../../public/static/george-aurum.png";
 import GeorgeLogoText from "../../../public/static/george_thumbnail.png";
 import GeorgeLogoText2 from "../../../public/static/george.png";
 import CartSVGWhite from '../../../public/icons/cart-white.svg';
+
 import { InternalizationContext } from '@/context/InternalizationContext';
-import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
 
 
@@ -27,9 +28,24 @@ export default function Header() {
     const { isLanguagesActive } = useContext(InternalizationContext);
     const { setIsDrawerOpen } = useContext(CartContext);
 
+    const [isExpanded, setIsExpanded] = useState(false);
+    console.log(isExpanded);
+
     return (
 
+
         <header>
+
+            <div className={styles.ExpandButton}>
+                <button onClick={() => setIsExpanded(!isExpanded)}>
+                    <div className={`${styles.BurgerIcon} ${isExpanded ? styles.Open : ""}`}>
+                        <span />
+                        <span />
+                        <span />
+                    </div>
+                </button>
+            </div>
+
             <nav>
                 <div className={styles.NavigationWrapper}>
                     <div className={styles.NavigationContainer}>
@@ -38,7 +54,7 @@ export default function Header() {
                             <Image src={GeorgeLogoText2} alt={''} width={400} />
                         </div>
 
-                        <div className={styles.NavigatioMiddleLinks}>
+                        <div className={`${isExpanded ? styles.NavigatioMiddleLinksExapnded : styles.NavigatioMiddleLinks}`}>
 
                             <div className={styles.NavigationLinksContainer}>
                                 <ul>
@@ -64,22 +80,20 @@ export default function Header() {
                             </div>
                         </div>
 
-                        <div className={styles.NavigatioRightLinks}>
-                            <div className={styles.ShoppingCart}>
-                                <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
-                            </div>
+                        <div className={styles.ShoppingCart}>
+                            <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
+                        </div>
 
-                            <div className={styles.LanguageButton}>
-                                <button
-                                    className={isLanguagesActive("bg") ? styles.Active : ''}
-                                    onClick={() => push('/', undefined, { locale: "bg" })}
-                                >BG</button>
-                                |
-                                <button
-                                    className={isLanguagesActive("en") ? styles.Active : ''}
-                                    onClick={() => push('/', undefined, { locale: "en" })}
-                                >EN</button>
-                            </div>
+                        <div className={`${isExpanded ? styles.LanguageButtonExpanded : styles.LanguageButton}`}>
+                            <button
+                                className={isLanguagesActive("bg") ? styles.Active : ''}
+                                onClick={() => push('/', undefined, { locale: "bg" })}
+                            >BG</button>
+                            |
+                            <button
+                                className={isLanguagesActive("en") ? styles.Active : ''}
+                                onClick={() => push('/', undefined, { locale: "en" })}
+                            >EN</button>
                         </div>
                     </div>
                 </div>
