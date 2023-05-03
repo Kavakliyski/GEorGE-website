@@ -28,8 +28,6 @@ export default function Header() {
     const { isLanguagesActive } = useContext(InternalizationContext);
     const { setIsDrawerOpen } = useContext(CartContext);
 
-    const [isExpanded, setIsExpanded] = useState(false);
-    console.log(isExpanded);
 
     return (
 
@@ -40,21 +38,16 @@ export default function Header() {
                 <div className={styles.NavigationWrapper}>
                     <div className={styles.NavigationContainer}>
 
-                        <div className={styles.ExpandButton}>
-                            <button onClick={() => setIsExpanded(!isExpanded)}>
-                                <div className={`${styles.BurgerIcon} ${isExpanded ? "" : styles.Open}`}>
-                                    <span />
-                                    <span />
-                                    <span />
-                                </div>
-                            </button>
-                        </div>
-
                         <div className={styles.NavigatioLeftLinks}>
-                            <Image src={GeorgeLogoText2} alt={''} width={400} />
+                            <Image src={GeorgeLogoText2}
+                                alt={''}
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }} />
                         </div>
 
-                        <div className={`${isExpanded ? styles.NavigatioMiddleLinksExapnded : styles.NavigatioMiddleLinks}`}>
+                        <div className={styles.NavigatioMiddleLinks}>
 
                             <div className={styles.NavigationLinksContainer}>
                                 <ul>
@@ -84,7 +77,7 @@ export default function Header() {
                             <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
                         </div>
 
-                        <div className={`${isExpanded ? styles.LanguageButtonExpanded : styles.LanguageButton}`}>
+                        <div className={styles.LanguageButton}>
                             <button
                                 className={isLanguagesActive("bg") ? styles.Active : ''}
                                 onClick={() => push('/', undefined, { locale: "bg" })}

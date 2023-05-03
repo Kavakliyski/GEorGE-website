@@ -24,6 +24,28 @@ export default function About() {
 
             <div>
                 <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
+                <h1>{translate('about')}</h1>
             </div>
         </>
     )
