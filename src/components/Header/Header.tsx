@@ -36,19 +36,19 @@ export default function Header() {
 
         <header>
 
-            <div className={styles.ExpandButton}>
-                <button onClick={() => setIsExpanded(!isExpanded)}>
-                    <div className={`${styles.BurgerIcon} ${isExpanded ? styles.Open : ""}`}>
-                        <span />
-                        <span />
-                        <span />
-                    </div>
-                </button>
-            </div>
-
             <nav>
                 <div className={styles.NavigationWrapper}>
                     <div className={styles.NavigationContainer}>
+
+                        <div className={styles.ExpandButton}>
+                            <button onClick={() => setIsExpanded(!isExpanded)}>
+                                <div className={`${styles.BurgerIcon} ${isExpanded ? "" : styles.Open}`}>
+                                    <span />
+                                    <span />
+                                    <span />
+                                </div>
+                            </button>
+                        </div>
 
                         <div className={styles.NavigatioLeftLinks}>
                             <Image src={GeorgeLogoText2} alt={''} width={400} />

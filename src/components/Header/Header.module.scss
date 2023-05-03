@@ -1,64 +1,6 @@
 @import '../../styles/variables';
 
 
-.ExpandButton {
-    display: none;
-
-    position: absolute;
-    // right: -30px;
-    top: 100px;
-    left: 2rem;
-    z-index: 6;
-
-    button {
-        background-color: transparent;
-        border: none;
-    }
-
-    .BurgerIcon {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 58px;
-        height: 50px;
-        cursor: pointer;
-
-        span {
-            width: 100%;
-            height: 3px;
-            background-color: $color-secondary;
-            transition: all 0.3s ease-in-out;
-
-            &:first-child {
-                transform-origin: top left;
-            }
-
-            &:last-child {
-                transform-origin: bottom left;
-            }
-        }
-
-    }
-
-    .Open {
-        span {
-            &:first-child {
-                transform: rotate(45deg) translate(0, 5px);
-            }
-
-            &:nth-child(2) {
-                opacity: 0;
-            }
-
-            &:last-child {
-                transform: rotate(-45deg) translate(0, -5px);
-            }
-        }
-    }
-}
-
-
-
 .NavigationWrapper {
     background-color: transparent;
     color: $color-secondary;
@@ -75,6 +17,10 @@
         padding: 10px;
 
         overflow: hidden;
+
+        .ExpandButton {
+            display: none;
+        }
 
         .NavigatioLeftLinks {}
 
@@ -176,17 +122,70 @@
         background-color: $color-primary;
 
         .NavigationContainer {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .LanguageButton {
+                grid-column: 2;
+            }
+
+            .ExpandButton {
+                display: block;
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                }
+
+                .BurgerIcon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 58px;
+                    height: 50px;
+                    cursor: pointer;
+
+                    span {
+                        width: 100%;
+                        height: 3px;
+                        background-color: $color-secondary;
+                        transition: all 0.3s ease-in-out;
+
+                        &:first-child {
+                            transform-origin: top left;
+                        }
+
+                        &:last-child {
+                            transform-origin: bottom left;
+                        }
+                    }
+                }
+
+                .Open {
+                    span {
+                        &:first-child {
+                            transform: rotate(45deg) translate(0, 5px);
+                        }
+
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+
+                        &:last-child {
+                            transform: rotate(-45deg) translate(0, -5px);
+                        }
+                    }
+                }
+            }
 
             .ShoppingCart {
-                position: absolute;
-                top: 40px;
-                right: 2rem;
+                grid-column: 3;
+                grid-row: 1;
             }
 
             .NavigatioMiddleLinks {
                 animation: slideDown 0.3s forwards;
+                grid-column: 2;
 
                 .NavigationLinksContainer {
                     padding-bottom: 30px;
