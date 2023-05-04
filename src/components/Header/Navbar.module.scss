@@ -28,6 +28,10 @@
         text-transform: uppercase;
 
 
+        .LinkIsInvisible {
+            display: none;
+        }
+
         .BurgerMenu {
             display: none;
         }
@@ -190,29 +194,35 @@
                 grid-column: 3;
                 grid-row: 1;
             }
-            
-            .NavbarLinksMiddle{
+
+            .NavbarLinksMiddle {
                 grid-row: 1;
                 grid-column: 2;
             }
 
             .NavbarLinksLeft {
-                padding-left: 30px;
                 display: block;
                 grid-row: 2;
 
+                animation: slide-in 600ms;
+
                 ul {
+                    transform: translateX(30px);
+                    gap: 0px;
                     text-align: left;
                     flex-direction: column;
                 }
             }
 
             .NavbarLinksRight {
-                padding-left: 30px;
                 display: block;
                 grid-row: 3;
 
+                animation: slide-in 600ms;
+
                 ul {
+                    transform: translateX(30px);
+                    gap: 0px;
                     text-align: left;
                     flex-direction: column;
                 }
@@ -221,9 +231,10 @@
 
             .LanguageButton {
                 display: block;
-                text-align: center;
-                grid-row: 4;
-                grid-column: 2;
+                text-align: left;
+                // grid-row: 4;
+                grid-column: 1;
+                transform: translateX(30px);
             }
         }
     }
@@ -237,5 +248,31 @@
 
     to {
         transform: translateY(0);
+    }
+}
+
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes drop-in {
+    from {
+        transform:
+            rotate(-30deg) translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            rotate(0deg) translateY(0%);
+        opacity: 1;
     }
 }

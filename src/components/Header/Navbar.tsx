@@ -22,7 +22,7 @@ export const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
+    
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -53,7 +53,7 @@ export const Navbar = () => {
                     </button>
                 </div>
 
-                <div className={styles.LanguageButton}>
+                <div className={`${isMenuOpen ? styles.LanguageButton :  styles.LinkIsInvisible}`}>
                     <button
                         className={isLanguagesActive("bg") ? styles.Active : ''}
                         onClick={() => push('/', undefined, { locale: "bg" })}
@@ -65,7 +65,7 @@ export const Navbar = () => {
                     >EN</button>
                 </div>
 
-                <div className={styles.NavbarLinksLeft}>
+                <div className={`${isMenuOpen ?  styles.NavbarLinksLeft : styles.LinkIsInvisible}`}>
                     <ul>
                         <li>
                             <Link href="/">{translate('home')}</Link>
@@ -87,7 +87,7 @@ export const Navbar = () => {
                     />
                 </div>
 
-                <div className={styles.NavbarLinksRight}>
+                <div className={`${isMenuOpen ? styles.NavbarLinksRight :  styles.LinkIsInvisible}`}>
                     <ul>
                         <li>
                             <Link href="/products">{translate('products')}</Link>
