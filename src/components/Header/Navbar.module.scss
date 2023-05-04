@@ -28,6 +28,10 @@
         text-transform: uppercase;
 
 
+        .BurgerMenu {
+            display: none;
+        }
+
         .ShoppingCart {
             margin: 0 auto;
 
@@ -130,15 +134,97 @@
 
     @media (max-width:1120px) {
         .NavbarContainer {
+            grid-template-columns: 1fr 1fr 1fr;
 
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
+            .BurgerMenu {
+                display: flex;
+                justify-content: center;
 
-            font-size: x-large;
-            text-transform: uppercase;
+                button {
+                    background-color: transparent;
+                    border: none;
+                }
+
+                .BurgerIcon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 58px;
+                    height: 50px;
+                    cursor: pointer;
+
+                    span {
+                        width: 100%;
+                        height: 3px;
+                        background-color: $color-secondary;
+                        transition: all 0.3s ease-in-out;
+
+                        &:first-child {
+                            transform-origin: top left;
+                        }
+
+                        &:last-child {
+                            transform-origin: bottom left;
+                        }
+                    }
+                }
+
+                .Open {
+                    span {
+                        &:first-child {
+                            transform: rotate(45deg) translate(0, 5px);
+                        }
+
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+
+                        &:last-child {
+                            transform: rotate(-45deg) translate(0, -5px);
+                        }
+                    }
+                }
+            }
+
+            .ShoppingCart {
+                grid-column: 3;
+                grid-row: 1;
+            }
+            
+            .NavbarLinksMiddle{
+                grid-row: 1;
+                grid-column: 2;
+            }
+
+            .NavbarLinksLeft {
+                padding-left: 30px;
+                display: block;
+                grid-row: 2;
+
+                ul {
+                    text-align: left;
+                    flex-direction: column;
+                }
+            }
+
+            .NavbarLinksRight {
+                padding-left: 30px;
+                display: block;
+                grid-row: 3;
+
+                ul {
+                    text-align: left;
+                    flex-direction: column;
+                }
+            }
+
+
+            .LanguageButton {
+                display: block;
+                text-align: center;
+                grid-row: 4;
+                grid-column: 2;
+            }
         }
     }
 }

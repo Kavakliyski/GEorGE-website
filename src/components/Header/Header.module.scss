@@ -139,12 +139,15 @@
             .NavigatioMiddleLinks {
                 animation: slideDown 0.3s forwards;
                 grid-column: 2;
-
+                grid-column-start: 1;
+                grid-column-end: 4;
+                align-items: center;
                 .NavigationLinksContainer {
                     padding-bottom: 30px;
 
                     ul {
-                        flex-direction: column;
+                        flex-wrap: wrap;
+                        // flex-direction: column;
                     }
                 }
             }

@@ -20,6 +20,7 @@ export const Navbar = () => {
 
     const { isLanguagesActive, push } = useContext(InternalizationContext)
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
     useEffect(() => {
@@ -41,6 +42,16 @@ export const Navbar = () => {
     return (
         <nav className={showNavbar ? styles.NavbarWrapperVisible : styles.NavbarWrapper}>
             <div className={styles.NavbarContainer}>
+
+                <div className={styles.BurgerMenu}>
+                    <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <div className={`${styles.BurgerIcon} ${isMenuOpen ? styles.Open : ""}`}>
+                            <span />
+                            <span />
+                            <span />
+                        </div>
+                    </button>
+                </div>
 
                 <div className={styles.LanguageButton}>
                     <button
