@@ -20,9 +20,9 @@ export const Navbar = () => {
 
     const { isLanguagesActive, push } = useContext(InternalizationContext)
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-    
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -53,7 +53,7 @@ export const Navbar = () => {
                     </button>
                 </div>
 
-                <div className={`${isMenuOpen ? styles.LanguageButton :  styles.LinkIsInvisible}`}>
+                <div className={`${isMenuOpen ? styles.LanguageButton : styles.LinkIsInvisible}`}>
                     <button
                         className={isLanguagesActive("bg") ? styles.Active : ''}
                         onClick={() => push('/', undefined, { locale: "bg" })}
@@ -65,7 +65,7 @@ export const Navbar = () => {
                     >EN</button>
                 </div>
 
-                <div className={`${isMenuOpen ?  styles.NavbarLinksLeft : styles.LinkIsInvisible}`}>
+                <div className={`${isMenuOpen ? styles.NavbarLinksLeft : styles.LinkIsInvisible}`}>
                     <ul>
                         <li>
                             <Link href="/">{translate('home')}</Link>
@@ -83,11 +83,14 @@ export const Navbar = () => {
                     <Image
                         src={LogoImage}
                         alt=""
-                        width={100}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ width: '50%', height: 'auto' }}
                     />
                 </div>
 
-                <div className={`${isMenuOpen ? styles.NavbarLinksRight :  styles.LinkIsInvisible}`}>
+                <div className={`${isMenuOpen ? styles.NavbarLinksRight : styles.LinkIsInvisible}`}>
                     <ul>
                         <li>
                             <Link href="/products">{translate('products')}</Link>

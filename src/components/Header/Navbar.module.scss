@@ -153,8 +153,8 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    width: 58px;
-                    height: 50px;
+                    width: 38px;
+                    height: 36px;
                     cursor: pointer;
 
                     span {
@@ -232,7 +232,6 @@
             .LanguageButton {
                 display: block;
                 text-align: left;
-                // grid-row: 4;
                 grid-column: 1;
                 transform: translateX(30px);
             }
