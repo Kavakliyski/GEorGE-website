@@ -5,12 +5,21 @@
     background-color: $color-tertiary;
     color: $color-primary;
 
-    padding: 100px;
 
+    .FooterContainer {
+        padding: 100px;
 
-    .FooterContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
 
-        .FooterContacts{
+        .FooterContacts {
+            width: 30rem;
+
+            h1 {
+                text-transform: uppercase;
+            }
 
             .ContactsOnline {
                 display: flex;
@@ -18,5 +27,25 @@
                 gap: 10px;
             }
         }
+
+        .FooterProducts {
+            width: 30rem;
+
+            h1 {
+                text-transform: uppercase;
+            }
+        }
+
+        .FooterSeries {
+            width: 30rem;
+
+            h1 {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .FooterCopyright {
+        padding: 20px;
     }
 }
