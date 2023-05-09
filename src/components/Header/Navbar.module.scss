@@ -88,6 +88,9 @@
             }
         }
 
+        .MenuItems {
+            display: none;
+        }
 
         .NavbarLinksLeft {
             ul {
@@ -190,6 +193,40 @@
                 }
             }
 
+            .MenuItems {
+                display: block;
+                grid-column: 1;
+                grid-row: 2;
+
+                margin: 0 auto;
+
+                animation: slide-in 0.5s forwards;
+
+                ul {
+                    list-style: none;
+                }
+
+                .LanguageButtonMobile {
+                    text-align: left;
+                    font-size: xx-large;
+
+                    button {
+
+                        font-size: x-large;
+                        color: $color-primary;
+                        background-color: transparent;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+
+                    .Active {
+                        text-shadow: 0px 0px 11px $color-secondary;
+                        color: $color-secondary;
+                    }
+                }
+            }
+
             .ShoppingCart {
                 grid-column: 3;
                 grid-row: 1;
@@ -201,39 +238,16 @@
             }
 
             .NavbarLinksLeft {
-                display: block;
-                grid-row: 2;
-
-                animation: slide-in 600ms;
-
-                ul {
-                    transform: translateX(30px);
-                    gap: 0px;
-                    text-align: left;
-                    flex-direction: column;
-                }
+                display: none;
             }
 
             .NavbarLinksRight {
-                display: block;
-                grid-row: 3;
-
-                animation: slide-in 600ms;
-
-                ul {
-                    transform: translateX(30px);
-                    gap: 0px;
-                    text-align: left;
-                    flex-direction: column;
-                }
+                display: none;
             }
 
 
             .LanguageButton {
-                display: block;
-                text-align: left;
-                grid-column: 1;
-                transform: translateX(30px);
+                display: none;
             }
         }
     }
@@ -258,20 +272,5 @@
 
     to {
         transform: translateX(0%);
-    }
-}
-
-
-@keyframes drop-in {
-    from {
-        transform:
-            rotate(-30deg) translateY(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            rotate(0deg) translateY(0%);
-        opacity: 1;
     }
 }

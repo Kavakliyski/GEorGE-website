@@ -20,7 +20,7 @@ export const Navbar = () => {
 
     const { isLanguagesActive, push } = useContext(InternalizationContext)
 
-    const [isMenuOpen, setIsMenuOpen] = useState(true);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
     useEffect(() => {
@@ -53,7 +53,7 @@ export const Navbar = () => {
                     </button>
                 </div>
 
-                <div className={`${isMenuOpen ? styles.LanguageButton : styles.LinkIsInvisible}`}>
+                <div className={styles.LanguageButton}>
                     <button
                         className={isLanguagesActive("bg") ? styles.Active : ''}
                         onClick={() => push('/', undefined, { locale: "bg" })}
@@ -65,7 +65,7 @@ export const Navbar = () => {
                     >EN</button>
                 </div>
 
-                <div className={`${isMenuOpen ? styles.NavbarLinksLeft : styles.LinkIsInvisible}`}>
+                <div className={styles.NavbarLinksLeft}>
                     <ul>
                         <li>
                             <Link href="/">{translate('home')}</Link>
@@ -90,7 +90,7 @@ export const Navbar = () => {
                     />
                 </div>
 
-                <div className={`${isMenuOpen ? styles.NavbarLinksRight : styles.LinkIsInvisible}`}>
+                <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
                             <Link href="/products">{translate('products')}</Link>
@@ -102,6 +102,29 @@ export const Navbar = () => {
                             <Link href="/reviews">{translate('reviews')}</Link>
                         </li>
                     </ul>
+                </div>
+
+                <div className={`${isMenuOpen ? styles.MenuItems : styles.LinkIsInvisible}`}>
+                    <ul>
+                        <li><Link href="/">{translate('home')}</Link></li>
+                        <li><Link href="/about">{translate('about')}</Link></li>
+                        <li><Link href="/foryou">{translate('foryou')}</Link></li>
+                        <li><Link href="/products">{translate('products')}</Link></li>
+                        <li><Link href="/series">{translate('series')}</Link></li>
+                        <li><Link href="/reviews">{translate('reviews')}</Link></li>
+                    </ul>
+
+                    <div className={styles.LanguageButtonMobile}>
+                        <button
+                            className={isLanguagesActive("bg") ? styles.Active : ''}
+                            onClick={() => push('/', undefined, { locale: "bg" })}
+                        >BG</button>
+                        |
+                        <button
+                            className={isLanguagesActive("en") ? styles.Active : ''}
+                            onClick={() => push('/', undefined, { locale: "en" })}
+                        >EN</button>
+                    </div>
                 </div>
 
                 <div className={styles.ShoppingCart} >
