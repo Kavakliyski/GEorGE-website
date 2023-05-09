@@ -1,3 +1,4 @@
+import { Dropdown } from '@/components/CustomItems/Dropdown/Dropdown';
 import { GetStaticPropsContext } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from "next/head";
@@ -30,22 +31,7 @@ export default function products() {
                 <h1>products</h1>
                 <h1>products</h1>
                 <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
+                <Dropdown />
             </div>
         </>
     )
