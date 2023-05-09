@@ -1,12 +1,16 @@
 import styles from "./Navbar.module.scss";
 
-import CartSVGBlack from "../../../public/icons/cart-black.svg"
-import Image from "next/image";
+// next
 import { useContext, useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from 'next-i18next'
 
+// assets
+import CartSVGBlack from "../../../public/icons/cart-black.svg"
 import LogoImage from "../../../public/static/george-aurum.png";
+
+// context
 import { InternalizationContext } from "@/context/InternalizationContext";
 import { CartContext } from "@/context/CartContext";
 
