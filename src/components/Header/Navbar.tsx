@@ -10,6 +10,7 @@ import { useTranslation } from 'next-i18next'
 // assets
 import CartSVGBlack from "../../../public/icons/cart-black.svg"
 import LogoImage from "../../../public/static/george-aurum.png";
+import LogoImage2 from "../../../public/icons/george-logo-finalver-02.webp";
 
 // context
 import { InternalizationContext } from "@/context/InternalizationContext";
@@ -86,12 +87,12 @@ export const Navbar = () => {
 
                 <div className={styles.NavbarLinksMiddle}>
                     <Image
-                        src={LogoImage}
+                        src={LogoImage2}
                         alt=""
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: '50%', height: 'auto' }}
+                        width={150}
+                        // height={0}
+                        // sizes="100vw"
+                        // style={{ width: '70%', height: 'auto' }}
                     />
                 </div>
 

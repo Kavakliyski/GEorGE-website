@@ -20,24 +20,24 @@ export default function Topnav() {
                     <div>
                         <a href="mailto: info@george-cosmetics.bg">
                             <Image src={EmailIcon} alt={"email"} width={35} />
-                            info@george-cosmetics.bg
+                            <p>info@george-cosmetics.bg</p>
                         </a>
                     </div>
 
-                    <hr className={stlyes.TopnavHR}/>
+                    <hr className={stlyes.TopnavHR} />
 
                     <div>
                         <a href="tel: +359 888 999 777">
                             <Image src={PhoneIcon} alt={"phone"} width={35} />
-                            +359 888 999 777
+                            <p>+359 888 999 777</p>
                         </a>
                     </div>
 
                 </div>
                 <div className={stlyes.TopnavRightLinks}>
-                    <div className="facebook"><Image src={FacebookIcon} alt={"facebook"} width={38} /></div>
-                    <div className="youtube"><Image src={YoutubeIcon} alt={"youtube"} width={40} /></div>
                     <div className="instagram"><Image src={InstagramIcon} alt={"instagram"} width={35} /></div>
+                    <div className="facebook"><Image src={FacebookIcon} alt={"facebook"} width={35} /></div>
+                    <div className="youtube"><Image src={YoutubeIcon} alt={"youtube"} width={35} /></div>
                 </div>
             </div>
         </div>
