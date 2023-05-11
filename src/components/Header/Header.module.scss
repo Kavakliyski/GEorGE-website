@@ -125,15 +125,26 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
 
-            .LanguageButton {
-                grid-column: 1;
+            .NavigatioLeftLinks{
+
                 grid-row: 1;
+                grid-column-start: 1;
+                grid-column-end: 4;
+            }
+
+            .LanguageButton {
+                text-align: right;
+                grid-column-start: 1;
+                grid-column-end: 2;
+                // grid-column: 1;
+                grid-row: 2;
             }
 
 
             .ShoppingCart {
+                text-align: left;
                 grid-column: 3;
-                grid-row: 1;
+                grid-row: 2;
             }
 
             .NavigatioMiddleLinks {
