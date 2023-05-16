@@ -90,9 +90,9 @@ export const Navbar = () => {
                         src={LogoImage2}
                         alt=""
                         width={150}
-                        // height={0}
-                        // sizes="100vw"
-                        // style={{ width: '70%', height: 'auto' }}
+                    // height={0}
+                    // sizes="100vw"
+                    // style={{ width: '70%', height: 'auto' }}
                     />
                 </div>
 
@@ -100,6 +100,7 @@ export const Navbar = () => {
                     <ul>
                         <li>
                             <Link href="/products">{translate('products')}</Link>
+                            {/* <h2 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>{translate('products')}</h2> */}
                         </li>
                         <li>
                             <Link href="/series">{translate('series')}</Link>
@@ -112,23 +113,23 @@ export const Navbar = () => {
 
                 <div className={`${isMenuOpen ? styles.MenuItems : styles.LinkIsInvisible}`}>
                     <ul>
-                        <li><Link href="/">{translate('home')}</Link></li>
-                        <li><Link href="/about">{translate('about')}</Link></li>
-                        <li><Link href="/foryou">{translate('foryou')}</Link></li>
-                        <li><Link href="/products">{translate('products')}</Link></li>
-                        <li><Link href="/series">{translate('series')}</Link></li>
-                        <li><Link href="/reviews">{translate('reviews')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}><Link href="/">{translate('home')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}><Link href="/about">{translate('about')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}><Link href="/foryou">{translate('foryou')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}><Link href="/products">{translate('products')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}><Link href="/series">{translate('series')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}><Link href="/reviews">{translate('reviews')}</Link></li>
                     </ul>
 
                     <div className={styles.LanguageButtonMobile}>
                         <button
                             className={isLanguagesActive("bg") ? styles.Active : ''}
-                            onClick={() => push('/', undefined, { locale: "bg" })}
+                            onClick={() => { push('/', undefined, { locale: "bg" }), setIsMenuOpen(false) }}
                         >BG</button>
                         |
                         <button
                             className={isLanguagesActive("en") ? styles.Active : ''}
-                            onClick={() => push('/', undefined, { locale: "en" })}
+                            onClick={() => { push('/', undefined, { locale: "en" }), setIsMenuOpen(false) }}
                         >EN</button>
                     </div>
                 </div>
@@ -136,7 +137,7 @@ export const Navbar = () => {
                 <div className={styles.ShoppingCart} >
                     <Image
                         src={CartSVGBlack} alt='' width={50}
-                        onClick={() => setIsDrawerOpen(true)} />
+                        onClick={() => { setIsDrawerOpen(true), setIsMenuOpen(false) }} />
                 </div>
 
             </div>

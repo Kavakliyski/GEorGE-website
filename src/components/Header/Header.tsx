@@ -14,6 +14,7 @@ import CartSVGWhite from '../../../public/icons/cart-white.svg';
 
 import { InternalizationContext } from '@/context/InternalizationContext';
 import { CartContext } from '@/context/CartContext';
+import { Dropdown } from '../CustomItems/Dropdown/Dropdown';
 
 
 export default function Header() {
@@ -44,7 +45,7 @@ export default function Header() {
                                 width={0}
                                 height={0}
                                 sizes="100vw"
-                                style={{ width: '100%', height: 'auto' }} />
+                                style={{ width: '100%', height: 'auto', mixBlendMode: 'color-burn', objectFit: 'contain', aspectRatio: '16/4' }} />
                         </div>
 
                         <div className={styles.NavigatioMiddleLinks}>
@@ -61,7 +62,8 @@ export default function Header() {
                                         <Link href="/foryou">{translate('foryou')}</Link>
                                     </li>
                                     <li className={isLinkActive('/products') ? styles.active : ''}>
-                                        <Link href="/products">{translate('products')}</Link>
+                                        {/* <Link href="/products">{translate('products')}</Link> */}
+                                        <Dropdown text={translate('products')} links={['one', "two", "three"]}/>
                                     </li>
                                     <li className={isLinkActive('/series') ? styles.active : ''}>
                                         <Link href="/series">{translate('series')}</Link>

@@ -1,1 +1,53 @@
 @import '../../../styles/variables';
+
+
+.DropdwonMenu {
+
+    .DropdwonMenuText {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .RotateUp {
+
+        transform: rotate(-90deg);
+        transition: transform 0.3s;
+    }
+
+    .RotateDown {
+        transform: rotate(90deg);
+        transition: transform 0.3s;
+    }
+
+    span {
+        fill: $color-tertiary;
+    }
+
+    a {
+        color: $color-tertiary !important;
+        background-image: linear-gradient(to right, $color-tertiary, $color-tertiary 50%, $color-tertiary 50%) !important;
+
+        &:before {
+            all: initial !important;
+        }
+    }
+
+    .DropDownMenuList {
+        position: relative;
+        display: flex;
+        clear: both;
+        flex-direction: column;
+        background-color: $color-primary;
+        box-shadow: 0px 0px 2px 4px $color-primary;
+        z-index: 200;
+    }
+
+    .DropDownMenuListHidden {
+        visibility: hidden;
+        overflow: none;
+        display: flex;
+        flex-direction: column;
+    }
+}
