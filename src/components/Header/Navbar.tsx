@@ -91,18 +91,13 @@ export const Navbar = () => {
                         src={LogoImage2}
                         alt=""
                         width={150}
-                    // height={0}
-                    // sizes="100vw"
-                    // style={{ width: '70%', height: 'auto' }}
                     />
                 </div>
 
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
-                            {/* <Link href="/products">{translate('products')}</Link> */}
-                            {/* <h2 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>{translate('products')}</h2> */}
-                            <DropdownBlack text={translate('products')} links={['Спри стареенето', "анти акне", "three", "четири"]} />
+                            <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне", "three", "четири"]} />
                         </li>
                         <li>
                             <Link href="/series">{translate('series')}</Link>
@@ -118,7 +113,9 @@ export const Navbar = () => {
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/">{translate('home')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/about">{translate('about')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/foryou">{translate('foryou')}</Link></li>
-                        <li onClick={() => setIsMenuOpen(false)}><Link href="/products">{translate('products')}</Link></li>
+                        <li onClick={() => setIsMenuOpen(false)}>
+                            <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне", "three", "четири"]} />
+                        </li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/series">{translate('series')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/reviews">{translate('reviews')}</Link></li>
                     </ul>
@@ -126,7 +123,7 @@ export const Navbar = () => {
 
                 {
                     isMenuOpen ?
-                        <div className={styles.LanguageButtonMobile}>
+                        <div className={`${isMenuOpen ? styles.LanguageButtonMobile : styles.LanguageButtonMobileInv}`}>
                             <button
                                 className={isLanguagesActive("bg") ? styles.Active : ''}
                                 onClick={() => { push('/', undefined, { locale: "bg" }), setIsMenuOpen(false) }}

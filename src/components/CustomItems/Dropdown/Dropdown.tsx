@@ -6,9 +6,10 @@ import Link from 'next/link';
 interface DropdownProps {
     text: string;
     links: string[];
+    parent_link: string;
 }
 
-export const DropdownWhite = ({ text, links }: DropdownProps) => {
+export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     console.log(links)
@@ -31,7 +32,7 @@ export const DropdownWhite = ({ text, links }: DropdownProps) => {
                     <ul className={styles.DropDownMenuListWhite}>
                         {
                             links.map(link => <li key={link}>
-                                <Link href={`/products/${link}`}>{link}</Link>
+                                <Link href={`/${parent_link}/${link}`}>{link}</Link>
                             </li>)
                         }
                     </ul>
@@ -42,7 +43,7 @@ export const DropdownWhite = ({ text, links }: DropdownProps) => {
 }
 
 
-export const DropdownBlack = ({ text, links }: DropdownProps) => {
+export const DropdownBlack = ({ text, links, parent_link }: DropdownProps) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     console.log(links)
@@ -65,7 +66,7 @@ export const DropdownBlack = ({ text, links }: DropdownProps) => {
                     <ul className={styles.DropDownMenuListBlack}>
                         {
                             links.map(link => <li key={link}>
-                                <Link href={`/products/${link}`}>{link}</Link>
+                                <Link href={`/${parent_link}/${link}`}>{link}</Link>
                             </li>)
                         }
                     </ul>

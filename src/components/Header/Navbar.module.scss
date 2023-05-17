@@ -141,9 +141,12 @@
 
     @media (max-width:1120px) {
         .NavbarContainer {
-            grid-template-columns: 1fr 1fr 1fr;
 
-            overflow: scroll;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 115px;
+            padding: 5px 0px 0px 0px;
+
+            overflow: hidden;
 
             .BurgerMenu {
                 display: flex;
@@ -211,6 +214,7 @@
 
                 ul {
                     list-style: none;
+
                     a {
                         padding: 4px;
                     }
