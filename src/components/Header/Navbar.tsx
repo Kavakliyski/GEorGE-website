@@ -113,7 +113,7 @@ export const Navbar = () => {
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/">{translate('home')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/about">{translate('about')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/foryou">{translate('foryou')}</Link></li>
-                        <li onClick={() => setIsMenuOpen(false)}>
+                        <li>
                             <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне", "three", "четири"]} />
                         </li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/series">{translate('series')}</Link></li>
