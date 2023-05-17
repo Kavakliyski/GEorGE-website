@@ -10,7 +10,6 @@
     background-color: $color-tertiary;
     top: 0;
     width: 100%;
-
     z-index: 11;
     animation: slideDown 0.3s forwards;
 
@@ -143,7 +142,7 @@
     @media (max-width:1120px) {
         .NavbarContainer {
             grid-template-columns: 1fr 1fr 1fr;
-
+            overflow: hidden; /* Add this line */
             .BurgerMenu {
                 display: flex;
                 justify-content: center;
