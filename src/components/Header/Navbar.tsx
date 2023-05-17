@@ -15,6 +15,7 @@ import LogoImage2 from "../../../public/icons/george-logo-finalver-02.webp";
 // context
 import { InternalizationContext } from "@/context/InternalizationContext";
 import { CartContext } from "@/context/CartContext";
+import { DropdownBlack } from "../CustomItems/Dropdown/Dropdown";
 
 
 export const Navbar = () => {
@@ -99,8 +100,9 @@ export const Navbar = () => {
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
-                            <Link href="/products">{translate('products')}</Link>
+                            {/* <Link href="/products">{translate('products')}</Link> */}
                             {/* <h2 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>{translate('products')}</h2> */}
+                            <DropdownBlack text={translate('products')} links={['Спри стареенето', "анти акне", "three", "четири"]} />
                         </li>
                         <li>
                             <Link href="/series">{translate('series')}</Link>

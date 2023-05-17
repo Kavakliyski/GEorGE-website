@@ -5,9 +5,10 @@
     background-color: transparent;
     color: $color-secondary;
     position: absolute;
-    z-index: 5;
+    z-index: 10;
 
     .NavigationContainer {
+
         display: grid;
         grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
         align-items: center;
@@ -34,7 +35,7 @@
                     text-align: center;
 
                     li {
-                        min-width: 73px;
+                        min-width: 70px;
                     }
 
                     a {

@@ -14,7 +14,8 @@
     z-index: 11;
     animation: slideDown 0.3s forwards;
 
-    box-shadow: 0px 0px 100px -30px $color-tertiary;
+    // box-shadow: 0px 0px 1000px -30px $color-tertiary;
+    box-shadow: 0 10px 10px $color-primary, 0 -10px 10px $color-primary;
 
     .NavbarContainer {
 

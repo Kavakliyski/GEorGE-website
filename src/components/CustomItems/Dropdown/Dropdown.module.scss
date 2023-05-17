@@ -3,15 +3,9 @@
 
 .DropdwonMenu {
 
-    .DropdwonMenuText {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-    }
+    position: relative;
 
     .RotateUp {
-
         transform: rotate(-90deg);
         transition: transform 0.3s;
     }
@@ -21,33 +15,74 @@
         transition: transform 0.3s;
     }
 
-    span {
-        fill: $color-tertiary;
-    }
+    .DropdwonMenuTextWhite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
 
-    a {
-        color: $color-tertiary !important;
-        background-image: linear-gradient(to right, $color-tertiary, $color-tertiary 50%, $color-tertiary 50%) !important;
+        span {
+            fill: $color-tertiary;
+        }
 
-        &:before {
-            all: initial !important;
+        a {
+            color: $color-tertiary !important;
+            background-image: linear-gradient(to right, $color-tertiary, $color-tertiary 50%, $color-tertiary 50%) !important;
+
+            &:before {
+                all: initial !important;
+            }
         }
     }
 
-    .DropDownMenuList {
-        position: relative;
+    .DropDownMenuListWhite {
+        position: absolute;
+        z-index: 100;
         display: flex;
         clear: both;
         flex-direction: column;
         background-color: $color-primary;
         box-shadow: 0px 0px 2px 4px $color-primary;
-        z-index: 200;
+    }
+
+
+
+    .DropdwonMenuTextBlack {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        span {
+            fill: $color-primary;
+        }
+
+        a {
+            color: $color-primary !important;
+            background-image: linear-gradient(to right, $color-primary, $color-primary 50%, $color-primary 50%) !important;
+
+            &:before {
+                all: initial !important;
+            }
+        }
+    }
+
+    .DropDownMenuListBlack {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+
+        background-color: $color-tertiary;
+        border-radius: 9px 9px 15px 15px;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     }
 
     .DropDownMenuListHidden {
+        position: absolute;
         visibility: hidden;
-        overflow: none;
-        display: flex;
-        flex-direction: column;
+        width: 0px;
+        height: 0px;
     }
 }
