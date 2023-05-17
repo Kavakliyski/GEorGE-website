@@ -122,19 +122,23 @@ export const Navbar = () => {
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/series">{translate('series')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/reviews">{translate('reviews')}</Link></li>
                     </ul>
-
-                    <div className={styles.LanguageButtonMobile}>
-                        <button
-                            className={isLanguagesActive("bg") ? styles.Active : ''}
-                            onClick={() => { push('/', undefined, { locale: "bg" }), setIsMenuOpen(false) }}
-                        >BG</button>
-                        |
-                        <button
-                            className={isLanguagesActive("en") ? styles.Active : ''}
-                            onClick={() => { push('/', undefined, { locale: "en" }), setIsMenuOpen(false) }}
-                        >EN</button>
-                    </div>
                 </div>
+
+                {
+                    isMenuOpen ?
+                        <div className={styles.LanguageButtonMobile}>
+                            <button
+                                className={isLanguagesActive("bg") ? styles.Active : ''}
+                                onClick={() => { push('/', undefined, { locale: "bg" }), setIsMenuOpen(false) }}
+                            >BG</button>
+                            |
+                            <button
+                                className={isLanguagesActive("en") ? styles.Active : ''}
+                                onClick={() => { push('/', undefined, { locale: "en" }), setIsMenuOpen(false) }}
+                            >EN</button>
+                        </div> : null
+                }
+
 
                 <div className={styles.ShoppingCart} >
                     <Image
