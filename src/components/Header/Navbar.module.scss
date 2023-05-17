@@ -209,15 +209,9 @@
                 margin: 0 auto;
                 animation: slide-in 0.5s forwards;
 
-                grid-column-start: 1;
-                grid-column-end: 2;
 
                 ul {
                     list-style: none;
-
-                    a {
-                        padding: 4px;
-                    }
                 }
 
             }
