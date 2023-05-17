@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+
+
+.Dropdown {
+
+    position: relative;
+    display: inline-block;
+
+    .DropdwonButton {
+        background-color: #04AA6D;
+        color: white;
+        border: none;
+    }
+
+    .DropdownContent {
+        display: none;
+        position: absolute;
+        background-color: #e41616;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
+        a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+            &:hover{
+                background-color: #e20404;
+            }
+        }
+    }
+
+    &:hover {
+
+        .DropdownContent{
+            display: block;
+        }
+
+        .DropdwonButton{
+            background-color: #3e8e41;
+        }
+    }
+}

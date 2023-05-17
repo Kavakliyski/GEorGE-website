@@ -15,6 +15,7 @@ import CartSVGWhite from '../../../public/icons/cart-white.svg';
 import { InternalizationContext } from '@/context/InternalizationContext';
 import { CartContext } from '@/context/CartContext';
 import { DropdownWhite } from '../CustomItems/Dropdown/Dropdown';
+import { Dropdown2 } from '../CustomItems/Dropdown2/Dropdown2';
 
 
 export default function Header() {
@@ -62,11 +63,11 @@ export default function Header() {
                                         <Link href="/foryou">{translate('foryou')}</Link>
                                     </li>
                                     <li className={isLinkActive('/products') ? styles.active : ''}>
-                                        {/* <Link href="/products">{translate('products')}</Link> */}
                                         <DropdownWhite text={translate('products')} parent_link={'products'} links={['one', "two", "three"]} />
                                     </li>
                                     <li className={isLinkActive('/series') ? styles.active : ''}>
-                                        <Link href="/series">{translate('series')}</Link>
+                                        {/* <Link href="/series">{translate('series')}</Link> */}
+                                        <Dropdown2 />
                                     </li>
                                     <li className={isLinkActive('/reviews') ? styles.active : ''}>
                                         <Link href="/reviews">{translate('reviews')}</Link>
