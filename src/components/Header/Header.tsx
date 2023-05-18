@@ -65,8 +65,7 @@ export default function Header() {
                                         <DropdownWhite text={translate('products')} parent_link={'products'} links={['Спри стареенето', "Анти акне"]} />
                                     </li>
                                     <li className={isLinkActive('/series') ? styles.active : ''}>
-                                        {/* <Link href="/series">{translate('series')}</Link> */}
-                                        <DropdownWhite text={translate('series')} parent_link={'series'} links={['Aurum', "Comming soon" ]} />
+                                        <DropdownWhite text={translate('series')} parent_link={'series'} links={['Aurum', "Comming soon"]} />
                                     </li>
                                     <li className={isLinkActive('/reviews') ? styles.active : ''}>
                                         <Link href="/reviews">{translate('reviews')}</Link>

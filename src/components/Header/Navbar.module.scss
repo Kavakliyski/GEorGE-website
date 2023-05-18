@@ -146,7 +146,6 @@
             grid-template-rows: 115px;
             padding: 5px 0px 0px 0px;
 
-            overflow: hidden;
 
             .BurgerMenu {
                 display: flex;
@@ -215,7 +214,7 @@
                 grid-column-start: 1;
                 grid-column-end: 3;
                 // grid-column: 2;
-                grid-row: 2;
+                // grid-row: 2;
             }
 
             .LanguageButtonMobile {
@@ -223,8 +222,12 @@
                 font-size: xx-large;
 
                 margin: 0 auto;
-                grid-column: 3;
-                grid-row: 2;
+                // grid-column: 3;
+                // grid-row: 2;
+
+                // grid-column-start: 2;
+                // grid-column-end: 4;
+
 
                 button {
 
@@ -259,7 +262,6 @@
             .NavbarLinksRight {
                 display: none;
             }
-
 
             .LanguageButton {
                 display: none;

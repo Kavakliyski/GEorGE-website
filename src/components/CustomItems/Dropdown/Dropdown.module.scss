@@ -56,9 +56,10 @@
     .DropdwonMenuTextBlack {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: left;
         gap: 5px;
         z-index: 100;
+        width: auto;
 
         span {
             fill: $color-primary;
@@ -67,6 +68,7 @@
         a {
             color: $color-primary !important;
             background-image: linear-gradient(to right, $color-primary, $color-primary 50%, $color-primary 50%) !important;
+
 
             &:before {
                 all: initial !important;
@@ -79,6 +81,8 @@
         display: flex;
         flex-direction: column;
         z-index: 100;
+
+        left: -10px;
 
         text-align: center;
         padding: 0px 5px 10px 5px;

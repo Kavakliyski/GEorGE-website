@@ -97,10 +97,11 @@ export const Navbar = () => {
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
-                            <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне", "three", "четири"]} />
+                            <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне"]} />
                         </li>
                         <li>
-                            <Link href="/series">{translate('series')}</Link>
+                            <DropdownBlack text={translate('series')} parent_link={'series'} links={['Aurum', "Comming soon"]} />
+
                         </li>
                         <li>
                             <Link href="/reviews">{translate('reviews')}</Link>
@@ -116,7 +117,10 @@ export const Navbar = () => {
                         <li>
                             <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне", "three", "четири"]} />
                         </li>
-                        <li onClick={() => setIsMenuOpen(false)}><Link href="/series">{translate('series')}</Link></li>
+                        <li >
+                            {/* <Link href="/series">{translate('series')}</Link> */}
+                            <DropdownBlack text={translate('series')} parent_link={'series'} links={['Спри стареенето', "анти акне", "three", "четири"]} />
+                        </li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/reviews">{translate('reviews')}</Link></li>
                     </ul>
                 </div>
