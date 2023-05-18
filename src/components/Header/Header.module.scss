@@ -15,11 +15,8 @@
         text-align: center;
         justify-content: center;
         padding: 10px;
-        overflow: hidden;
 
-        .NavigatioLeftLinks {
-
-        }
+        .NavigatioLeftLinks {}
 
         .NavigatioMiddleLinks {
 
@@ -126,7 +123,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
 
-            .NavigatioLeftLinks{
+            .NavigatioLeftLinks {
 
                 grid-row: 1;
                 grid-column-start: 1;
@@ -154,6 +151,7 @@
                 grid-column-start: 1;
                 grid-column-end: 4;
                 align-items: center;
+
                 .NavigationLinksContainer {
                     padding-bottom: 30px;
 

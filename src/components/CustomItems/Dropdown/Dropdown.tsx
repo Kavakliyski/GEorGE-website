@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Dropdown.module.scss';
 import Link from 'next/link';
 
@@ -12,13 +12,43 @@ interface DropdownProps {
 export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    console.log(links)
-    console.log(isDropdownOpen)
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsDropdownOpen(false);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as HTMLElement)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        window.addEventListener('click', handleClickOutside);
+
+        return () => {
+            window.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
 
     return (
 
         <div
             className={styles.DropdwonMenu}
+            ref={dropdownRef}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
             <div className={styles.DropdwonMenuTextWhite}>
@@ -46,12 +76,41 @@ export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
 export const DropdownBlack = ({ text, links, parent_link }: DropdownProps) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    console.log(links)
-    console.log(isDropdownOpen)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsDropdownOpen(false);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as HTMLElement)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        window.addEventListener('click', handleClickOutside);
+
+        return () => {
+            window.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
 
     return (
 
         <div
+            ref={dropdownRef}
             className={styles.DropdwonMenu}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
