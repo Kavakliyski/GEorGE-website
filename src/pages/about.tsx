@@ -1,7 +1,10 @@
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { GetStaticPropsContext } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticPropsContext } from 'next';
+import styles from '@/styles/pages/about.module.scss';
+import CEOImg from '../../public/static/ceo.jpg'
+import Image from "next/image";
 
 
 export default function About() {
@@ -22,30 +25,37 @@ export default function About() {
                 <meta name="theme-color" content="#191716" />
             </Head>
 
-            <div>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
-                <h1>{translate('about')}</h1>
+            <div className={styles.AboutPageWrapper}>
+
+                <div className={styles.PageTitle}>
+                    <h1>{translate('about')}</h1>
+                </div>
+
+                <section className={styles.AboutPageSection}>
+
+                    <div className={styles.AboutProfile}>
+
+                        <div className={styles.AboutCeoImage}>
+                            <Image src={CEOImg} alt="ceo" />
+                        </div>
+
+
+                        <div className={styles.AboutCeoName}>
+                            <h2>Allan Keonick</h2>
+                            <h4>FOUNDER AND CEO</h4>
+                        </div>
+                    </div>
+
+                    <div className={styles.AboutTextContainer}>
+
+                        <div className={styles.AbouText}>
+                            <h3>Our focus enables us to provide customized, actionable recommendations that draw.</h3>
+                            <p className={styles.Par1}>Our focus enables us to provide customized, actionable recommendations that draw on robust problem framing, cutting-edge methodologies, deep therapeutic area knowledge, extensive global networks of health care stakeholders, and expert synthesis across scientific, clinical, and business disciplines.</p>
+                            <p>Putnam’s work is dedicated to maximizing the value of the pharmaceutical, biotechnology, diagnostic and device products. We serve clients who market many of the world’s best-known biopharmaceuticals, and who are leveraging the genomics and “big data” revolutions month by month with new breakthrough therapies and higher quality patient care.</p>
+                        </div>
+
+                    </div>
+                </section>
             </div>
         </>
     )

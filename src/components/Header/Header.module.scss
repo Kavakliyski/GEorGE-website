@@ -80,7 +80,8 @@
 
         .ShoppingCart {
             transition: transform 1.3s;
-
+            cursor: pointer;
+            
             &:hover {
                 animation: bounce 1s infinite;
             }
@@ -183,13 +184,24 @@
 
 @keyframes bounce {
 
-    0%,
+    // 0%,
+    // 100% {
+    //     transform: translateY(0);
+    // }
+
+    // 50% {
+    //     transform: translateY(-5px);
+    // }
+
+    0% {
+        transform: rotate(0deg);
+    }
     100% {
-        transform: translateY(0);
+        transform: rotate(0deg);
     }
 
     50% {
-        transform: translateY(-5px);
+        transform: rotate(40deg);
     }
 }
 

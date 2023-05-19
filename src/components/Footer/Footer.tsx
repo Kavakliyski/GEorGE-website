@@ -34,11 +34,14 @@ export default function Footer() {
 
                     <div className={styles.FooterProducts}>
                         <h1>{translate('products')}</h1>
-
+                        <h2>{translate('stop_aging')}</h2>
+                        <h2>{translate('аnti_acne')}</h2>
                     </div>
 
                     <div className={styles.FooterSeries}>
                         <h1>{translate('series')}</h1>
+                        <h2>{translate('аurum')}</h2>
+                        <h2>{translate('comming_soon')}</h2>
 
                     </div>
                 </div>
