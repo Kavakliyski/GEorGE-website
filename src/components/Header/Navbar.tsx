@@ -97,10 +97,10 @@ export const Navbar = () => {
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
-                            <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне"]} />
+                            <DropdownBlack text={translate('products')} parent_link={'products'} links={[translate('stop_aging'), translate('аnti_acne')]} />
                         </li>
                         <li>
-                            <DropdownBlack text={translate('series')} parent_link={'series'} links={['Aurum', "Comming soon"]} />
+                            <DropdownBlack text={translate('series')} parent_link={'series'} links={[translate('аurum'), translate('comming_soon')]} />
 
                         </li>
                         <li>
