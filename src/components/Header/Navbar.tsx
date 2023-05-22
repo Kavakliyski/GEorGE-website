@@ -97,10 +97,24 @@ export const Navbar = () => {
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
-                            <DropdownBlack text={translate('products')} parent_link={'products'} links={[translate('stop_aging'), translate('аnti_acne')]} />
+                            <DropdownBlack
+                                text={translate('products')}
+                                parent_link={'products'}
+                                links={[
+                                    { label: translate('stop_aging'), href: 'stop_aging' },
+                                    { label: translate('аnti_acne'), href: 'аnti_acne' }
+                                ]}
+                            />
                         </li>
                         <li>
-                            <DropdownBlack text={translate('series')} parent_link={'series'} links={[translate('аurum'), translate('comming_soon')]} />
+                            <DropdownBlack
+                                text={translate('series')}
+                                parent_link={'series'}
+                                links={[
+                                    { label: translate('аurum'), href: 'aurum' },
+                                    { label: translate('coming_soon'), href: 'coming_soon' }
+                                ]}
+                            />
 
                         </li>
                         <li>
@@ -115,11 +129,22 @@ export const Navbar = () => {
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/about">{translate('about')}</Link></li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/foryou">{translate('foryou')}</Link></li>
                         <li>
-                            <DropdownBlack text={translate('products')} parent_link={'products'} links={['Спри стареенето', "анти акне"]} />
+                            <DropdownBlack
+                                text={translate('products')}
+                                parent_link={'products'}
+                                links={[
+                                    { label: translate('stop_aging'), href: 'stop_aging' },
+                                    { label: translate('аnti_acne'), href: 'аnti_acne' }
+                                ]} />
                         </li>
-                        <li >
-                            {/* <Link href="/series">{translate('series')}</Link> */}
-                            <DropdownBlack text={translate('series')} parent_link={'series'} links={['Aurum', "Comming soon"]} />
+                        <li>
+                            <DropdownBlack
+                                text={translate('series')}
+                                parent_link={'series'}
+                                links={[
+                                    { label: translate('аurum'), href: 'aurum' },
+                                    { label: translate('coming_soon'), href: 'coming_soon' }
+                                ]} />
                         </li>
                         <li onClick={() => setIsMenuOpen(false)}><Link href="/reviews">{translate('reviews')}</Link></li>
                     </ul>

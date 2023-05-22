@@ -1,0 +1,21 @@
+@import '../variables';
+
+.CommingSoonWrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+
+    .CommingSoonContainer{
+        background-color: $color-tertiary;
+        // padding: 20px;
+        width: 90vw;
+        height: 50%;
+        border-radius: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

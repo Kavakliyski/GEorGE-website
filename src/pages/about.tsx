@@ -27,10 +27,6 @@ export default function About() {
 
             <div className={styles.AboutPageWrapper}>
 
-                <div className={styles.PageTitle}>
-                    <h1>{translate('about')}</h1>
-                </div>
-
                 <section className={styles.AboutPageSection}>
 
                     <div className={styles.AboutProfile}>

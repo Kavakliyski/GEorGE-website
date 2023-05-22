@@ -5,10 +5,13 @@ import Link from 'next/link';
 
 interface DropdownProps {
     text: string;
-    links: string[];
+    links: {
+        label: string;
+        href: string;
+    }[];
     parent_link: string;
 }
-
+// for header
 export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -61,8 +64,8 @@ export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
                 isDropdownOpen ?
                     <ul className={styles.DropDownMenuListWhite}>
                         {
-                            links.map(link => <li key={link}>
-                                <Link href={`/${parent_link}/${link}`}>{link}</Link>
+                            links.map(link => <li key={link.href}>
+                                <Link href={`/${parent_link}/${link.href}`}>{link.label}</Link>
                             </li>)
                         }
                     </ul>
@@ -73,7 +76,8 @@ export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
 }
 
 
-export const DropdownBlack = ({ text, links, parent_link }: DropdownProps) => {
+// for navbar
+export const DropdownBlack = ({ text, parent_link, links }: DropdownProps) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -124,8 +128,8 @@ export const DropdownBlack = ({ text, links, parent_link }: DropdownProps) => {
                 isDropdownOpen ?
                     <ul className={styles.DropDownMenuListBlack}>
                         {
-                            links.map(link => <li key={link}>
-                                <Link href={`/${parent_link}/${link}`}>{link}</Link>
+                            links.map(link => <li key={link.href}>
+                                <Link href={`/${parent_link}/${link.href}`}>{link.label}</Link>
                             </li>)
                         }
                     </ul>

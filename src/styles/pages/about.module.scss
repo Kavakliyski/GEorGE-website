@@ -4,15 +4,9 @@
 .AboutPageWrapper {
 
     margin-top: 4vw;
-    padding: 20px;
+    padding: 150px;
 
     color: $color-tertiary;
-
-    .PageTitle {
-        text-align: center;
-        width: 100%;
-        text-transform: uppercase;
-    }
 
     .AboutPageSection {
         display: flex;
@@ -63,5 +57,18 @@
         }
 
 
+    }
+}
+
+@media (max-width:1120px) {
+
+
+    .AboutPageWrapper{
+        padding: 10px;
+
+        .AboutPageSection{
+            flex-direction: column;
+            font-size: medium;
+        }
     }
 }

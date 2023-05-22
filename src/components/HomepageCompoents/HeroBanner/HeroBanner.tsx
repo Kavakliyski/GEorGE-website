@@ -12,10 +12,6 @@ export const HeroBanner = () => {
             <div className={styles.HeroBannerContainer}>
 
                 <Image
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                    }}
                     src={HeroImg}
                     alt=""
                     className="HeroBannneImage" />
