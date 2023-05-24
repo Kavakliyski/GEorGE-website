@@ -1,5 +1,6 @@
 // next
 import type { AppProps } from 'next/app'
+import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 
 // styles
@@ -20,6 +21,9 @@ function App({ Component, pageProps }: AppProps) {
 
     return (
         <>
+            <Head>
+                <link rel="Website Icon" type="png" href="favicon.png" />
+            </Head>
             <InternalizationContextProvider>
                 <CartContextProvider>
                     <Topnav />
