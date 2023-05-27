@@ -45,9 +45,13 @@ export default function About() {
                     <div className={styles.AboutTextContainer}>
 
                         <div className={styles.AbouText}>
-                            <h3>Our focus enables us to provide customized, actionable recommendations that draw.</h3>
-                            <p className={styles.Par1}>Our focus enables us to provide customized, actionable recommendations that draw on robust problem framing, cutting-edge methodologies, deep therapeutic area knowledge, extensive global networks of health care stakeholders, and expert synthesis across scientific, clinical, and business disciplines.</p>
-                            <p>Putnam’s work is dedicated to maximizing the value of the pharmaceutical, biotechnology, diagnostic and device products. We serve clients who market many of the world’s best-known biopharmaceuticals, and who are leveraging the genomics and “big data” revolutions month by month with new breakthrough therapies and higher quality patient care.</p>
+                            <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, dicta.</h3>
+                            <p className={styles.Par1}>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti nobis ipsam quas harum doloribus repellat, omnis quod autem? Distinctio id tempora ex doloremque reiciendis omnis aspernatur tempore ut veniam nemo et corrupti dolorem impedit quisquam adipisci, enim non ipsam provident? Iusto quia enim vel tempore qui quo consectetur soluta voluptatem.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos recusandae optio laborum facilis dolores vitae, quam aut! Eaque adipisci reprehenderit laboriosam, tempora dolores ab eius mollitia corporis atque delectus soluta voluptatibus recusandae pariatur voluptatum earum commodi aperiam reiciendis explicabo est veniam placeat consequatur eligendi nostrum ducimus! Sint atque, maxime accusamus adipisci fugit eum beatae nisi minus labore vel, reprehenderit ea ullam laboriosam. Excepturi at unde minus magnam veritatis dicta eius alias. Repellendus dolorem cum nam, odio esse rerum dolores modi quidem impedit reiciendis nesciunt, doloribus recusandae molestiae tempora, hic iure repudiandae. Aspernatur velit neque similique quasi odio obcaecati, dolorum eius.
+                            </p>
                         </div>
 
                     </div>

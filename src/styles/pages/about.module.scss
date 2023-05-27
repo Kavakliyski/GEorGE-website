@@ -9,6 +9,8 @@
     color: $color-tertiary;
 
     .AboutPageSection {
+        animation: myAnim 1s ease 0s 1 normal forwards;
+
         display: flex;
         gap: 50px;
         align-items: center;
@@ -19,12 +21,13 @@
         margin: 0 auto;
 
         border-radius: 15px;
-        padding: 30px;
+        padding: 40px;
         background-color: $color-tertiary;
         color: $color-primary;
         font-size: x-large;
 
         .AboutProfile {
+        // margin: 0 auto;
 
             .AboutCeoImage {
                 img {
@@ -55,20 +58,34 @@
 
             }
         }
-
-
     }
 }
+
 
 @media (max-width:1120px) {
 
 
-    .AboutPageWrapper{
+    .AboutPageWrapper {
         padding: 10px;
 
-        .AboutPageSection{
+        .AboutPageSection {
             flex-direction: column;
             font-size: medium;
         }
+    }
+}
+
+
+@keyframes myAnim {
+    0% {
+        opacity: 0;
+        transform: rotateX(-100deg);
+        transform-origin: top;
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg);
+        transform-origin: top;
     }
 }
