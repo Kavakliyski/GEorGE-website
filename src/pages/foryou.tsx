@@ -1,9 +1,12 @@
 import { GetStaticPropsContext } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from "next/head";
+import styles from "@/styles/pages/foryou.module.scss";
 
 
 export default function foryou() {
+
+
     return (
 
         <>
@@ -19,28 +22,41 @@ export default function foryou() {
                 <meta name="theme-color" content="#191716" />
             </Head>
 
-            <div>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
-                <h1>foryou</h1>
+            <div className={styles.ForyouPageWrapper}>
+
+
+                <div className={styles.ForyouCard}>
+
+                </div>
+
+                <div className={styles.ForyouCard}>
+
+                </div>
+
+                <div className={styles.ForyouCard}>
+
+                </div>
+
+                <div className={styles.ForyouCard}>
+
+                </div>
+
+                <div className={styles.ForyouCard}>
+
+                </div>
+
+                <div className={styles.ForyouCard}>
+
+                </div>
+                
+                <div className={styles.ForyouCard}>
+
+                </div>
+                
+                <div className={styles.ForyouCard}>
+
+                </div>
+                
             </div>
         </>
     )
