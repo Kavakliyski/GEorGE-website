@@ -9,9 +9,6 @@ import { GetStaticPropsContext } from 'next'
 import { FeaturedProducts } from '@/components/HomepageCompoents/FeatruredProducts/FeaturedProducts'
 import { HeroBanner } from '@/components/HomepageCompoents/HeroBanner/HeroBanner'
 
-// animated background
-import styles from '@/styles/animatedbackground.module.scss'
-
 
 export default function Home() {
 
@@ -34,11 +31,9 @@ export default function Home() {
             </Head>
 
             <main>
-                <div className={styles.animatedbackground}>
 
-                    <HeroBanner />
-                    <FeaturedProducts />
-                </div>
+                <HeroBanner />
+                <FeaturedProducts />
             </main>
 
         </>

@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
                 <div className={styles.FooterCopyright}>
                     <hr />
-                    <p>Copyright © 2023 GEorGE-Cosmetic. Designed by luskoeqk</p>
+                    <p>Copyright © 2023 GEorGE-Cosmetic. Designed by Kavakliyski</p>
                 </div>
             </div>
         </>
