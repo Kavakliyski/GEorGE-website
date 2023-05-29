@@ -29,12 +29,11 @@
 
     .TopnavText {
         display: flex;
-        // gap: 100px;
         overflow: hidden;
         width: 75%;
-        // justify-content: space-between;
         justify-content: center;
         align-items: center;
+        text-transform: lowercase;
 
         .TopnavLeftLinks {
             display: flex;

@@ -33,7 +33,7 @@
                 img {
                     object-fit: contain;
                     height: 408px;
-                    width: 100%;
+                    max-width: 300px;
                 }
             }
 
@@ -41,7 +41,7 @@
         }
 
         .AboutTextContainer {
-            width: 50%;
+            max-width: 800px;
 
             .AbouText {
                 display: flex;

@@ -1,3 +1,7 @@
 {
-    "home": "Home"
+    "home": "Home",
+
+    "Heading404": "404 - Page Not Found",
+    "SubHeading404": "We can't find that page",
+    "Sub2Heading404": "We're fairly sure that page used to be here, but seems to have gone missing. We do apologise on its behalf."
 }
