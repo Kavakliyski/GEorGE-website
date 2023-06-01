@@ -15,7 +15,7 @@ export function CartContextProvider({ children }: any) {
 
     const [cartProducts, setcartProducts] = useState([]);
 
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
 
     return (

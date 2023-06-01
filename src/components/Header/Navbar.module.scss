@@ -49,6 +49,41 @@
             }
         }
 
+        p {
+            text-decoration: none;
+            color: $color-secondary;
+
+            background-image: linear-gradient(to right,
+                    $color-secondary,
+                    $color-secondary 50%,
+                    $color-primary 50%);
+            background-size: 200% 100%;
+            background-position: -100%;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+            background-clip: inherit;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease-in-out;
+
+            &:before {
+                content: '';
+                background: $color-secondary;
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover {
+                background-position: 0;
+            }
+        }
+
         a {
             text-decoration: none;
             color: $color-secondary;
@@ -139,7 +174,7 @@
 
     }
 
-    @media (max-width:1120px) {
+    @media (max-width: 1120px) {
         .NavbarContainer {
 
             grid-template-columns: 1fr 1fr 1fr;
