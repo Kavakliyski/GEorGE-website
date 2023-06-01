@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import styles from '../../styles/pages/coming_soon.module.scss'
 
 
-export default function coming_soon() {
+export default function Coming_soon() {
 
     const { t: translate } = useTranslation('header');
 
