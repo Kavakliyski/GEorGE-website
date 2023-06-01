@@ -9,17 +9,17 @@ export const Drawer = () => {
     const { isDrawerOpen, setIsDrawerOpen } = useContext(CartContext);
 
     console.log(isDrawerOpen);
-    
 
     return (
+        <div className={isDrawerOpen ? styles.GrayScreen : styles.DrawerWrapper}>
+            <div className={styles.DrawerWrapperVisible}>
+                <button onClick={() => setIsDrawerOpen(false)}>
+                    <h1>ЗАТВОРИ</h1>
+                </button>
 
-        <div className={isDrawerOpen ? styles.DrawerWrapperVisible : styles.DrawerWrapper}>
-
-            <button onClick={() => setIsDrawerOpen(false)}>
-                <h1>ЗАТВОРИ</h1>
-            </button>
-            <h1>Your shopping cart is empty.</h1>
-            <h2>Continue Shopping to add items to your cart.</h2>
+                <h1>Your shopping cart is empty.</h1>
+                <h2>Continue Shopping to add items to your cart.</h2>
+            </div>
         </div>
     )
 }
