@@ -6,8 +6,9 @@
     color: $color-secondary;
     z-index: 10;
     position: fixed;
-
+    
     .NavigationContainer {
+        
 
         display: grid;
         grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
@@ -16,7 +17,12 @@
         justify-content: center;
         padding: 10px;
 
-        .NavigatioLeftLinks {}
+        .NavigatioLeftLinks {
+            img {
+                width: 100%;
+                height: 110px;
+            }
+        }
 
         .NavigatioMiddleLinks {
 

@@ -9,6 +9,8 @@ import Image from 'next/image';
 // img
 import GeorgeLogoText2 from "../../../public/static/george.png";
 import CartSVGWhite from '../../../public/icons/cart-white.svg';
+import SVGLogo from "../../../public/icons/george-logo-white.svg";
+
 
 import { InternalizationContext } from '@/context/InternalizationContext';
 import { CartContext } from '@/context/CartContext';
@@ -38,12 +40,13 @@ export default function Header() {
                     <div className={styles.NavigationContainer}>
 
                         <div className={styles.NavigatioLeftLinks}>
-                            <Image src={GeorgeLogoText2}
+                            {/* <Image src={GeorgeLogoText2}
                                 alt={''}
                                 width={0}
                                 height={0}
                                 sizes="100vw"
-                                style={{ width: '100%', height: 'auto', mixBlendMode: 'color-burn', objectFit: 'contain', aspectRatio: '16/4' }} />
+                                style={{ width: '100%', height: 'auto', mixBlendMode: 'color-burn', objectFit: 'contain', aspectRatio: '16/4' }} /> */}
+                            <Image src={SVGLogo} alt={''} />
                         </div>
 
                         <div className={styles.NavigatioMiddleLinks}>
