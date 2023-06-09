@@ -1,7 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
+// stlyes
+import styles from './Drawer.module.scss';
+
+// react
+import { useContext, useEffect } from 'react';
+
+// context
 import { CartContext } from '@/context/CartContext';
 
-import styles from './Drawer.module.scss';
+// icon
+import XIcon from '../../../public/icons/close-x-icon.svg';
+import Image from 'next/image';
 
 
 export const Drawer = () => {
@@ -32,11 +40,11 @@ export const Drawer = () => {
 
                 <div className={styles.DrawerContainer}>
 
-                    <button
-                        id={styles.ButtonClose}
+                    <div
+                        className={styles.ButtonClose}
                         onClick={() => setIsDrawerOpen(false)}>
-                        <h1>ЗАТВОРИ</h1>
-                    </button>
+                        <Image src={XIcon} alt='X'/>
+                    </div>
 
                     <div className="DrawerProducts">
                         <h1>Your shopping cart is empty.</h1>

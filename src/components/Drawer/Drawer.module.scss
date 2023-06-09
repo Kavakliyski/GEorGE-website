@@ -28,7 +28,8 @@
 }
 
 .DrawerWrapperVisible {
-    display: block;
+    visibility: visible;
+    display: inline;
     position: fixed;
     top: 0;
     right: 0;
@@ -55,10 +56,19 @@
         animation-name: slide-out;
     }
 
-    #ButtonClose {
-        border: none;
-        background-color: transparent;
+    .ButtonClose {
         cursor: pointer;
+
+        display: flex;
+        justify-content: right;
+
+        img {
+
+            height: 50px;
+            width: 50px;
+        }
+
+        padding: 20px;
     }
 
     #CheckoutButton {
@@ -69,14 +79,19 @@
     }
 
     .DrawerContainer {
-        padding-top: 20px;
+        padding: 20px 60px 0px 60px;
+        color: $color-primary;
+
 
         .DrawerTotal {
-            width: 100%;
             position: fixed;
-            justify-content: center;
-            align-items: center;
             bottom: 0;
+
+            #CheckoutButton {
+                text-align: center;
+                color: red;
+            }
+
 
             .Subtotal {
                 display: flex;
@@ -89,12 +104,22 @@
 
 @media (max-width: 1120px) {
 
-    .GrayScreen {
 
-        .DrawerWrapperVisible {
-            width: 95%;
+
+    .DrawerWrapperVisible {
+        width: 97%;
+
+
+        .DrawerContainer {
+            padding: 15px;
+
+            .ButtonClose {
+                padding: 0px;
+            }
+
         }
     }
+
 }
 
 
