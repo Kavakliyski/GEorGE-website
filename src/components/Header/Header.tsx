@@ -7,8 +7,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // img
-import GeorgeLogo from "../../../public/static/george-aurum.png";
-import GeorgeLogoText from "../../../public/static/george_thumbnail.png";
 import GeorgeLogoText2 from "../../../public/static/george.png";
 import CartSVGWhite from '../../../public/icons/cart-white.svg';
 

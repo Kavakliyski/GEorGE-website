@@ -4,35 +4,88 @@
     display: none;
 }
 
+.disable-scroll {
+    overflow: hidden;
+}
 
 .GrayScreen {
     position: fixed;
     overflow: hidden;
+    overflow-y: scroll;
     top: 0;
-    z-index: 100;
+    z-index: 12;
 
     width: 100%;
     height: 100vh;
 
-    background-color: rgba(48, 45, 45, 0.226);
-    animation: appear 600ms;
+    animation: fadeBackground 0.3s;
+    animation-fill-mode: forwards;
+}
 
-    .DrawerWrapperVisible {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0%;
-        width: calc(50px + 30rem);
-        height: 100%;
-        background-color: $color-tertiary;
-        overflow-x: hidden;
-        z-index: 1000;
-        box-shadow: 0px 0px 15px 0px $color-tertiary;
-        border-radius: 50px 0px 0px 0px;
 
-        animation: slide-in 600ms;
+.DrawerWrapperInvisible {
+    visibility: hidden;
+}
+
+.DrawerWrapperVisible {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(50px + 30rem);
+    height: 100vh;
+
+    background-color: $color-tertiary;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    z-index: 16;
+    box-shadow: 0px 0px 15px 0px $color-tertiary;
+    border-radius: 50px 0px 0px 0px;
+
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-name: none;
+
+    &.Open {
+        animation-name: slide-in;
+    }
+
+    &.Close {
+        animation-name: slide-out;
+    }
+
+    #ButtonClose {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    #CheckoutButton {
+        border: none;
+        background-color: transparent;
+        font-size: 45px;
+        cursor: pointer;
+    }
+
+    .DrawerContainer {
+        padding-top: 20px;
+
+        .DrawerTotal {
+            width: 100%;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
+
+            .Subtotal {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
     }
 }
+
 
 @media (max-width: 1120px) {
 
@@ -56,12 +109,23 @@
 }
 
 
-@keyframes appear {
-    0% {
-        transform: scale(2);
+@keyframes slide-out {
+    from {
+        transform: translateX(10%);
     }
 
-    100% {
-        transform: scale(1);
+    to {
+        transform: translateX(100%);
+    }
+}
+
+
+@keyframes fadeBackground {
+    from {
+        background-color: transparent;
+    }
+
+    to {
+        background-color: rgba(90, 90, 90, 0.274);
     }
 }
