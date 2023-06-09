@@ -3,6 +3,7 @@ import styles from './Drawer.module.scss';
 
 // react
 import { useContext, useEffect } from 'react';
+import { useTranslation } from 'next-i18next'
 
 // context
 import { CartContext } from '@/context/CartContext';
@@ -14,9 +15,8 @@ import Image from 'next/image';
 
 export const Drawer = () => {
 
+    const { t: translate } = useTranslation('header');
     const { isDrawerOpen, setIsDrawerOpen } = useContext(CartContext);
-
-    console.log(isDrawerOpen);
 
 
     useEffect(() => {
@@ -40,26 +40,24 @@ export const Drawer = () => {
 
                 <div className={styles.DrawerContainer}>
 
-                    <div
-                        className={styles.ButtonClose}
-                        onClick={() => setIsDrawerOpen(false)}>
-                        <Image src={XIcon} alt='X'/>
+                    <div className={styles.ButtonClose}>
+                        <Image src={XIcon} alt='X' onClick={() => setIsDrawerOpen(false)} />
                     </div>
 
-                    <div className="DrawerProducts">
-                        <h1>Your shopping cart is empty.</h1>
-                        <h2>Continue Shopping to add items to your cart.</h2>
+                    <div className={styles.DrawerProducts}>
+                        <p>{translate('empty1')}</p>
+                        <p>{translate('empty2')} <a href="#">{translate('here')}</a>.</p>
                     </div>
 
                     <div className={styles.DrawerTotal}>
                         <div className={styles.Subtotal}>
-                            <h3>Subtotal</h3>
+                            <h3>{translate('subtotal1')}</h3>
                             <h3>1,454 лв.</h3>
                         </div>
-                        <p>Shipping, taxes, and discount codes calculated at checkout.</p>
+                        <p>{translate('subtotal2')}</p>
                         <button
                             id={styles.CheckoutButton}
-                        >Check out</button>
+                        >{translate('checkout')}</button>
                     </div>
                 </div>
             </div>

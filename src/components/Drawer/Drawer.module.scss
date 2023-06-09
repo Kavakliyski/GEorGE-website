@@ -57,13 +57,12 @@
     }
 
     .ButtonClose {
-        cursor: pointer;
 
         display: flex;
         justify-content: right;
 
         img {
-
+            cursor: pointer;
             height: 50px;
             width: 50px;
         }
@@ -82,10 +81,17 @@
         padding: 20px 60px 0px 60px;
         color: $color-primary;
 
+        .DrawerProducts {
+            font-size: large;
+
+            a {
+                color: blue;
+            }
+        }
 
         .DrawerTotal {
             position: fixed;
-            bottom: 0;
+            bottom: 30px;
 
             #CheckoutButton {
                 text-align: center;
@@ -103,9 +109,6 @@
 
 
 @media (max-width: 1120px) {
-
-
-
     .DrawerWrapperVisible {
         width: 97%;
 
