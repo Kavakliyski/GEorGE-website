@@ -1,9 +1,10 @@
 // stlyes
 import styles from './Drawer.module.scss';
 
-// react
+// react, next
 import { useContext, useEffect } from 'react';
 import { useTranslation } from 'next-i18next'
+import Link from 'next/link';
 
 // context
 import { CartContext } from '@/context/CartContext';
@@ -16,7 +17,7 @@ import Image from 'next/image';
 export const Drawer = () => {
 
     const { t: translate } = useTranslation('header');
-    const { isDrawerOpen, setIsDrawerOpen } = useContext(CartContext);
+    const { isDrawerOpen, setIsDrawerOpen, cartProducts } = useContext(CartContext);
 
 
     useEffect(() => {
@@ -27,6 +28,9 @@ export const Drawer = () => {
             document.body.style.overflow = 'visible';
         }
     }, [isDrawerOpen]);
+
+
+    console.log('cartProducts', cartProducts);
 
 
     return (
@@ -44,21 +48,32 @@ export const Drawer = () => {
                         <Image src={XIcon} alt='X' onClick={() => setIsDrawerOpen(false)} />
                     </div>
 
-                    <div className={styles.DrawerProducts}>
-                        <p>{translate('empty1')}</p>
-                        <p>{translate('empty2')} <a href="#">{translate('here')}</a>.</p>
-                    </div>
+                    {
+                        cartProducts?.length ? <>
+                            <div className={styles.DrawerProducts}>
+                                <p>product</p>
+                                <p>opisanie</p>
+                            </div>
 
-                    <div className={styles.DrawerTotal}>
-                        <div className={styles.Subtotal}>
-                            <h3>{translate('subtotal1')}</h3>
-                            <h3>1,454 лв.</h3>
-                        </div>
-                        <p>{translate('subtotal2')}</p>
-                        <button
-                            id={styles.CheckoutButton}
-                        >{translate('checkout')}</button>
-                    </div>
+                            <div className={styles.DrawerTotal}>
+                                <div className={styles.Subtotal}>
+                                    <h3>{translate('subtotal1')}</h3>
+                                    <h3>products_sum</h3>
+                                </div>
+                                <p>{translate('subtotal2')}</p>
+                                <button
+                                    id={styles.CheckoutButton}
+                                >{translate('checkout')}</button>
+                            </div>
+                        </> : <>
+                            <div className={styles.DrawerEmptyCart}>
+                                <p>{translate('empty1')}</p>
+                                <p>{translate('empty2')} <Link href="/shop">{translate('here')}</Link>.</p>
+                            </div>
+                        </>
+                    }
+
+
                 </div>
             </div>
         </>

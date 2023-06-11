@@ -21,6 +21,8 @@ export default function Home() {
 
                 <HeroBanner />
                 <FeaturedProducts />
+                <HeroBanner />
+
             </main>
         </>
     )
