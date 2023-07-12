@@ -1,44 +1,39 @@
 // next
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { GetStaticPropsContext } from 'next'
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticPropsContext } from "next";
 
 // components
-import { FeaturedProducts } from '@/components/HomepageCompoents/FeatruredProducts/FeaturedProducts'
-import { HeroBanner } from '@/components/HomepageCompoents/HeroBanner/HeroBanner'
-
+import { FeaturedProducts } from "@/components/HomepageCompoents/FeatruredProducts/FeaturedProducts";
+import { HeroBanner } from "@/components/HomepageCompoents/HeroBanner/HeroBanner";
+import axios from "axios";
 
 export default function Home() {
-
-    const { t: translate } = useTranslation('common');
-
+    const { t: translate } = useTranslation("common");
 
     return (
         <>
             <main>
-
                 <HeroBanner />
                 <FeaturedProducts />
                 <HeroBanner />
-
             </main>
         </>
-    )
+    );
 }
-
 
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale } = context;
 
     if (!locale) {
-        throw new Error('Locale is not available in context');
+        throw new Error("Locale is not available in context");
     }
 
     return {
         props: {
-            ... (await serverSideTranslations(locale, ['common', 'header']))
-        }
-    }
+            ...(await serverSideTranslations(locale, ["common", "header"])),
+        },
+    };
 }

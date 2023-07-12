@@ -1,0 +1,25 @@
+.ShopWrapper {
+    .ProdcutsContainer {
+
+        padding: 80px;
+        border-radius: 15px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        .Product {
+            background-color: wheat;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                font-size: 60px;
+            }
+
+            img {
+                max-width: 300px;
+            }
+        }
+    }
+}
+
