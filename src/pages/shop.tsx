@@ -7,36 +7,42 @@ import { GetStaticPropsContext } from "next";
 
 export default function Shop() {
     const [productsData, setProductsData] = useState<any[]>([]);
+    const [loadingFetch, setLoadingFetch] = useState<boolean>(true);
+    const [errorFetch, setErrorFetch] = useState<any>();
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoadingFetch(true);
             try {
                 const response = await axios.get(GET_PRODUCTS_ENDPOINT);
                 setProductsData(response.data.products);
+                setLoadingFetch(false);
             } catch (error) {
                 console.log(error);
+                setErrorFetch(error);
+                setLoadingFetch(false);
             }
         };
 
         fetchData();
     }, []);
 
-    // console.log(productsData[0].images[0].src);
+    console.log(productsData);
 
     if (!productsData) {
-        return <h1>Няма продукти</h1>;
+        return <p className={styles.loadingFetch}>Няма продукти</p>;
+    }
+
+    if (loadingFetch) {
+        return <p className={styles.loadingFetch}>Зареждам...</p>;
+    }
+
+    if (errorFetch) {
+        return <p className={styles.loadingFetch}>Възникна грешка!</p>;
     }
 
     return (
         <div className={styles.ShopWrapper}>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-
             <div className={styles.ProdcutsContainer}>
                 {productsData.map((product, index) => (
                     <div className={styles.card} key={index}>
@@ -56,19 +62,16 @@ export default function Shop() {
                             <a href="#" className={styles.productsBuy}>
                                 Buy Now
                             </a>
+                            <div
+                                className={styles.productDescription}
+                                dangerouslySetInnerHTML={{
+                                    __html: product.description,
+                                }}
+                            ></div>{" "}
                         </div>
                     </div>
                 ))}
             </div>
-
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
-            <h1>shop</h1>
         </div>
     );
 }
