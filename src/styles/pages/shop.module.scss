@@ -1,25 +1,110 @@
+@import "../variables";
+
 .ShopWrapper {
     .ProdcutsContainer {
-
         padding: 80px;
         border-radius: 15px;
 
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-
-        .Product {
-            background-color: wheat;
-            display: flex;
-            flex-direction: column;
-
-            h2 {
-                font-size: 60px;
-            }
-
-            img {
-                max-width: 300px;
-            }
-        }
     }
 }
 
+.card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    background: $color-quinary;
+    border-radius: 20px;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        width: 100%;
+        height: 100%;
+        background: $color-quaternary;
+        transform: skewY(345deg);
+        transition: 0.5s;
+    }
+
+    &:hover::before {
+        top: -70%;
+        transform: skewY(390deg);
+    }
+
+    &:hover {
+        .contentBox {
+            .productsBuy {
+                top: 0;
+                opacity: 1;
+            }
+        }
+    }
+
+    &::after {
+        content: "SKIN";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 600;
+        font-size: 6em;
+        color: rgba(0, 0, 0, 0.1);
+    }
+
+    .imgBox {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        z-index: 1;
+
+        .productImage {
+            height: 200px;
+            width: auto;
+        }
+    }
+
+    .contentBox {
+        position: relative;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 2;
+
+        h3 {
+            font-size: 18px;
+            color: $color-tertiary;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .productPrice {
+            font-size: 24px;
+            color: $color-tertiary;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .productsBuy {
+            position: relative;
+            top: 100px;
+            opacity: 0;
+            padding: 10px 30px;
+            margin-top: 15px;
+            color: $color-primary;
+            text-decoration: none;
+            background: $color-quaternary;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.5s;
+        }
+    }
+}

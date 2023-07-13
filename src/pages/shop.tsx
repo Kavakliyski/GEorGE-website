@@ -39,12 +39,24 @@ export default function Shop() {
 
             <div className={styles.ProdcutsContainer}>
                 {productsData.map((product, index) => (
-                    <div className={styles.Product} key={index}>
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                        <p>{product.price || "няма цена"}</p>
-                        <img src={product.images[0].src} />
-                        <button>Купи</button>
+                    <div className={styles.card} key={index}>
+                        <div className={styles.imgBox}>
+                            <img
+                                src={product.images[0].src}
+                                alt={product.name}
+                                className={styles.productImage}
+                            />
+                        </div>
+
+                        <div className={styles.contentBox}>
+                            <h3>{product.name}</h3>
+                            <h2 className={styles.productPrice}>
+                                {product.price || "няма цена"}
+                            </h2>
+                            <a href="#" className={styles.productsBuy}>
+                                Buy Now
+                            </a>
+                        </div>
                     </div>
                 ))}
             </div>
