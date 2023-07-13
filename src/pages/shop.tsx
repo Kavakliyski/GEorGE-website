@@ -59,8 +59,8 @@ export default function Shop() {
                             <h2 className={styles.productPrice}>
                                 {product.price || "няма цена"}
                             </h2>
-                            <a href="#" className={styles.productsBuy}>
-                                Buy Now
+                            <a href={`${product.permalink}`} className={styles.productsBuy}>
+                                see more
                             </a>
                             <div
                                 className={styles.productDescription}
