@@ -1,0 +1,56 @@
+@import "../variables";
+
+.productWrapper {
+    padding: 200px 0px 200px 0px;
+
+    margin: 0 auto;
+    width: 55%;
+
+    .productCardContainer {
+        background-color: $color-tertiary;
+        display: flex;
+        flex-direction: row;
+
+        border-radius: 5px;
+        height: 800px;
+
+        padding: 35px 5px 35px 5px;
+
+        .productCardImage {
+            img {
+                border-radius: 5px;
+                box-shadow: 4px 4px 25px 15px rgba(0, 0, 0, 0.3);
+                aspect-ratio: 3/4;
+                height: 700px;
+
+                position: relative;
+                left: -3.5em;
+                // top: 2em;
+            }
+        }
+
+        .productCardDescription {
+            color: $color-primary;
+            h1 {
+                font-size: 58px;
+            }
+            h2 {
+                font-size: 42px;
+            }
+
+            button {
+                font-size: 32px;
+                padding: 1.5em 1.1em;
+                border: none;
+                border-radius: 7px;
+                font-weight: 900;
+                letter-spacing: 1.3px;
+                text-transform: uppercase;
+                color: #fff;
+                background-color: $color-secondary;
+                box-shadow: 2px 2px 25px -7px $color-primary;
+                cursor: pointer;
+            }
+        }
+    }
+}

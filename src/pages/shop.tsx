@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "@/styles/pages/shop.module.scss";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
+import Link from "next/link";
 
 export default function Shop() {
     const [productsData, setProductsData] = useState<any[]>([]);
@@ -27,7 +28,7 @@ export default function Shop() {
         fetchData();
     }, []);
 
-    console.log(productsData);
+    // console.log(productsData[0].slug);
 
     if (!productsData) {
         return <p className={styles.loadingFetch}>Няма продукти</p>;
@@ -59,9 +60,12 @@ export default function Shop() {
                             <h2 className={styles.productPrice}>
                                 {product.price || "няма цена"}
                             </h2>
-                            <a href={`${product.permalink}`} className={styles.productsBuy}>
+                            <Link
+                                href={`${product.permalink}`}
+                                className={styles.productsBuy}
+                            >
                                 see more
-                            </a>
+                            </Link>
                             <div
                                 className={styles.productDescription}
                                 dangerouslySetInnerHTML={{

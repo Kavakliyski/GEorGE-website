@@ -40,12 +40,6 @@ export default function Header() {
                     <div className={styles.NavigationContainer}>
 
                         <div className={styles.NavigatioLeftLinks}>
-                            {/* <Image src={GeorgeLogoText2}
-                                alt={''}
-                                width={0}
-                                height={0}
-                                sizes="100vw"
-                                style={{ width: '100%', height: 'auto', mixBlendMode: 'color-burn', objectFit: 'contain', aspectRatio: '16/4' }} /> */}
                             <Image src={SVGLogo} alt={''} />
                         </div>
 

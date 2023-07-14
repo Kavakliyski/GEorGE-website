@@ -32,8 +32,8 @@ export default function Footer() {
         fetchData();
     }, []);
 
-    console.log(footerData);
-    console.log("====================================");
+    // console.log(footerData);
+    // console.log("====================================");
 
     return (
         <>
@@ -73,7 +73,7 @@ export default function Footer() {
                 <div className={styles.FooterCopyright}>
                     <hr />
                     <p>
-                        Copyright © 2023 GEorGE-Cosmetic. Designed by
+                        Copyright © 2023 GEorGE-Cosmetic. Developed by
                         Kavakliyski
                     </p>
                 </div>
