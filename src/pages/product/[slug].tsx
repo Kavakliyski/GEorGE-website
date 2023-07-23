@@ -13,6 +13,8 @@ export default function ProductPage({ product }: any) {
     const { isLanguagesActive } = useContext(InternalizationContext);
     const { t: translate } = useTranslation("header");
 
+    if (!product) return null
+
     return (
         <div className={styles.productWrapper}>
             <section className={styles.productCardContainer}>
@@ -44,39 +46,56 @@ export default function ProductPage({ product }: any) {
 }
 
 export async function getStaticPaths() {
-    const response = await axios.get(GET_PRODUCTS_ENDPOINT);
-    const products = response.data.products;
+    try {
+        const response = await axios.get(GET_PRODUCTS_ENDPOINT);
+        const products = response.data.products;
 
-    const paths = products.map((product: any) => ({
-        params: { slug: product.slug },
-    }));
+        const paths = products.map((product: any) => ({
+            params: { slug: product.slug },
+        }));
 
-    return {
-        paths,
-        fallback: false, // Set to true if you have more dynamic pages to generate
-    };
+        return {
+            paths,
+            fallback: false,
+        };
+    } catch (error) {
+        console.log("Error while fetching products:", error);
+        return {
+            paths: [],
+            fallback: false,
+        };
+    }
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-    const { locale } = context;
+    try {
+        const { locale } = context;
 
-    if (!locale) {
-        throw new Error("Locale is not available in context");
+        if (!locale) {
+            throw new Error("Locale is not available in context");
+        }
+
+        const { slug } = context.params ?? {};
+
+        if (!slug) {
+            return { notFound: true };
+        }
+
+        const response = await axios.get(GET_PRODUCT_ENDPOINT + slug);
+        const product = response.data.product[0];
+
+        return {
+            props: {
+                product,
+                ...(await serverSideTranslations(locale, ["common", "header"])),
+            },
+        };
+    } catch (error) {
+        console.log("Error while fetching product:", error);
+        return {
+            props: {
+                error: "An error occurred while trying to fetch the product, please try again later",
+            },
+        };
     }
-
-    const { slug } = context.params ?? {};
-
-    if (!slug) {
-        return { notFound: true };
-    }
-
-    const response = await axios.get(GET_PRODUCT_ENDPOINT + slug);
-    const product = response.data.product[0];
-
-    return {
-        props: {
-            product,
-            ...(await serverSideTranslations(locale, ["common", "header"])),
-        },
-    };
 }
