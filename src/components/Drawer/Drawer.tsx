@@ -18,8 +18,15 @@ export const Drawer = () => {
     const { t: translate } = useTranslation("header");
     const { isLanguagesActive } = useContext(InternalizationContext);
 
-    const { isDrawerOpen, setIsDrawerOpen, cartProducts } =
-        useContext(CartContext);
+    const {
+        isDrawerOpen,
+        setIsDrawerOpen,
+        cartProducts,
+        updateProductCount,
+        calculateTotal,
+    } = useContext(CartContext);
+
+    const { totalSum, productCountMap } = calculateTotal();
 
     useEffect(() => {
         if (isDrawerOpen) {
@@ -83,8 +90,34 @@ export const Drawer = () => {
                                             ></div>{" "}
                                         </div>
 
+                                        <div className={styles.productCount}>
+                                            <button
+                                                onClick={() =>
+                                                    updateProductCount(
+                                                        product.name,
+                                                        +1
+                                                    )
+                                                }
+                                            >
+                                                +
+                                            </button>
+                                            <span>{product.count}</span>
+                                            <button
+                                                onClick={() =>
+                                                    updateProductCount(
+                                                        product.name,
+                                                        -1
+                                                    )
+                                                }
+                                            >
+                                                -
+                                            </button>
+                                        </div>
+
                                         <div className={styles.productPrice}>
-                                            <p>{product.price}</p>
+                                            <p id={styles.price}>
+                                                {product.price}
+                                            </p>
                                             <span>
                                                 {isLanguagesActive("bg")
                                                     ? "лева"
@@ -99,13 +132,14 @@ export const Drawer = () => {
                                 <div className={styles.Subtotal}>
                                     <h3>{translate("subtotal1")}</h3>
                                     {/* Calculate the total sum of products */}
-                                    <h3>
+                                    {/* <h3>
                                         {cartProducts.reduce(
                                             (total: number, product: any) =>
                                                 total + product.price,
                                             0
                                         )}
-                                    </h3>
+                                    </h3> */}
+                                    <h3>{totalSum.toFixed(2)}</h3>
                                 </div>
                                 <p>{translate("subtotal2")}</p>
                                 <button id={styles.CheckoutButton}>

@@ -111,14 +111,37 @@
                     flex-direction: column;
                     align-items: left;
                     justify-content: center;
-
                 }
 
-                .productPrice{
+                .productPrice {
                     display: flex;
                     flex-direction: row;
                     gap: 5px;
                     align-items: center;
+
+                    #price{
+                        width: 40px;
+                        text-align: right;
+                    }
+                }
+
+                .productCount {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    button {
+                        background-color: none;
+                        border: none;
+                        font-size: 36px;
+                        cursor: pointer;
+                        width: 30px;
+                    }
+
+                    span{
+                        font-size: 26px;
+                    }
                 }
             }
 
