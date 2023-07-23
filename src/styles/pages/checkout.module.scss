@@ -1,0 +1,113 @@
+@import "../variables.scss";
+
+.checkoutWrapper {
+    background-color: $color-tertiary;
+    margin: 200px;
+
+    display: flex;
+    flex-direction: row;
+
+    border-radius: 15px;
+    border: 20px solid white;
+
+    .fromContainer {
+        width: 50%;
+
+        margin: 15px;
+        .form {
+            display: flex;
+            flex-direction: column;
+            font-size: 26px;
+            input {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                margin-top: 10px;
+                padding: 16px 24px;
+                width: 90%;
+                height: 15%;
+                left: 1048px;
+                top: 16px;
+                background: #ffffff;
+                border: 2px solid #1b1b1b;
+                box-sizing: border-box;
+                border-radius: 16px;
+                transition: 0.2s;
+                font-size: 26px;
+
+                &:focus {
+                    outline: none;
+                    background: #f9e450;
+                    border: 3px solid #1b1b1b;
+                    border-radius: 16px;
+                }
+            }
+        }
+
+        button {
+            cursor: pointer;
+            width: 90%;
+            font-size: 40px;
+        }
+    }
+
+    .ProdcutsContainer {
+        width: 50%;
+        margin: 15px;
+
+        .DrawerProducts {
+            .ProductItem {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border-top: 1px solid gray;
+                .productImage {
+                    width: 200px;
+                }
+
+                .productDescription {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                    justify-content: center;
+                    font-size: 36px;
+                }
+
+                .productPrice {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+                    align-items: center;
+                    font-size: 26px;
+
+                    #price {
+                        width: 55px;
+                        text-align: right;
+                    }
+                }
+
+                .productCount {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    button {
+                        background-color: none;
+                        border: none;
+                        font-size: 36px;
+                        cursor: pointer;
+                        width: 30px;
+                    }
+
+                    span {
+                        font-size: 36px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -18,5 +18,13 @@
     "here": "here",
     "subtotal1": "Subtotal",
     "subtotal2": "Taxes, and discount codes calculated at checkout.",
-    "checkout": "Check out"
+    "checkout": "Check out",
+    "currency": "BGN",
+    "firstname": "First name",
+    "lastname": "Last name",
+    "email": "Email",
+    "address": "Address for delivery",
+    "phonenumber": "Phone number",
+    "gdpr": "im agree gdpr",
+    "alert": "No products in cart"
 }

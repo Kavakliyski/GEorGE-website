@@ -5,6 +5,7 @@ import styles from "./Drawer.module.scss";
 import { useContext, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 // context
 import { CartContext } from "@/context/CartContext";
@@ -16,7 +17,8 @@ import Image from "next/image";
 
 export const Drawer = () => {
     const { t: translate } = useTranslation("header");
-    const { isLanguagesActive } = useContext(InternalizationContext);
+
+    const router = useRouter();
 
     const {
         isDrawerOpen,
@@ -118,11 +120,7 @@ export const Drawer = () => {
                                             <p id={styles.price}>
                                                 {product.price}
                                             </p>
-                                            <span>
-                                                {isLanguagesActive("bg")
-                                                    ? "лева"
-                                                    : "BGN"}
-                                            </span>
+                                            <span>{translate("currency")}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -131,18 +129,16 @@ export const Drawer = () => {
                             <div className={styles.DrawerTotal}>
                                 <div className={styles.Subtotal}>
                                     <h3>{translate("subtotal1")}</h3>
-                                    {/* Calculate the total sum of products */}
-                                    {/* <h3>
-                                        {cartProducts.reduce(
-                                            (total: number, product: any) =>
-                                                total + product.price,
-                                            0
-                                        )}
-                                    </h3> */}
-                                    <h3>{totalSum.toFixed(2)}</h3>
+                                    <h3>
+                                        {totalSum.toFixed(2)}
+                                        {translate("currency")}
+                                    </h3>
                                 </div>
                                 <p>{translate("subtotal2")}</p>
-                                <button id={styles.CheckoutButton}>
+                                <button
+                                    id={styles.CheckoutButton}
+                                    onClick={() => router.push("/checkout")}
+                                >
                                     {translate("checkout")}
                                 </button>
                             </div>

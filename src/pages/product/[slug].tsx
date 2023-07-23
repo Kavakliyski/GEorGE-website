@@ -7,9 +7,11 @@ import React, { useContext } from "react";
 import styles from "@/styles/pages/product.module.scss";
 import { InternalizationContext } from "@/context/InternalizationContext";
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
+import { useTranslation } from "next-i18next";
 
 export default function ProductPage({ product }: any) {
     const { isLanguagesActive } = useContext(InternalizationContext);
+    const { t: translate } = useTranslation("header");
 
     return (
         <div className={styles.productWrapper}>
@@ -20,8 +22,7 @@ export default function ProductPage({ product }: any) {
                 <div className={styles.productCardDescription}>
                     <h1>{product.name}</h1>
                     <h2>
-                        {product.price}{" "}
-                        <span>{isLanguagesActive("bg") ? "лева" : "BGN"}</span>
+                        {product.price} <span> {translate("currency")}</span>
                     </h2>
                     <div
                         className={styles.productDescription}

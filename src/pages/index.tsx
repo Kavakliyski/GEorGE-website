@@ -1,6 +1,4 @@
 // next
-import Head from "next/head";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
@@ -8,7 +6,6 @@ import { GetStaticPropsContext } from "next";
 // components
 import { FeaturedProducts } from "@/components/HomepageCompoents/FeatruredProducts/FeaturedProducts";
 import { HeroBanner } from "@/components/HomepageCompoents/HeroBanner/HeroBanner";
-import axios from "axios";
 
 export default function Home() {
     const { t: translate } = useTranslation("common");
