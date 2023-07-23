@@ -22,7 +22,6 @@
     animation-fill-mode: forwards;
 }
 
-
 .DrawerWrapperInvisible {
     visibility: hidden;
 }
@@ -57,7 +56,6 @@
     }
 
     .ButtonClose {
-
         display: flex;
         justify-content: right;
 
@@ -90,11 +88,39 @@
 
             font-size: 30px;
             height: 80%;
-
         }
 
         .DrawerProducts {
+            margin-top: 20px;
             font-size: large;
+
+            .ProductItem {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border-top: 1px solid gray;
+                .productImage {
+                    width: 100px;
+                }
+
+                .productDescription {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                    justify-content: center;
+
+                }
+
+                .productPrice{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+                    align-items: center;
+                }
+            }
 
             a {
                 color: blue;
@@ -109,11 +135,12 @@
                 text-align: center;
                 // color: $color-secondary;
 
-                background: linear-gradient(to right,
-                        $color-secondary 0%,
-                        #8f8319 50%,
-                        $color-secondary 100%,
-                    );
+                background: linear-gradient(
+                    to right,
+                    $color-secondary 0%,
+                    #8f8319 50%,
+                    $color-secondary 100%
+                );
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -122,7 +149,6 @@
                 animation: textShine 3s ease-in-out infinite alternate;
             }
 
-
             .Subtotal {
                 display: flex;
                 justify-content: space-between;
@@ -130,7 +156,6 @@
         }
     }
 }
-
 
 @media (max-width: 1120px) {
     .DrawerWrapperVisible {
@@ -146,12 +171,9 @@
             .DrawerTotal {
                 bottom: 80px;
             }
-
         }
     }
-
 }
-
 
 @keyframes slide-in {
     from {
@@ -163,7 +185,6 @@
     }
 }
 
-
 @keyframes slide-out {
     from {
         transform: translateX(10%);
@@ -174,7 +195,6 @@
     }
 }
 
-
 @keyframes fadeBackground {
     from {
         background-color: transparent;
@@ -184,7 +204,6 @@
         background-color: rgba(90, 90, 90, 0.274);
     }
 }
-
 
 @keyframes textShine {
     0% {

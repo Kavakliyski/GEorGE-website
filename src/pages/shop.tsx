@@ -28,8 +28,6 @@ export default function Shop() {
         fetchData();
     }, []);
 
-    // console.log(productsData[0].slug);
-
     if (!productsData) {
         return <p className={styles.loadingFetch}>Няма продукти</p>;
     }

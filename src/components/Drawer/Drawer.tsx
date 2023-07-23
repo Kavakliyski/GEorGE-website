@@ -8,6 +8,7 @@ import Link from "next/link";
 
 // context
 import { CartContext } from "@/context/CartContext";
+import { InternalizationContext } from "@/context/InternalizationContext";
 
 // icon
 import XIcon from "../../../public/icons/close-x-icon.svg";
@@ -15,6 +16,8 @@ import Image from "next/image";
 
 export const Drawer = () => {
     const { t: translate } = useTranslation("header");
+    const { isLanguagesActive } = useContext(InternalizationContext);
+
     const { isDrawerOpen, setIsDrawerOpen, cartProducts } =
         useContext(CartContext);
 
@@ -54,14 +57,55 @@ export const Drawer = () => {
                     {cartProducts?.length ? (
                         <>
                             <div className={styles.DrawerProducts}>
-                                <p>product</p>
-                                <p>opisanie</p>
+                                {cartProducts.map((product: any) => (
+                                    <div
+                                        key={product.name}
+                                        className={styles.ProductItem}
+                                    >
+                                        <img
+                                            className={styles.productImage}
+                                            src={product.image}
+                                            alt={product.name}
+                                        />
+                                        <div
+                                            className={
+                                                styles.productDescription
+                                            }
+                                        >
+                                            <p>{product.name}</p>
+                                            <div
+                                                className={
+                                                    styles.productDescription
+                                                }
+                                                dangerouslySetInnerHTML={{
+                                                    __html: product.description,
+                                                }}
+                                            ></div>{" "}
+                                        </div>
+
+                                        <div className={styles.productPrice}>
+                                            <p>{product.price}</p>
+                                            <span>
+                                                {isLanguagesActive("bg")
+                                                    ? "лева"
+                                                    : "BGN"}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
                             <div className={styles.DrawerTotal}>
                                 <div className={styles.Subtotal}>
                                     <h3>{translate("subtotal1")}</h3>
-                                    <h3>products_sum</h3>
+                                    {/* Calculate the total sum of products */}
+                                    <h3>
+                                        {cartProducts.reduce(
+                                            (total: number, product: any) =>
+                                                total + product.price,
+                                            0
+                                        )}
+                                    </h3>
                                 </div>
                                 <p>{translate("subtotal2")}</p>
                                 <button id={styles.CheckoutButton}>

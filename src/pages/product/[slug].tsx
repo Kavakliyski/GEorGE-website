@@ -6,13 +6,10 @@ import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import styles from "@/styles/pages/product.module.scss";
 import { InternalizationContext } from "@/context/InternalizationContext";
+import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 
 export default function ProductPage({ product }: any) {
-
     const { isLanguagesActive } = useContext(InternalizationContext);
-    
-    console.log(isLanguagesActive("bg"));
-    
 
     return (
         <div className={styles.productWrapper}>
@@ -22,11 +19,23 @@ export default function ProductPage({ product }: any) {
                 </div>
                 <div className={styles.productCardDescription}>
                     <h1>{product.name}</h1>
-                    <h2>{product.price} <span>{isLanguagesActive("bg") ? "лева" : "BGN"}</span></h2>
-                    <p>{product.description}</p>
-                    <p>{product.short_description}</p>
-
-                    <button>добави в количка</button>
+                    <h2>
+                        {product.price}{" "}
+                        <span>{isLanguagesActive("bg") ? "лева" : "BGN"}</span>
+                    </h2>
+                    <div
+                        className={styles.productDescription}
+                        dangerouslySetInnerHTML={{
+                            __html: product.description,
+                        }}
+                    ></div>{" "}
+                    <div
+                        className={styles.productDescription}
+                        dangerouslySetInnerHTML={{
+                            __html: product.short_description,
+                        }}
+                    ></div>{" "}
+                    <AddToCartButton product={product} />
                 </div>
             </section>
         </div>
