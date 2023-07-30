@@ -1,3 +1,5 @@
+"use client";
+
 // styles
 import "@splidejs/react-splide/css";
 
