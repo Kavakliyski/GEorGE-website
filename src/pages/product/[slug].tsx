@@ -10,7 +10,6 @@ import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 import { useTranslation } from "next-i18next";
 
 export default function ProductPage({ product }: any) {
-    const { isLanguagesActive } = useContext(InternalizationContext);
     const { t: translate } = useTranslation("header");
 
     if (!product) return null
