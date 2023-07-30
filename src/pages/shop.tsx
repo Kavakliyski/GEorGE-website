@@ -1,32 +1,19 @@
-import { GET_PRODUCTS_ENDPOINT } from "@/utils/endpoints";
-import axios from "axios";
-import { useEffect, useState } from "react";
+// stlyes
 import styles from "@/styles/pages/shop.module.scss";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+// next, react
+import { useEffect, useState } from "react";
 import { GetStaticPropsContext } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
+
+// endopoints
+import { GET_PRODUCTS_ENDPOINT } from "@/utils/endpoints";
 
 export default function Shop() {
     const [productsData, setProductsData] = useState<any[]>([]);
-    const [loadingFetch, setLoadingFetch] = useState<boolean>(true);
+    const [loadingFetch, setLoadingFetch] = useState<boolean>(false);
     const [errorFetch, setErrorFetch] = useState<any>();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoadingFetch(true);
-            try {
-                const response = await axios.get(GET_PRODUCTS_ENDPOINT);
-                setProductsData(response.data.products);
-                setLoadingFetch(false);
-            } catch (error) {
-                console.log(error);
-                setErrorFetch(error);
-                setLoadingFetch(false);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     if (!productsData) {
         return <p className={styles.loadingFetch}>Няма продукти</p>;

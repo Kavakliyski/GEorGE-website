@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from "next";
 // components
 import { FeaturedProducts } from "@/components/HomepageCompoents/FeatruredProducts/FeaturedProducts";
 import { HeroBanner } from "@/components/HomepageCompoents/HeroBanner/HeroBanner";
+import Slider from "@/components/HomepageCompoents/HomeSlider/Slider";
 
 export default function Home() {
     const { t: translate } = useTranslation("common");
@@ -13,7 +14,7 @@ export default function Home() {
     return (
         <>
             <main>
-                <HeroBanner />
+                <Slider />
                 <FeaturedProducts />
                 <HeroBanner />
             </main>

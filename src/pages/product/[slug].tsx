@@ -1,18 +1,26 @@
-import { GET_PRODUCTS_ENDPOINT, GET_PRODUCT_ENDPOINT } from "@/utils/endpoints";
-import axios from "axios";
-import { GetStaticPaths, GetStaticPropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+// styles
+import styles from "@/styles/pages/product.module.scss";
+
+// next, react
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
-import styles from "@/styles/pages/product.module.scss";
-import { InternalizationContext } from "@/context/InternalizationContext";
-import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
+import { GetStaticPropsContext } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+
+// endpoints
+import { GET_PRODUCTS_ENDPOINT, GET_PRODUCT_ENDPOINT } from "@/utils/endpoints";
+
+// componets
+import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
+
+// context
+import { InternalizationContext } from "@/context/InternalizationContext";
 
 export default function ProductPage({ product }: any) {
     const { t: translate } = useTranslation("header");
 
-    if (!product) return null
+    if (!product) return null;
 
     return (
         <div className={styles.productWrapper}>
@@ -44,28 +52,6 @@ export default function ProductPage({ product }: any) {
     );
 }
 
-export async function getStaticPaths() {
-    try {
-        const response = await axios.get(GET_PRODUCTS_ENDPOINT);
-        const products = response.data.products;
-
-        const paths = products.map((product: any) => ({
-            params: { slug: product.slug },
-        }));
-
-        return {
-            paths,
-            fallback: false,
-        };
-    } catch (error) {
-        console.log("Error while fetching products:", error);
-        return {
-            paths: [],
-            fallback: false,
-        };
-    }
-}
-
 export async function getStaticProps(context: GetStaticPropsContext) {
     try {
         const { locale } = context;
@@ -80,12 +66,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
             return { notFound: true };
         }
 
-        const response = await axios.get(GET_PRODUCT_ENDPOINT + slug);
-        const product = response.data.product[0];
-
         return {
             props: {
-                product,
                 ...(await serverSideTranslations(locale, ["common", "header"])),
             },
         };

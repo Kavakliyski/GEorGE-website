@@ -10,30 +10,8 @@ import PhoneSVG from "../../../public/icons/phoneBlack.svg";
 import EmailSVG from "../../../public/icons/emailBlack.svg";
 import Image from "next/image";
 
-// axios
-import axios from "axios";
-
 export default function Footer() {
     const { t: translate } = useTranslation("header");
-    const [footerData, setFooterData] = useState();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer`
-                );
-                setFooterData(response.data.data.footer);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    // console.log(footerData);
-    // console.log("====================================");
 
     return (
         <>
