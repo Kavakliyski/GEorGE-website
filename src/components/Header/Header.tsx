@@ -82,7 +82,7 @@ export default function Header() {
                         </div>
 
                         <div className={styles.ShoppingCart}>
-                            <Image src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
+                            <Image className={styles.Cart} src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
                         </div>
 
                         <div className={styles.LanguageButton}>

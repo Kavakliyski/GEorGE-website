@@ -1,39 +1,66 @@
-@import '../variables.scss';
-
+@import "../variables.scss";
 
 .ForyouPageWrapper {
+    padding: 240px 0px;
 
-    margin-top: 4vw;
-    padding: 150px;
+    @media (max-width: 1120px) {
+        padding: 8px 10px;
+    }
 
-    color: $color-tertiary;
+    width: min(100%, 1400px);
+    margin: 0 auto;
 
-    
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    
-    .ForyouCard {
-        margin: 0 auto;
+    .foryouContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         background-color: $color-tertiary;
         border-radius: 15px;
+        color: $color-primary;
 
-        width: 300px;
-        height: 400px;
+        width: 100%;
 
-        animation: Slide-in 0.5s ease 0s 1 normal forwards;
+        padding: 24px;
+
+        .foryouText {
+
+            animation: Entrance 1s ease 0s 1 normal forwards;
+
+            ul {
+                list-style: none;
+                li {
+                    font-size: 24px;
+                }
+
+                @media (max-width: 400px) {
+                    font-size: 20px;
+                }
+
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: start;
+                gap: 24px;
+
+                padding: 0 10px;
+            }
+        }
     }
 }
 
-
-@keyframes Slide-in {
+@keyframes Entrance {
 	0% {
-		transform: translateX(-200px);
+		transform: scale(0);
 	}
 
 	100% {
-		transform: translateX(0);
+		transform: scale(1);
 	}
 }

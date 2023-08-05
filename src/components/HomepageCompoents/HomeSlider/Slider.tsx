@@ -23,7 +23,7 @@ export default function Slider() {
             >
                 <SplideSlide>
                     <Image
-                        src="/static/george-jar10.jpg"
+                        src="/static/nachalo.jpg"
                         alt="Image 1"
                         width={5000}
                         height={3750}

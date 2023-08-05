@@ -1,15 +1,13 @@
-@import '../../styles/variables';
-
+@import "../../styles/variables";
 
 .NavigationWrapper {
     background-color: transparent;
+    // background-color: $color-tertiary;
     color: $color-secondary;
     z-index: 10;
     position: absolute;
-    
-    .NavigationContainer {
-        
 
+    .NavigationContainer {
         display: grid;
         grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
         align-items: center;
@@ -25,9 +23,7 @@
         }
 
         .NavigatioMiddleLinks {
-
             .NavigationLinksContainer {
-
                 ul {
                     display: flex;
                     justify-content: center;
@@ -41,15 +37,16 @@
                         min-width: 70px;
                     }
 
-
                     p {
                         text-decoration: none;
                         color: $color-secondary;
 
-                        background-image: linear-gradient(to right,
-                                $color-secondary,
-                                $color-secondary 50%,
-                                $color-tertiary 50%);
+                        background-image: linear-gradient(
+                            to right,
+                            $color-secondary,
+                            $color-secondary 50%,
+                            $color-tertiary 50%
+                        );
                         background-size: 200% 100%;
                         background-position: -100%;
                         display: inline-block;
@@ -61,7 +58,7 @@
                         transition: all 0.3s ease-in-out;
 
                         &:before {
-                            content: '';
+                            content: "";
                             background: $color-secondary;
                             display: block;
                             position: absolute;
@@ -78,14 +75,15 @@
                     }
 
                     a {
-
                         text-decoration: none;
                         color: $color-secondary;
 
-                        background-image: linear-gradient(to right,
-                                $color-secondary,
-                                $color-secondary 50%,
-                                $color-tertiary 50%);
+                        background-image: linear-gradient(
+                            to right,
+                            $color-secondary,
+                            $color-secondary 50%,
+                            $color-tertiary 50%
+                        );
                         background-size: 200% 100%;
                         background-position: -100%;
                         display: inline-block;
@@ -97,7 +95,7 @@
                         transition: all 0.3s ease-in-out;
 
                         &:before {
-                            content: '';
+                            content: "";
                             background: $color-secondary;
                             display: block;
                             position: absolute;
@@ -122,7 +120,10 @@
 
         .ShoppingCart {
             transition: transform 1.3s;
-            cursor: pointer;
+
+            .Cart {
+                cursor: pointer;
+            }
         }
 
         .LanguageButton {
@@ -133,7 +134,6 @@
             font-size: xx-large;
 
             button {
-
                 font-size: x-large;
                 color: $color-tertiary;
                 background-color: transparent;
@@ -141,19 +141,15 @@
                 cursor: pointer;
             }
 
-
             .Active {
                 text-shadow: 0px 0px 11px $color-secondary;
                 color: $color-secondary;
             }
         }
-
     }
-
 }
 
 @media (max-width: 1120px) {
-
     .NavigationWrapper {
         position: relative;
         background-color: $color-primary;
@@ -163,7 +159,6 @@
             grid-template-columns: 1fr 1fr 1fr;
 
             .NavigatioLeftLinks {
-
                 grid-row: 1;
                 grid-column-start: 1;
                 grid-column-end: 4;
@@ -176,7 +171,6 @@
                 // grid-column: 1;
                 grid-row: 2;
             }
-
 
             .ShoppingCart {
                 text-align: left;
@@ -214,14 +208,9 @@
     .ExpandButton {
         display: block;
     }
-
-
 }
 
-
-
 @keyframes bounce {
-
     // 0%,
     // 100% {
     //     transform: translateY(0);

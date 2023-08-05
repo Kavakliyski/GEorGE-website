@@ -1,0 +1,41 @@
+@import "./../../variables";
+
+.seriesWrapper {
+    padding: 240px 0px;
+
+    @media (max-width: 1120px) {
+        padding: 5px 10px;
+    }
+
+    width: min(100%, 1400px);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .seriesContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        background-color: $color-tertiary;
+        border-radius: 15px;
+        color: $color-primary;
+
+        width: 100%;
+
+        padding: 24px;
+
+        a {
+            text-decoration: none;
+            font-size: 45px;
+            color: $color-primary;
+            h1 {
+                
+            }
+        }
+    }
+}

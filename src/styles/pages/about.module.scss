@@ -1,91 +1,61 @@
 @import "../variables";
 
-
 .AboutPageWrapper {
+    padding: 240px 0px;
 
-    margin-top: 4vw;
-    padding: 150px;
+    @media (max-width: 1120px) {
+        padding: 8px 10px;
+    }
 
-    color: $color-tertiary;
+    width: min(100%, 1400px);
+    margin: 0 auto;
 
-    .AboutPageSection {
-        animation: myAnim 1s ease 0s 1 normal forwards;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
+    .aboutContainer {
         display: flex;
-        gap: 50px;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
 
-        width: 90%;
-
-        margin: 0 auto;
-
-        border-radius: 15px;
-        padding: 40px;
         background-color: $color-tertiary;
+        border-radius: 15px;
         color: $color-primary;
-        font-size: x-large;
 
-        .AboutProfile {
-            // margin: 0 auto;
+        width: 100%;
 
-            .AboutCeoImage {
-                img {
-                    object-fit: contain;
-                    height: 408px;
-                    max-width: 300px;
-                }
+        padding: 24px;
+
+        .aboutText {
+
+            animation: Entrance 1s ease 0s 1 normal forwards;
+
+            font-size: 24px;
+
+            @media (max-width: 400px) {
+                font-size: 20px;
             }
 
-            .AboutCeoName {}
-        }
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: start;
+            gap: 24px;
 
-        .AboutTextContainer {
-            max-width: 800px;
-
-            .AbouText {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-
-                .Par1 {
-                    font-style: italic;
-                    border-left: 2px solid $color-primary;
-                    padding-left: 20px;
-                }
-
-                .Par2 {}
-
-            }
+            padding: 0 10px;
         }
     }
 }
 
+@keyframes Entrance {
+	0% {
+		transform: scale(0);
+	}
 
-@media (max-width: 1120px) {
-
-
-    .AboutPageWrapper {
-        padding: 10px;
-
-        .AboutPageSection {
-            flex-direction: column;
-            font-size: medium;
-        }
-    }
-}
-
-
-@keyframes myAnim {
-    0% {
-        opacity: 0;
-        transform: rotateX(-100deg);
-        transform-origin: top;
-    }
-
-    100% {
-        opacity: 1;
-        transform: rotateX(0deg);
-        transform-origin: top;
-    }
+	100% {
+		transform: scale(1);
+	}
 }
