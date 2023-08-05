@@ -22,12 +22,6 @@ export default function Aurum() {
                         src={"/static/aurum/aurum.jpg"}
                     />
 
-                    <Image
-                        width={1000}
-                        height={1000}
-                        alt=""
-                        src={"/static/aurum/serii-aurum.jpg"}
-                    />
 
                     <p className={styles.textCard}>
                         <Trans i18nKey={t("paragraph1")} />
@@ -36,10 +30,18 @@ export default function Aurum() {
                     <p className={styles.textCard}>
                         <Trans i18nKey={t("paragraph2")} />
                     </p>
+
                     <p className={styles.textCard}>
                         <Trans i18nKey={t("paragraph3")} />
                     </p>
 
+                    <Image
+                        width={1000}
+                        height={1000}
+                        alt=""
+                        src={"/static/aurum/serii-aurum.jpg"}
+                    />
+                    
                     <p className={styles.textCard}>
                         <Trans i18nKey={t("paragraph4")} />
                     </p>
