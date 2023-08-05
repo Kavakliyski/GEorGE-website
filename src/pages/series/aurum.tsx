@@ -15,17 +15,22 @@ export default function Aurum() {
         <div className={styles.aurumWrapper}>
             <div className={styles.aurumContainer}>
                 <div className={styles.aurumText}>
-                    <p className={styles.textCard}>
-                        <Trans i18nKey={t("paragraph1")} />
-                    </p>
+                <Image
+                        width={1000}
+                        height={1000}
+                        alt=""
+                        src={"/static/aurum/aurum.jpg"}
+                    />
+
+                    <Image
+                        width={1000}
+                        height={1000}
+                        alt=""
+                        src={"/static/aurum/serii-aurum.jpg"}
+                    />
 
                     <p className={styles.textCard}>
-                        <Image
-                            width={1000}
-                            height={1000}
-                            alt=""
-                            src={"/static/aurum/aurum.jpg"}
-                        />
+                        <Trans i18nKey={t("paragraph1")} />
                     </p>
 
                     <p className={styles.textCard}>
@@ -37,15 +42,6 @@ export default function Aurum() {
 
                     <p className={styles.textCard}>
                         <Trans i18nKey={t("paragraph4")} />
-                    </p>
-
-                    <p className={styles.textCard}>
-                        <Image
-                            width={1000}
-                            height={1000}
-                            alt=""
-                            src={"/static/aurum/serii-aurum.jpg"}
-                        />
                     </p>
 
                     <p className={styles.textCard}>
