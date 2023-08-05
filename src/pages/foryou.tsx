@@ -56,10 +56,10 @@ export default function Foryou() {
                                 <Trans i18nKey={t("li4")} />
                             </li>
                             <li>
-                                <Trans i18nKey={t("li5")} />
+                                <Trans i18nKey={t("li6")} />
                             </li>
                             <li>
-                                <Trans i18nKey={t("li6")} />
+                                <Trans i18nKey={t("li5")} />
                             </li>
                             <li>
                                 <Trans i18nKey={t("li7")} />
