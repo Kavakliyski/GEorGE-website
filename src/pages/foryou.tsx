@@ -31,14 +31,15 @@ export default function Foryou() {
 
             <div className={styles.ForyouPageWrapper}>
                 <div className={styles.foryouContainer}>
-                    <Image
-                        width={200}
-                        height={200}
-                        alt=""
-                        src={"/favicon.png"}
-                    />
-
-                    <h1>{t("title")}</h1>
+                    <div className={styles.foryouPageTitle}>
+                        <Image
+                            width={200}
+                            height={200}
+                            alt=""
+                            src={"/favicon.png"}
+                        />
+                        <h1>{t("title")}</h1>
+                    </div>
 
                     <div className={styles.foryouText}>
                         <ul>

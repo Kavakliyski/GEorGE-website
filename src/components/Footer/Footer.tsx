@@ -4,6 +4,7 @@ import styles from "./Footer.module.scss";
 // next
 import { useTranslation } from "next-i18next";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // icons
 import PhoneSVG from "../../../public/icons/phoneBlack.svg";
@@ -38,14 +39,22 @@ export default function Footer() {
 
                     <div className={styles.FooterProducts}>
                         <h1>{translate("products")}</h1>
-                        <h2>{translate("stop_aging")}</h2>
-                        <h2>{translate("аnti_acne")}</h2>
+                        <Link href={"products/stop_aging"}>
+                            <h2>{translate("stop_aging")}</h2>
+                        </Link>
+                        <Link href={"products/аnti_acne"}>
+                            <h2>{translate("аnti_acne")}</h2>
+                        </Link>
                     </div>
 
                     <div className={styles.FooterSeries}>
                         <h1>{translate("series")}</h1>
-                        <h2>{translate("аurum")}</h2>
-                        <h2>{translate("comming_soon")}</h2>
+                        <Link href={"series/aurum"}>
+                            <h2>{translate("аurum")}</h2>
+                        </Link>
+                        <Link href={"series/coming_soon"}>
+                            <h2>{translate("coming_soon")}</h2>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.FooterCopyright}>

@@ -1,13 +1,13 @@
 @import "../variables.scss";
 
 .ForyouPageWrapper {
-    padding: 240px 0px;
+    padding: 150px 0px;
 
     @media (max-width: 1120px) {
         padding: 8px 10px;
     }
 
-    width: min(100%, 1400px);
+    width: 100%;
     margin: 0 auto;
 
     display: flex;
@@ -21,7 +21,7 @@
         justify-content: center;
         align-items: center;
 
-        background-color: $color-tertiary;
+        background-color: transparent;
         border-radius: 15px;
         color: $color-primary;
 
@@ -29,14 +29,67 @@
 
         padding: 24px;
 
+        .foryouPageTitle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-tertiary;
+            padding: 0px 30px 10px 30px;
+            border-radius: 250%;
+        }
+
         .foryouText {
-
-            animation: Entrance 1s ease 0s 1 normal forwards;
-
             ul {
                 list-style: none;
-                li {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 500px;
+
+                li:nth-child(odd) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+
+                    animation: bubble 1.5s ease 0s 1 normal forwards;
+
                     font-size: 24px;
+                    background-color: $color-tertiary;
+
+                    border-radius: 100%; /* Make the corners round to create the bubble effect */
+                    padding: 20px; /* Add padding inside the bubble */
+                    width: 400px; /* Set the width of the bubble */
+                    height: 400px;
+                    position: relative;
+
+                    @media (max-width: 440px) {
+                        width: 200px;
+                        height: 200px;                    }
+
+                    top: 20px; /* Position odd-numbered paragraphs from the top */
+                    left: 20px;
+                }
+
+                li:nth-child(even) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+
+                    animation: bubble 1s ease 0s 1 normal forwards;
+
+                    font-size: 24px;
+                    background-color: $color-tertiary;
+
+                    border-radius: 100%; /* Make the corners round to create the bubble effect */
+                    padding: 10px; /* Add padding inside the bubble */
+                    width: 200px; /* Set the width of the bubble */
+                    height: 200px;
+                    position: relative;
+
+                    bottom: 20px; /* Position even-numbered paragraphs from the bottom */
+                    right: 20px;
                 }
 
                 @media (max-width: 400px) {
@@ -56,11 +109,95 @@
 }
 
 @keyframes Entrance {
-	0% {
-		transform: scale(0);
-	}
+    0% {
+        transform: scale(0);
+    }
 
-	100% {
-		transform: scale(1);
-	}
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeatHover {
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
+
+    10% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    17% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    33% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
+
+    45% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
+}
+
+@keyframes bubble {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+        transform: translateY(250px);
+    }
+
+    38% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    55% {
+        animation-timing-function: ease-in;
+        transform: translateY(65px);
+    }
+
+    72% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+
+    81% {
+        animation-timing-function: ease-in;
+        transform: translateY(28px);
+    }
+
+    90% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+
+    95% {
+        animation-timing-function: ease-in;
+        transform: translateY(8px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
