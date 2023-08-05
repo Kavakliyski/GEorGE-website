@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import styles from "@/styles/pages/foryou.module.scss";
 
-export default function foryou() {
+export default function Foryou() {
     const { t } = useTranslation("foryou");
 
     return (
