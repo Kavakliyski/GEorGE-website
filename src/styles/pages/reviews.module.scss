@@ -1,0 +1,35 @@
+@import "../variables";
+
+.reviewsWrapper{
+
+    padding: 150px 0px;
+
+    @media (max-width: 1120px) {
+        padding: 8px 10px;
+    }
+
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .reviewsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: $color-tertiary;
+        border-radius: 15px;
+        color: $color-primary;
+
+        width: min(100%,1440px);
+
+        padding: 24px;
+
+    }
+
+}
