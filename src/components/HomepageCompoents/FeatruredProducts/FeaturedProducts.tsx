@@ -1,8 +1,14 @@
 import Image from "next/image";
+import { Trans } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 import styles from "./FeaturedProducts.module.scss";
 
 export const FeaturedProducts = () => {
+    // <Trans i18nKey={t("paragraph3")} />
+    const { t } = useTranslation("common");
+
     return (
         <div className={styles.FeaturedProductsWrapper}>
             <div className={styles.FeaturedProductsContainer}>
@@ -18,7 +24,7 @@ export const FeaturedProducts = () => {
                     <div className={styles.BoxContent}>
                         <div>
                             <h2>
-                                Необходимият лукс за Нейно Величество Кожата
+                                <Trans i18nKey={t("box1")} />
                             </h2>
                         </div>
                     </div>
@@ -34,7 +40,9 @@ export const FeaturedProducts = () => {
                     </div>
                     <div className={styles.BoxContent}>
                         <div>
-                            <h2>24-каратова красота 7 дни в седмицата</h2>
+                            <h2>
+                                <Trans i18nKey={t("box2")} />
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -49,7 +57,9 @@ export const FeaturedProducts = () => {
                     </div>
                     <div className={styles.BoxContent}>
                         <div>
-                            <h2>Ефирност, нежност и деликатност</h2>
+                            <h2>
+                                <Trans i18nKey={t("box3")} />
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -64,7 +74,9 @@ export const FeaturedProducts = () => {
                     </div>
                     <div className={styles.BoxContent}>
                         <div>
-                            <h2>Магия за Вашето щастие</h2>
+                            <h2>
+                                <Trans i18nKey={t("box4")} />
+                            </h2>
                         </div>
                     </div>
                 </div>

@@ -18,12 +18,14 @@ export default function Slider() {
                 options={{
                     rewind: true,
                     gap: "1rem",
-                    interval: 1000,
+                    interval: 8000, // seconds
+                    type: "loop",
+                    autoplay: true,
                 }}
             >
                 <SplideSlide>
                     <Image
-                        src="/static/nachalo.jpg"
+                        src="/static/nach-str-za-vas.jpg"
                         alt="Image 1"
                         width={5000}
                         height={3750}
@@ -31,7 +33,7 @@ export default function Slider() {
                 </SplideSlide>
                 <SplideSlide>
                     <Image
-                        src="/static/george-jar10.jpg"
+                        src="/static/nachalo.jpg"
                         alt="Image 2"
                         width={5000}
                         height={3750}
