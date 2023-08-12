@@ -37,6 +37,11 @@
             background-color: $color-tertiary;
             padding: 0px 30px 10px 30px;
             border-radius: 250%;
+
+            width: 250px;
+            height: 250px;
+
+            box-shadow: $color-tertiary 0px 0px 15px 0px;
         }
 
         .foryouText {
@@ -65,10 +70,13 @@
 
                     @media (max-width: 440px) {
                         width: 200px;
-                        height: 200px;                    }
+                        height: 200px;
+                    }
 
                     top: 20px; /* Position odd-numbered paragraphs from the top */
                     left: 20px;
+
+                    box-shadow: $color-tertiary 0px 0px 10px 0px;
                 }
 
                 li:nth-child(even) {
@@ -90,6 +98,8 @@
 
                     bottom: 20px; /* Position even-numbered paragraphs from the bottom */
                     right: 20px;
+
+                    box-shadow: $color-tertiary 0px 0px 10px 0px;
                 }
 
                 @media (max-width: 400px) {
