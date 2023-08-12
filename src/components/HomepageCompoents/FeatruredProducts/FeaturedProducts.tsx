@@ -6,7 +6,6 @@ import { useTranslation } from "next-i18next";
 import styles from "./FeaturedProducts.module.scss";
 
 export const FeaturedProducts = () => {
-    // <Trans i18nKey={t("paragraph3")} />
     const { t } = useTranslation("common");
 
     return (

@@ -19,6 +19,8 @@ export default function Home() {
                 <FeaturedProducts />
                 {/* <HeroBanner /> */}
                 <Sponsors />
+                <br />
+                <br />
             </main>
         </>
     );

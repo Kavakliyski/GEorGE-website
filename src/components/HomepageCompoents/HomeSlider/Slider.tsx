@@ -17,7 +17,7 @@ export default function Slider() {
                 aria-label="My Favorite Images"
                 options={{
                     rewind: true,
-                    gap: "1rem",
+                    gap: "2rem",
                     interval: 8000, // seconds
                     type: "loop",
                     autoplay: true,
