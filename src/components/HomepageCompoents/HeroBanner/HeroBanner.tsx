@@ -2,6 +2,7 @@
 import HeroImg from "../../../../public/static/george-jar10.jpg";
 import Image from "next/image";
 
+// styles
 import styles from "./HeroBanner.module.scss"
 
 export const HeroBanner = () => {
