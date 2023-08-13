@@ -24,7 +24,7 @@ export default function ProductPage({ product }: any) {
 
     return (
         <div className={styles.productWrapper}>
-            <p>{product.name}</p>
+            <p>prod</p>
 
         </div>
     );
