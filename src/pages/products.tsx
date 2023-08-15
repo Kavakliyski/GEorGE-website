@@ -15,13 +15,6 @@ export default function products() {
 
             <div>
                 <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
-                <h1>products</h1>
             </div>
         </>
     )

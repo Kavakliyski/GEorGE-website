@@ -1,5 +1,5 @@
-// stlyes
-import styles from "@/styles/pages/shop.module.scss";
+// styles
+import styles from "@/styles/pages/products/stop_aging.module.scss";
 
 // next, react
 import { useEffect, useState } from "react";
@@ -15,10 +15,7 @@ import { IProduct } from "@/interfaces/Iproducts";
 import { georgeProducts } from "@/products/products";
 import Head from "next/head";
 
-// endopoints
-// import { GET_PRODUCTS_ENDPOINT } from "@/utils/endpoints";z
-
-export default function Shop() {
+export default function Stop_aging() {
     const [productsData, setProductsData] =
         useState<IProduct[]>(georgeProducts);
 
@@ -31,9 +28,9 @@ export default function Shop() {
     return (
         <>
             <Head>
-                <title>GEorGE • Cosmetic • Shop</title>
+                <title>GEorGE • Cosmetic • Products</title>
             </Head>
-            
+
             <div className={styles.ShopWrapper}>
                 <div className={styles.ProdcutsContainer}>
                     {productsData.map((product, index) => (
