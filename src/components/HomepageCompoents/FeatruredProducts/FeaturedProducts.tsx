@@ -17,7 +17,7 @@ export const FeaturedProducts = () => {
                             width={1000}
                             height={1000}
                             alt=""
-                            src={"/static/featureProducts/nach-str-za-vas.jpg"}
+                            src={"/static/featureProducts/06.jpg"}
                         />
                     </div>
                     <div className={styles.BoxContent}>

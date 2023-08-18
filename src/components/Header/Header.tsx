@@ -10,6 +10,7 @@ import Image from 'next/image';
 import GeorgeLogoText2 from "../../../public/static/george.png";
 import CartSVGWhite from '../../../public/icons/cart-white.svg';
 import SVGLogo from "../../../public/icons/george-logo-white.svg";
+import SVGLogo2 from "../../../public/static/logo-1.svg";
 
 
 import { InternalizationContext } from '@/context/InternalizationContext';
@@ -40,7 +41,7 @@ export default function Header() {
                     <div className={styles.NavigationContainer}>
 
                         <div className={styles.NavigatioLeftLinks}>
-                            <Image src={SVGLogo} alt={''} />
+                            <Image src={SVGLogo2} alt={''} />
                         </div>
 
                         <div className={styles.NavigatioMiddleLinks}>
