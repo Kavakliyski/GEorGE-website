@@ -7,6 +7,8 @@ interface CartContextInterface {
     setCartProducts?: any;
     updateProductCount?: any;
     calculateTotal?: any;
+    addToCart?: any;
+    getTotalProductCount?: any;
 }
 
 export const CartContext = createContext<CartContextInterface>({
@@ -20,6 +22,13 @@ export function CartContextProvider({ children }: any) {
 
     const updateCart = (newCartData: any) => {
         setCartProducts(newCartData);
+    };
+
+    const getTotalProductCount = () => {
+        return cartProducts.reduce(
+            (total, product) => total + product.count,
+            0
+        );
     };
 
     const updateProductCount = (productName: string, change: number) => {
@@ -56,6 +65,28 @@ export function CartContextProvider({ children }: any) {
         };
     };
 
+    const addToCart = (product: any) => {
+        console.log("====================================");
+        console.log(product);
+        console.log("====================================");
+
+        // Check if the product is already in the cart
+        const existingProduct = cartProducts.find(
+            (p) => p.name === product.name
+        );
+
+        if (existingProduct) {
+            // If the product is already in the cart, increase its count
+            updateProductCount(product.name, 1);
+        } else {
+            // If the product is not in the cart, add it with a count of 1
+            setCartProducts((prevCart) => [
+                ...prevCart,
+                { ...product, count: 1 },
+            ]);
+        }
+    };
+
     return (
         <CartContext.Provider
             value={{
@@ -65,6 +96,8 @@ export function CartContextProvider({ children }: any) {
                 setCartProducts,
                 updateProductCount,
                 calculateTotal,
+                addToCart,
+                getTotalProductCount,
             }}
         >
             {children}

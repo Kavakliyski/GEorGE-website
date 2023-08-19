@@ -5,10 +5,10 @@ import styles from "./Navbar.module.scss";
 import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from "next-i18next";
 
 // assets
-import CartSVGBlack from "../../../public/icons/cart-black.svg"
+import CartSVGBlack from "../../../public/icons/cart-black.svg";
 import LogoImage from "../../../public/static/george-aurum.png";
 import LogoImage2 from "../../../public/icons/george-logo-finalver-02.webp";
 
@@ -17,18 +17,15 @@ import { InternalizationContext } from "@/context/InternalizationContext";
 import { CartContext } from "@/context/CartContext";
 import { DropdownBlack } from "../CustomItems/Dropdown/Dropdown";
 
-
 export const Navbar = () => {
-
     const [showNavbar, setShowNavbar] = useState(false);
-    const { setIsDrawerOpen } = useContext(CartContext);
+    const { setIsDrawerOpen, getTotalProductCount } = useContext(CartContext);
 
-    const { t: translate } = useTranslation('header');
+    const { t: translate } = useTranslation("header");
 
-    const { isLanguagesActive, push } = useContext(InternalizationContext)
+    const { isLanguagesActive, push } = useContext(InternalizationContext);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,12 +44,19 @@ export const Navbar = () => {
     }, []);
 
     return (
-        <nav className={showNavbar ? styles.NavbarWrapperVisible : styles.NavbarWrapper}>
+        <nav
+            className={
+                showNavbar ? styles.NavbarWrapperVisible : styles.NavbarWrapper
+            }
+        >
             <div className={styles.NavbarContainer}>
-
                 <div className={styles.BurgerMenu}>
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <div className={`${styles.BurgerIcon} ${isMenuOpen ? styles.Open : ""}`}>
+                        <div
+                            className={`${styles.BurgerIcon} ${
+                                isMenuOpen ? styles.Open : ""
+                            }`}
+                        >
                             <span />
                             <span />
                             <span />
@@ -62,117 +66,181 @@ export const Navbar = () => {
 
                 <div className={styles.LanguageButton}>
                     <button
-                        className={isLanguagesActive("bg") ? styles.Active : ''}
-                        onClick={() => push('/', undefined, { locale: "bg" })}
-                    >BG</button>
+                        className={isLanguagesActive("bg") ? styles.Active : ""}
+                        onClick={() => push("/", undefined, { locale: "bg" })}
+                    >
+                        BG
+                    </button>
                     |
                     <button
-                        className={isLanguagesActive("en") ? styles.Active : ''}
-                        onClick={() => push('/', undefined, { locale: "en" })}
-                    >EN</button>
+                        className={isLanguagesActive("en") ? styles.Active : ""}
+                        onClick={() => push("/", undefined, { locale: "en" })}
+                    >
+                        EN
+                    </button>
                 </div>
 
                 <div className={styles.NavbarLinksLeft}>
                     <ul>
                         <li>
-                            <Link href="/">{translate('home')}</Link>
+                            <Link href="/">{translate("home")}</Link>
                         </li>
                         <li>
-                            <Link href="/about">{translate('about')}</Link>
+                            <Link href="/about">{translate("about")}</Link>
                         </li>
                         <li>
-                            <Link href="/foryou">{translate('foryou')}</Link>
+                            <Link href="/foryou">{translate("foryou")}</Link>
                         </li>
                     </ul>
                 </div>
 
                 <div className={styles.NavbarLinksMiddle}>
-                    <Image
-                        src={LogoImage2}
-                        alt=""
-                        width={150}
-                    />
+                    <Image src={LogoImage2} alt="" width={150} />
                 </div>
 
                 <div className={styles.NavbarLinksRight}>
                     <ul>
                         <li>
                             <DropdownBlack
-                                text={translate('products')}
-                                parent_link={'products'}
+                                text={translate("products")}
+                                parent_link={"products"}
                                 links={[
-                                    { label: translate('stop_aging'), href: 'stop_aging' },
-                                    { label: translate('аnti_acne'), href: 'аnti_acne' }
+                                    {
+                                        label: translate("stop_aging"),
+                                        href: "stop_aging",
+                                    },
+                                    {
+                                        label: translate("аnti_acne"),
+                                        href: "аnti_acne",
+                                    },
                                 ]}
                             />
                         </li>
                         <li>
                             <DropdownBlack
-                                text={translate('series')}
-                                parent_link={'series'}
+                                text={translate("series")}
+                                parent_link={"series"}
                                 links={[
-                                    { label: translate('аurum'), href: 'aurum' },
-                                    { label: translate('coming_soon'), href: 'coming_soon' }
+                                    {
+                                        label: translate("аurum"),
+                                        href: "aurum",
+                                    },
+                                    {
+                                        label: translate("coming_soon"),
+                                        href: "coming_soon",
+                                    },
                                 ]}
                             />
-
                         </li>
                         <li>
-                            <Link href="/reviews">{translate('reviews')}</Link>
+                            <Link href="/reviews">{translate("reviews")}</Link>
                         </li>
                     </ul>
                 </div>
 
-                <div className={`${isMenuOpen ? styles.MenuItems : styles.LinkIsInvisible}`}>
+                <div
+                    className={`${
+                        isMenuOpen ? styles.MenuItems : styles.LinkIsInvisible
+                    }`}
+                >
                     <ul>
-                        <li onClick={() => setIsMenuOpen(false)}><Link href="/">{translate('home')}</Link></li>
-                        <li onClick={() => setIsMenuOpen(false)}><Link href="/about">{translate('about')}</Link></li>
-                        <li onClick={() => setIsMenuOpen(false)}><Link href="/foryou">{translate('foryou')}</Link></li>
-                        <li>
-                            <DropdownBlack
-                                text={translate('products')}
-                                parent_link={'products'}
-                                links={[
-                                    { label: translate('stop_aging'), href: 'stop_aging' },
-                                    { label: translate('аnti_acne'), href: 'аnti_acne' }
-                                ]} />
+                        <li onClick={() => setIsMenuOpen(false)}>
+                            <Link href="/">{translate("home")}</Link>
+                        </li>
+                        <li onClick={() => setIsMenuOpen(false)}>
+                            <Link href="/about">{translate("about")}</Link>
+                        </li>
+                        <li onClick={() => setIsMenuOpen(false)}>
+                            <Link href="/foryou">{translate("foryou")}</Link>
                         </li>
                         <li>
                             <DropdownBlack
-                                text={translate('series')}
-                                parent_link={'series'}
+                                text={translate("products")}
+                                parent_link={"products"}
                                 links={[
-                                    { label: translate('аurum'), href: 'aurum' },
-                                    { label: translate('coming_soon'), href: 'coming_soon' }
-                                ]} />
+                                    {
+                                        label: translate("stop_aging"),
+                                        href: "stop_aging",
+                                    },
+                                    {
+                                        label: translate("аnti_acne"),
+                                        href: "аnti_acne",
+                                    },
+                                ]}
+                            />
                         </li>
-                        <li onClick={() => setIsMenuOpen(false)}><Link href="/reviews">{translate('reviews')}</Link></li>
+                        <li>
+                            <DropdownBlack
+                                text={translate("series")}
+                                parent_link={"series"}
+                                links={[
+                                    {
+                                        label: translate("аurum"),
+                                        href: "aurum",
+                                    },
+                                    {
+                                        label: translate("coming_soon"),
+                                        href: "coming_soon",
+                                    },
+                                ]}
+                            />
+                        </li>
+                        <li onClick={() => setIsMenuOpen(false)}>
+                            <Link href="/reviews">{translate("reviews")}</Link>
+                        </li>
                     </ul>
                 </div>
 
-                {
-                    isMenuOpen ?
-                        <div className={`${isMenuOpen ? styles.LanguageButtonMobile : styles.LanguageButtonMobileInv}`}>
-                            <button
-                                className={isLanguagesActive("bg") ? styles.Active : ''}
-                                onClick={() => { push('/', undefined, { locale: "bg" }), setIsMenuOpen(false) }}
-                            >BG</button>
-                            |
-                            <button
-                                className={isLanguagesActive("en") ? styles.Active : ''}
-                                onClick={() => { push('/', undefined, { locale: "en" }), setIsMenuOpen(false) }}
-                            >EN</button>
-                        </div> : null
-                }
+                {isMenuOpen ? (
+                    <div
+                        className={`${
+                            isMenuOpen
+                                ? styles.LanguageButtonMobile
+                                : styles.LanguageButtonMobileInv
+                        }`}
+                    >
+                        <button
+                            className={
+                                isLanguagesActive("bg") ? styles.Active : ""
+                            }
+                            onClick={() => {
+                                push("/", undefined, { locale: "bg" }),
+                                    setIsMenuOpen(false);
+                            }}
+                        >
+                            BG
+                        </button>
+                        |
+                        <button
+                            className={
+                                isLanguagesActive("en") ? styles.Active : ""
+                            }
+                            onClick={() => {
+                                push("/", undefined, { locale: "en" }),
+                                    setIsMenuOpen(false);
+                            }}
+                        >
+                            EN
+                        </button>
+                    </div>
+                ) : null}
 
-
-                <div className={styles.ShoppingCart} >
+                <div className={styles.ShoppingCart}>
                     <Image
-                        src={CartSVGBlack} alt='' width={50}
-                        onClick={() => { setIsDrawerOpen(true), setIsMenuOpen(false) }} />
+                        src={CartSVGBlack}
+                        alt=""
+                        width={50}
+                        onClick={() => {
+                            setIsDrawerOpen(true), setIsMenuOpen(false);
+                        }}
+                    />
+                    {getTotalProductCount() > 0 && (
+                        <span className={styles.cartCount}>
+                            {getTotalProductCount()}
+                        </span>
+                    )}
                 </div>
-
             </div>
         </nav>
-    )
-}
+    );
+};

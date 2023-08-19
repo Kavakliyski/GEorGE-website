@@ -17,7 +17,6 @@
     box-shadow: 0 10px 10px $color-primary, 0 -10px 10px $color-primary;
 
     .NavbarContainer {
-
         display: grid;
         grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
         align-items: center;
@@ -26,7 +25,6 @@
 
         font-size: x-large;
         text-transform: uppercase;
-
 
         .LinkIsInvisible {
             display: none;
@@ -38,9 +36,18 @@
 
         .ShoppingCart {
             margin: 0 auto;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
 
+            .cartCount {
+                position: absolute;
+                color: $color-primary;
+                border-radius: 50%; // to make it circular
+                font-size: 1.2em; // adjust as needed
+                text-align: center;
+            }
             img {
-
                 cursor: pointer;
 
                 &:hover {
@@ -53,10 +60,12 @@
             text-decoration: none;
             color: $color-secondary;
 
-            background-image: linear-gradient(to right,
-                    $color-secondary,
-                    $color-secondary 50%,
-                    $color-primary 50%);
+            background-image: linear-gradient(
+                to right,
+                $color-secondary,
+                $color-secondary 50%,
+                $color-primary 50%
+            );
             background-size: 200% 100%;
             background-position: -100%;
             display: inline-block;
@@ -68,7 +77,7 @@
             transition: all 0.3s ease-in-out;
 
             &:before {
-                content: '';
+                content: "";
                 background: $color-secondary;
                 display: block;
                 position: absolute;
@@ -88,10 +97,12 @@
             text-decoration: none;
             color: $color-secondary;
 
-            background-image: linear-gradient(to right,
-                    $color-secondary,
-                    $color-secondary 50%,
-                    $color-primary 50%);
+            background-image: linear-gradient(
+                to right,
+                $color-secondary,
+                $color-secondary 50%,
+                $color-primary 50%
+            );
             background-size: 200% 100%;
             background-position: -100%;
             display: inline-block;
@@ -103,7 +114,7 @@
             transition: all 0.3s ease-in-out;
 
             &:before {
-                content: '';
+                content: "";
                 background: $color-secondary;
                 display: block;
                 position: absolute;
@@ -151,12 +162,10 @@
         }
 
         .LanguageButton {
-
             text-align: center;
             font-size: xx-large;
 
             button {
-
                 font-size: x-large;
                 color: $color-primary;
                 background-color: transparent;
@@ -164,23 +173,18 @@
                 cursor: pointer;
             }
 
-
             .Active {
                 text-shadow: 0px 0px 11px $color-secondary;
                 color: $color-secondary;
             }
         }
-
-
     }
 
     @media (max-width: 1120px) {
         .NavbarContainer {
-
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 115px;
             padding: 5px 0px 0px 0px;
-
 
             .BurgerMenu {
                 display: flex;
@@ -232,8 +236,6 @@
                 }
             }
 
-
-
             .MenuItems {
                 position: relative;
                 display: block;
@@ -243,7 +245,6 @@
 
                 ul {
                     list-style: none;
-
                 }
 
                 grid-column-start: 1;
@@ -263,16 +264,13 @@
                 // grid-column-start: 2;
                 // grid-column-end: 4;
 
-
                 button {
-
                     font-size: x-large;
                     color: $color-primary;
                     background-color: transparent;
                     border: none;
                     cursor: pointer;
                 }
-
 
                 .Active {
                     text-shadow: 0px 0px 11px $color-secondary;
@@ -305,7 +303,6 @@
     }
 }
 
-
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -315,7 +312,6 @@
         transform: translateY(0);
     }
 }
-
 
 @keyframes slide-in {
     from {

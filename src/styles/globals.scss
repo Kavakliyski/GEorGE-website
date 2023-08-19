@@ -8,8 +8,10 @@
     box-sizing: border-box;
     font-family: 'Carlito', sans-serif;
     // outline: red dashed 1px;
+    
 }
 
 body {
     background-color: $color-primary;
+    overflow-x: hidden;
 }

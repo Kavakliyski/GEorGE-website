@@ -2,22 +2,58 @@
 import { IProduct } from "@/interfaces/Iproducts";
 
 // next
-import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
+import { GetStaticPaths } from "next";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Trans, useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
+import { useContext, useState } from "react";
 
 // products
 import { georgeProducts } from "@/products/products";
 
 // styles
-// import styles from "@/styles/pages/product/product.module.scss";
 import styles from "@/styles/pages/product.module.scss";
+
+// context
+import { CartContext } from "@/context/CartContext";
+
+// confetti effect
+import Confetti from "react-dom-confetti";
+
+// const config = {
+//     angle: 90,
+//     spread: 360,
+//     startVelocity: 40,
+//     elementCount: 70,
+//     dragFriction: 0.12,
+//     duration: 3000,
+//     stagger: 3,
+//     width: "10px",
+//     height: "10px",
+//     perspective: "500px",
+//     colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+// };
+
+const config = {
+    angle: 90,
+    spread: 150,
+    startVelocity: 40,
+    elementCount: 70,
+    dragFriction: 0.12,
+    duration: 3000,
+    stagger: 3,
+    width: "10px",
+    height: "10px",
+    perspective: "500px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+};
 
 export default function ProductPage({ product }: IProduct) {
     const { t } = useTranslation("product");
+
+    const { addToCart } = useContext(CartContext);
+    const [confettiActive, setConfettiActive] = useState(false);
 
     if (product)
         return (
@@ -43,10 +79,27 @@ export default function ProductPage({ product }: IProduct) {
                             <h4>{t(product.shortDescription)}</h4>
                             <div className={styles.productPriceButton}>
                                 <h3>
-                                    {product.price}
-                                    {t("currency")}
+                                    {`
+                                        ${product.price}
+                                        ${t("currency")}
+                                    `}
                                 </h3>
-                                <button>{t("buy")}</button>
+                                <Confetti
+                                    active={confettiActive}
+                                    config={config}
+                                />
+                                <button
+                                    onClick={() => {
+                                        addToCart(product);
+                                        setConfettiActive(true);
+                                        setTimeout(
+                                            () => setConfettiActive(false),
+                                            1000
+                                        );
+                                    }}
+                                >
+                                    {t("buy")}
+                                </button>
                             </div>
                         </div>
                     </div>

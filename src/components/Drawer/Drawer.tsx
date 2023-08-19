@@ -6,6 +6,7 @@ import { useContext, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 // context
 import { CartContext } from "@/context/CartContext";
@@ -13,10 +14,10 @@ import { InternalizationContext } from "@/context/InternalizationContext";
 
 // icon
 import XIcon from "../../../public/icons/close-x-icon.svg";
-import Image from "next/image";
 
 export const Drawer = () => {
     const { t: translate } = useTranslation("header");
+    const { t: translateProdcut } = useTranslation("product");
 
     const router = useRouter();
 
@@ -71,25 +72,25 @@ export const Drawer = () => {
                                         key={product.name}
                                         className={styles.ProductItem}
                                     >
-                                        <img
+                                        <Image
                                             className={styles.productImage}
-                                            src={product.image}
+                                            src={product.imageUrl || ""}
                                             alt={product.name}
+                                            width={190}
+                                            height={100}
+                                            style={{
+                                                width: "110px",
+                                                height: "100%",
+                                            }}
                                         />
                                         <div
                                             className={
                                                 styles.productDescription
                                             }
                                         >
-                                            <p>{product.name}</p>
-                                            <div
-                                                className={
-                                                    styles.productDescription
-                                                }
-                                                dangerouslySetInnerHTML={{
-                                                    __html: product.description,
-                                                }}
-                                            ></div>{" "}
+                                            <p>
+                                                {translateProdcut(product.name)}
+                                            </p>
                                         </div>
 
                                         <div className={styles.productCount}>

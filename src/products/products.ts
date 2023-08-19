@@ -9,7 +9,7 @@ export const georgeProducts: IProduct[] = [
         description: "product1_description",
         price: 29.99,
         imageUrl: "/productsIMG/1/produkt-serum.jpg",
-        slug: "serum",
+        slug: "cream",
         instructions_for_use: "product1_instructions_for_use",
         storage_conditions: "product1_storage_conditions",
         benefits: "product1_benefits",
@@ -19,10 +19,16 @@ export const georgeProducts: IProduct[] = [
     {
         id: 2,
         name: "Серум за интензивно подмладяване на GEorGE",
-        description: "Description for Product 2",
+        shorterDescription: "product2_shorterDescription",
+        shortDescription: "prodcut2_shortDescription",
+        description: "product2_description",
         price: 29.99,
         imageUrl: "/productsIMG/2/produkt-crem.jpg",
-        slug: "cream",
-        shortDescription: "",
+        slug: "serum",
+        instructions_for_use: "product2_instructions_for_use",
+        storage_conditions: "product2_storage_conditions",
+        benefits: "product2_benefits",
+        key_ingredients: "product2_key_ingredients",
+        quantity: "20",
     }
 ]

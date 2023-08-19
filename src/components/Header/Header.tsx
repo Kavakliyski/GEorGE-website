@@ -1,6 +1,8 @@
+// styles
 import styles from './Header.module.scss';
 
-import { useContext, useState } from 'react';
+// next
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link';
@@ -12,9 +14,11 @@ import CartSVGWhite from '../../../public/icons/cart-white.svg';
 import SVGLogo from "../../../public/icons/george-logo-white.svg";
 import SVGLogo2 from "../../../public/static/logo-1.svg";
 
-
+// context
 import { InternalizationContext } from '@/context/InternalizationContext';
 import { CartContext } from '@/context/CartContext';
+
+// components
 import { DropdownWhite } from '../CustomItems/Dropdown/Dropdown';
 
 
@@ -28,7 +32,7 @@ export default function Header() {
     const isLinkActive = (href: string) => router.pathname === href;
 
     const { isLanguagesActive } = useContext(InternalizationContext);
-    const { setIsDrawerOpen } = useContext(CartContext);
+    const { setIsDrawerOpen, getTotalProductCount } = useContext(CartContext);
 
 
     return (
@@ -82,8 +86,12 @@ export default function Header() {
                             </div>
                         </div>
 
-                        <div className={styles.ShoppingCart}>
-                            <Image className={styles.Cart} src={CartSVGWhite} alt='' width={50} onClick={() => setIsDrawerOpen(true)} />
+                        <div className={styles.ShoppingCart} onClick={() => setIsDrawerOpen(true)}>
+                            <Image className={styles.Cart} src={CartSVGWhite} alt='' width={50}  />
+                            {
+                                getTotalProductCount() > 0 &&
+                                <span className={styles.cartCount}>{getTotalProductCount()}</span> 
+                            }
                         </div>
 
                         <div className={styles.LanguageButton}>
