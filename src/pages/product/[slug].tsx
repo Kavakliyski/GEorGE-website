@@ -23,7 +23,7 @@ import Confetti from "react-dom-confetti";
 
 const config = {
     angle: 90,
-    spread: 150,
+    spread: 100,
     startVelocity: 40,
     elementCount: 70,
     dragFriction: 0.12,
