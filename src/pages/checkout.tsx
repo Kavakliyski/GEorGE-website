@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
 import { useContext, useState } from "react";
+import Image from "next/image";
 
 // styles
 import styles from "@/styles/pages/checkout.module.scss";
@@ -18,6 +19,7 @@ export default function Checkout() {
     const [phoneNumber, setPhoneNumber] = useState("");
 
     const { t: translate } = useTranslation("header");
+    const { t: translateProduct } = useTranslation("product");
 
     const { cartProducts, updateProductCount, calculateTotal } =
         useContext(CartContext);
@@ -103,21 +105,19 @@ export default function Checkout() {
                                     key={product.name}
                                     className={styles.ProductItem}
                                 >
-                                    <img
+                                    <Image
                                         className={styles.productImage}
-                                        src={product.image}
+                                        src={product.imageUrl}
                                         alt={product.name}
+                                        width={190}
+                                        height={100}
+                                        style={{
+                                            width: "210px",
+                                            height: "100%",
+                                        }}
                                     />
                                     <div className={styles.productDescription}>
-                                        <p>{product.name}</p>
-                                        <div
-                                            className={
-                                                styles.productDescription
-                                            }
-                                            dangerouslySetInnerHTML={{
-                                                __html: product.description,
-                                            }}
-                                        ></div>{" "}
+                                        <p>{translateProduct(product.name)}</p>
                                     </div>
 
                                     <div className={styles.productCount}>
@@ -184,7 +184,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "header"])),
+            ...(await serverSideTranslations(locale, ["common", "header", "product"])),
         },
     };
 }

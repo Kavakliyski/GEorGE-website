@@ -21,20 +21,6 @@ import { CartContext } from "@/context/CartContext";
 // confetti effect
 import Confetti from "react-dom-confetti";
 
-// const config = {
-//     angle: 90,
-//     spread: 360,
-//     startVelocity: 40,
-//     elementCount: 70,
-//     dragFriction: 0.12,
-//     duration: 3000,
-//     stagger: 3,
-//     width: "10px",
-//     height: "10px",
-//     perspective: "500px",
-//     colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
-// };
-
 const config = {
     angle: 90,
     spread: 150,
@@ -54,6 +40,7 @@ export default function ProductPage({ product }: IProduct) {
 
     const { addToCart } = useContext(CartContext);
     const [confettiActive, setConfettiActive] = useState(false);
+    const [isAdded, setIsAdded] = useState(false);
 
     if (product)
         return (
@@ -89,16 +76,22 @@ export default function ProductPage({ product }: IProduct) {
                                     config={config}
                                 />
                                 <button
+                                    disabled={isAdded} // Disable the button when the product is added
                                     onClick={() => {
                                         addToCart(product);
                                         setConfettiActive(true);
-                                        setTimeout(
-                                            () => setConfettiActive(false),
-                                            1000
-                                        );
+                                        setIsAdded(true); // Set the product as added
+                                        setTimeout(() => {
+                                            setConfettiActive(false);
+                                            setIsAdded(false); // Reset the product as not added after 1 second
+                                        }, 2000);
                                     }}
                                 >
-                                    {t("buy")}
+                                    <Confetti
+                                        active={confettiActive}
+                                        config={config}
+                                    />
+                                    {isAdded ? t("addedToCart") : t("buy")}
                                 </button>
                             </div>
                         </div>
@@ -125,8 +118,10 @@ export default function ProductPage({ product }: IProduct) {
                         <div>
                             <h5>
                                 {t("quantity")} <br />
-                                {product.quantity}
-                                {t("ml")}
+                                {`
+                                    ${product.quantity}
+                                    ${t("ml")}
+                                `}
                             </h5>
                         </div>
                     </div>
