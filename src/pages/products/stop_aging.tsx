@@ -7,6 +7,7 @@ import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 // interface
 import { IProduct } from "@/interfaces/Iproducts";
@@ -19,7 +20,7 @@ export default function Stop_aging() {
     const [productsData, setProductsData] =
         useState<IProduct[]>(georgeProducts);
 
-    const { t } = useTranslation("common");
+    const { t } = useTranslation("product");
 
     if (!productsData) {
         return <p className={styles.loadingFetch}>Няма продукти</p>;
@@ -33,33 +34,37 @@ export default function Stop_aging() {
 
             <div className={styles.ShopWrapper}>
                 <div className={styles.ProdcutsContainer}>
-                    {productsData.map((product, index) => (
-                        <div className={styles.card} key={index}>
-                            <div className={styles.imgBox}>
-                                <img
-                                    src={product.imageUrl}
-                                    alt={product.name}
-                                    className={styles.productImage}
-                                />
-                            </div>
+                    {productsData &&
+                        productsData.map((product, index) => (
+                            <div className={styles.card} key={index}>
+                                <div className={styles.imgBox}>
+                                    <Image
+                                        width={900}
+                                        height={900}
+                                        src={product.imageUrl || ""}
+                                        alt={product.name}
+                                        className={styles.productImage}
+                                    />
+                                </div>
 
-                            <div className={styles.contentBox}>
-                                <h3>{product.name}</h3>
-                                <h2 className={styles.productPrice}>
-                                    {product.price || "няма цена"}
-                                </h2>
-                                <Link
-                                    href={`product/${product.slug}`}
-                                    className={styles.productsBuy}
-                                >
-                                    {t("seeMore")}
-                                </Link>
-                                <div className={styles.productDescription}>
-                                    {product.shortDescription}
+                                <div className={styles.contentBox}>
+                                    <h3>{t(product.name)}</h3>
+                                    <h2 className={styles.productPrice}>
+                                        {product.price || ""}
+                                        {t("currency")}
+                                    </h2>
+                                    <Link
+                                        href={`/product/${product.slug}`}
+                                        className={styles.productsBuy}
+                                    >
+                                        {t("seeMore")}
+                                    </Link>
+                                    <div className={styles.productDescription}>
+                                        {t(product.shorterDescription || "")}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
                 </div>
             </div>
         </>
@@ -75,7 +80,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "header"])),
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "header",
+                "product",
+            ])),
         },
     };
 }

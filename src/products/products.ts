@@ -3,12 +3,18 @@ import { IProduct } from "@/interfaces/Iproducts"
 export const georgeProducts: IProduct[] = [
     {
         id: 1,
-        name: "Скулптуриращият крем за лице на GEorGE",
-        description: "Description for Product 1",
+        name: "product1_title",
+        shorterDescription: "product1_shorterDescription",
+        shortDescription: "product1_shortDescription",
+        description: "product1_description",
         price: 29.99,
         imageUrl: "/productsIMG/1/produkt-serum.jpg",
         slug: "serum",
-        shortDescription: "Скулптуриращият крем за лице на GEorGE от серията Aurum е предназначен за всеки тип кожа."
+        instructions_for_use: "product1_instructions_for_use",
+        storage_conditions: "product1_storage_conditions",
+        benefits: "product1_benefits",
+        key_ingredients: "product1_key_ingredients",
+        quantity: "50",
     },
     {
         id: 2,

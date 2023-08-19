@@ -150,6 +150,10 @@
 
         .productDescription {
             position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: $color-tertiary;
             font-size: 18px;
             top: 160px;

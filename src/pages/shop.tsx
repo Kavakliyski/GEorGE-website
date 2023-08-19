@@ -1,5 +1,5 @@
 // stlyes
-import styles from "@/styles/pages/shop.module.scss";
+import styles from "@/styles/pages/products/stop_aging.module.scss";
 
 // next, react
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ export default function Shop() {
     const [productsData, setProductsData] =
         useState<IProduct[]>(georgeProducts);
 
-    const { t } = useTranslation("common");
+    const { t } = useTranslation("product");
 
     if (!productsData) {
         return <p className={styles.loadingFetch}>Няма продукти</p>;
@@ -33,7 +33,7 @@ export default function Shop() {
             <Head>
                 <title>GEorGE • Cosmetic • Shop</title>
             </Head>
-            
+
             <div className={styles.ShopWrapper}>
                 <div className={styles.ProdcutsContainer}>
                     {productsData.map((product, index) => (
@@ -47,9 +47,10 @@ export default function Shop() {
                             </div>
 
                             <div className={styles.contentBox}>
-                                <h3>{product.name}</h3>
+                            <h3>{t(product.name)}</h3>
                                 <h2 className={styles.productPrice}>
-                                    {product.price || "няма цена"}
+                                    {product.price || ""}
+                                    {t("currency")}
                                 </h2>
                                 <Link
                                     href={`product/${product.slug}`}
@@ -58,7 +59,7 @@ export default function Shop() {
                                     {t("seeMore")}
                                 </Link>
                                 <div className={styles.productDescription}>
-                                    {product.shortDescription}
+                                    {t(product.shorterDescription || "")}
                                 </div>
                             </div>
                         </div>
@@ -78,7 +79,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "header"])),
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "header",
+                "product",
+            ])),
         },
     };
 }
