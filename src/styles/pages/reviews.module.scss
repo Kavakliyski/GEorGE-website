@@ -1,7 +1,6 @@
 @import "../variables";
 
-.reviewsWrapper{
-
+.reviewsWrapper {
     padding: 150px 0px;
 
     @media (max-width: 1120px) {
@@ -16,6 +15,18 @@
     justify-content: center;
     align-items: center;
 
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
     .reviewsContainer {
         display: flex;
         flex-direction: column;
@@ -26,10 +37,31 @@
         border-radius: 15px;
         color: $color-primary;
 
-        width: min(100%,1440px);
+        width: min(100%, 1440px);
 
         padding: 24px;
 
+        .Reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .singleReview {
+                animation: slide-in 0.5s forwards;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
     }
 
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
 }

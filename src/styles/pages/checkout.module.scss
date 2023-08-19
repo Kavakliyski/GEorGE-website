@@ -20,6 +20,10 @@
         font-size: min(16px, 24px);
     }
 
+    #empty{
+        font-size: 24px;
+    }
+
     .checkoutContainer {
         box-shadow: $color-tertiary 0px 0px 10px 0px;
         border-radius: 10px;
@@ -44,7 +48,13 @@
             .form {
                 display: flex;
                 flex-direction: column;
+                gap: 10px;
+
                 font-size: 26px;
+
+                #textArea{
+                    height: 100;
+                }
 
                 input {
                     display: flex;

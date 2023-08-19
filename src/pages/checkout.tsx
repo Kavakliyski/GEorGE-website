@@ -21,19 +21,28 @@ export default function Checkout() {
     const { t: translate } = useTranslation("header");
     const { t: translateProduct } = useTranslation("product");
 
-    const { cartProducts, updateProductCount, calculateTotal } =
-        useContext(CartContext);
+    const {
+        cartProducts,
+        updateProductCount,
+        calculateTotal,
+        setCartProducts,
+    } = useContext(CartContext);
 
     const { totalSum, productCountMap } = calculateTotal();
 
     const handleSubmit = (e: React.FormEvent<EventTarget>) => {
-        if (cartProducts?.length == 0) return alert(translate("alert"));
+        if (cartProducts?.length == 0) {
+            e.preventDefault();
+            return alert(translate("alert"));
+        }
         if (!firstName || !lastName || !email || !address || !phoneNumber) {
-            alert("All fields are required!");
+            // alert("All fields are required!");
+            e.preventDefault();
             return;
         }
         e.preventDefault();
         console.log({ firstName, lastName, email, address, phoneNumber });
+        setCartProducts([]);
     };
 
     return (
@@ -41,6 +50,7 @@ export default function Checkout() {
             <div className={styles.checkoutContainer}>
                 <div className={styles.fromContainer}>
                     <h2>{translate("checkout")}</h2>
+                    <br />
 
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <label>
@@ -92,7 +102,21 @@ export default function Checkout() {
                                 required
                             />
                         </label>
-                        {translate("gdpr")}
+
+                        <div>{translate("gdpr")}</div>
+
+                        <label>
+                            belejki
+                            <input
+                                id={styles.textArea}
+                                type="text"
+                                value={phoneNumber}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                required
+                            />
+                        </label>
+
+                        <br />
 
                         <button
                             type="submit"
@@ -180,7 +204,10 @@ export default function Checkout() {
                         </>
                     ) : (
                         <>
-                            <div className={styles.DrawerEmptyCart}>
+                            <div
+                                className={styles.DrawerEmptyCart}
+                                id={styles.empty}
+                            >
                                 <p>{translate("empty1")}</p>
                             </div>
                         </>

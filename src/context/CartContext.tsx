@@ -66,9 +66,6 @@ export function CartContextProvider({ children }: any) {
     };
 
     const addToCart = (product: any) => {
-        console.log("====================================");
-        console.log(product);
-        console.log("====================================");
 
         // Check if the product is already in the cart
         const existingProduct = cartProducts.find(
