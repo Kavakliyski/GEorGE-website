@@ -47,10 +47,12 @@ export default function Shop() {
                             </div>
 
                             <div className={styles.contentBox}>
-                            <h3>{t(product.name)}</h3>
+                                <h3>{t(product.name)}</h3>
                                 <h2 className={styles.productPrice}>
-                                    {product.price || ""}
-                                    {t("currency")}
+                                    {`
+                                    ${product.price || ""} 
+                                    ${t("currency")}
+                                    `}
                                 </h2>
                                 <Link
                                     href={`product/${product.slug}`}

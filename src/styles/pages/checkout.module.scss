@@ -1,113 +1,148 @@
 @import "../variables.scss";
 
 .checkoutWrapper {
-    background-color: $color-tertiary;
-    margin: 200px;
+    padding: 150px 0px;
+
+    @media (max-width: 1120px) {
+        padding: 8px 10px;
+    }
+
+    max-width: 1400px;
+    margin: 0 auto;
 
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     border-radius: 15px;
-    box-shadow: $color-tertiary 0px 0px 10px 0px;
 
-    .fromContainer {
-        width: 50%;
+    h2 {
+        font-size: 42px;
+    }
 
-        margin: 15px;
-        .form {
-            display: flex;
-            flex-direction: column;
-            font-size: 26px;
-            input {
+    .checkoutContainer {
+
+        box-shadow: $color-tertiary 0px 0px 10px 0px;
+
+
+
+        .fromContainer {
+            width: 100%;
+            background-color: $color-tertiary;
+
+            padding: 15px;
+            .form {
                 display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                margin-top: 10px;
-                padding: 16px 24px;
-                width: 90%;
-                height: 15%;
-                left: 1048px;
-                top: 16px;
-                background: #ffffff;
-                border: 2px solid #1b1b1b;
-                box-sizing: border-box;
-                border-radius: 16px;
-                transition: 0.2s;
+                flex-direction: column;
                 font-size: 26px;
 
-                &:focus {
-                    outline: none;
-                    background: #f9e450;
-                    border: 3px solid #1b1b1b;
+                input {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    margin-top: 10px;
+                    padding: 16px 24px;
+                    width: 100%;
+                    height: 15%;
+                    left: 1048px;
+                    top: 16px;
+                    background: #ffffff;
+                    border: 2px solid #1b1b1b;
+                    box-sizing: border-box;
                     border-radius: 16px;
+                    transition: 0.2s;
+                    font-size: 26px;
+
+                    &:focus {
+                        outline: none;
+                        background: #f9e450;
+                        border: 3px solid #1b1b1b;
+                        border-radius: 16px;
+                    }
                 }
+            }
+
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                font-size: 24px;
+                padding: 1.5em 1.1em;
+                border: none;
+                border-radius: 7px;
+                font-weight: 900;
+                letter-spacing: 1.3px;
+                text-transform: uppercase;
+                color: #fff;
+                background-color: $color-secondary;
+                box-shadow: 2px 2px 25px -7px $color-primary;
+                cursor: pointer;
+
+                height: 50px;
+                width: 100%;
             }
         }
 
-        button {
-            cursor: pointer;
-            width: 90%;
-            font-size: 40px;
-        }
-    }
+        .ProdcutsContainer {
+            width: 50%;
+            margin: 15px;
 
-    .ProdcutsContainer {
-        width: 50%;
-        margin: 15px;
-
-        .DrawerProducts {
-            .ProductItem {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                gap: 20px;
-
-                padding-top: 15px;
-                padding-bottom: 15px;
-                border-top: 1px solid gray;
-
-                .productImage {
-                    width: 200px;
-                }
-
-                .productDescription {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: left;
-                    justify-content: center;
-                    font-size: 36px;
-                }
-
-                .productPrice {
+            .DrawerProducts {
+                .ProductItem {
                     display: flex;
                     flex-direction: row;
-                    gap: 5px;
+                    justify-content: space-between;
                     align-items: center;
-                    font-size: 26px;
+                    gap: 20px;
 
-                    #price {
-                        width: 55px;
-                        text-align: right;
-                    }
-                }
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    border-top: 1px solid gray;
 
-                .productCount {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-
-                    button {
-                        background-color: none;
-                        border: none;
-                        font-size: 36px;
-                        cursor: pointer;
-                        width: 30px;
+                    .productImage {
+                        width: 200px;
                     }
 
-                    span {
+                    .productDescription {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: left;
+                        justify-content: center;
                         font-size: 36px;
+                    }
+
+                    .productPrice {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 5px;
+                        align-items: center;
+                        font-size: 26px;
+
+                        #price {
+                            width: 55px;
+                            text-align: right;
+                        }
+                    }
+
+                    .productCount {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        button {
+                            background-color: none;
+                            border: none;
+                            font-size: 36px;
+                            cursor: pointer;
+                            width: 30px;
+                        }
+
+                        span {
+                            font-size: 36px;
+                        }
                     }
                 }
             }

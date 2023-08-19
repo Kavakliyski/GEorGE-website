@@ -67,7 +67,7 @@ export default function ProductPage({ product }: IProduct) {
                             <div className={styles.productPriceButton}>
                                 <h3>
                                     {`
-                                        ${product.price}
+                                        ${product.price} 
                                         ${t("currency")}
                                     `}
                                 </h3>
