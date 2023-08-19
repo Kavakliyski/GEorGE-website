@@ -29,6 +29,6 @@ export const georgeProducts: IProduct[] = [
         storage_conditions: "product2_storage_conditions",
         benefits: "product2_benefits",
         key_ingredients: "product2_key_ingredients",
-        quantity: "50",
+        quantity: "20",
     }
 ]

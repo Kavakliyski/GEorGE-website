@@ -119,7 +119,7 @@ export default function Checkout() {
                                             width={190}
                                             height={100}
                                             style={{
-                                                width: "210px",
+                                                width: "20%",
                                                 height: "100%",
                                             }}
                                         />
@@ -128,9 +128,9 @@ export default function Checkout() {
                                                 styles.productDescription
                                             }
                                         >
-                                            <p>
+                                            <h3>
                                                 {translateProduct(product.name)}
-                                            </p>
+                                            </h3>
                                         </div>
 
                                         <div className={styles.productCount}>

@@ -138,7 +138,10 @@ export const Drawer = () => {
                                 <p>{translate("subtotal2")}</p>
                                 <button
                                     id={styles.CheckoutButton}
-                                    onClick={() => router.push("/checkout")}
+                                    onClick={() => {
+                                        router.push("/checkout");
+                                        setIsDrawerOpen(false);
+                                    }}
                                 >
                                     {translate("checkout")}
                                 </button>

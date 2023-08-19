@@ -33,7 +33,8 @@
     top: 0;
     right: 0;
     width: calc(50px + 30rem);
-    height: 100vh;
+    // height: 100vh;
+    height: 100%;
 
     background-color: $color-tertiary;
     overflow-x: hidden;
@@ -196,7 +197,7 @@
             }
 
             .DrawerTotal {
-                bottom: 80px;
+                // bottom: 80px;
             }
         }
     }

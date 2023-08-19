@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .checkoutWrapper {
-    padding: 150px 0px;
+    padding: 160px 0px;
 
     @media (max-width: 1120px) {
         padding: 8px 10px;
@@ -10,26 +10,35 @@
     max-width: 1400px;
     margin: 0 auto;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
     border-radius: 15px;
 
     h2 {
         font-size: 42px;
     }
 
+    h3 {
+        font-size: min(16px, 24px);
+    }
+
     .checkoutContainer {
-
         box-shadow: $color-tertiary 0px 0px 10px 0px;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
 
 
+        @media (max-width: 768px) {
+            flex-direction: column-reverse;
+        }
+
+        background-color: $color-tertiary;
 
         .fromContainer {
             width: 100%;
-            background-color: $color-tertiary;
+            flex: 1 0 0;
 
             padding: 15px;
             .form {
@@ -57,8 +66,6 @@
                     &:focus {
                         outline: none;
                         background: #f9e450;
-                        border: 3px solid #1b1b1b;
-                        border-radius: 16px;
                     }
                 }
             }
@@ -95,7 +102,7 @@
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
-                    gap: 20px;
+                    gap: 10px;
 
                     padding-top: 15px;
                     padding-bottom: 15px;
@@ -121,7 +128,7 @@
                         font-size: 26px;
 
                         #price {
-                            width: 55px;
+                            width: 45px;
                             text-align: right;
                         }
                     }
