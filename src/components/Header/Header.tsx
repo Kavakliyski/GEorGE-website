@@ -100,7 +100,7 @@ export default function Header() {
                                                     label: translate(
                                                         "аnti_acne"
                                                     ),
-                                                    href: "аnti_acne",
+                                                    href: "anti_acne",
                                                 },
                                             ]}
                                         />

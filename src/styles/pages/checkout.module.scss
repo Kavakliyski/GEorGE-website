@@ -20,7 +20,7 @@
         font-size: min(16px, 24px);
     }
 
-    #empty{
+    #empty {
         font-size: 24px;
     }
 
@@ -32,7 +32,6 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
 
         @media (max-width: 768px) {
             flex-direction: column-reverse;
@@ -52,8 +51,25 @@
 
                 font-size: 26px;
 
-                #textArea{
-                    height: 100;
+                #textArea {
+                    width: 100%;
+                    height: 200px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    justify-content: start;
+                    margin-top: 10px;
+                    padding: 16px 24px;
+                    border: 2px solid #1b1b1b;
+                    box-sizing: border-box;
+                    background: #ffffff;
+                    border-radius: 16px;
+                    font-size: 26px;
+
+                    &:focus {
+                        outline: none;
+                        background: #f9e450;
+                    }
                 }
 
                 input {

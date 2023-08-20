@@ -5,6 +5,7 @@
     "products": "products",
     "series": "series",
     "reviews": "reviews",
+    "contacts": "contacts",
 
     "stop_aging": "stop aging",
     "аnti_acne": "аnti acne",
@@ -26,5 +27,6 @@
     "address": "Address for delivery",
     "phonenumber": "Phone number",
     "gdpr": "im agree gdpr",
-    "alert": "No products in cart"
+    "alert": "No products in cart",
+    "notes": "Notes for order"
 }

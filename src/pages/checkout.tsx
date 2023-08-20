@@ -17,6 +17,7 @@ export default function Checkout() {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [notes, setNotes] = useState("");
 
     const { t: translate } = useTranslation("header");
     const { t: translateProduct } = useTranslation("product");
@@ -106,13 +107,11 @@ export default function Checkout() {
                         <div>{translate("gdpr")}</div>
 
                         <label>
-                            belejki
-                            <input
+                            {translate("notes")}
+                            <textarea
                                 id={styles.textArea}
-                                type="text"
-                                value={phoneNumber}
-                                onChange={(e) => setPhoneNumber(e.target.value)}
-                                required
+                                value={notes}
+                                onChange={(e) => setNotes(e.target.value)}
                             />
                         </label>
 

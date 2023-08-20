@@ -1,10 +1,31 @@
 {
     "buy": "buy",
     "currency": "BGN",
+    "ml": "ml",
     "seeMore": "see more",
     "addedToCart": "added to cart",
 
-    "product1_title": "",
-    "product1_shortDescription": "",
-    "product1_description": ""
+    "instructions_for_use": "How to use",
+    "storage_conditions": "Storage conditions:",
+    "benefits": "Benefits:",
+    "key_ingredients": "Key Ingredients:",
+    "quantity": "Quantity:",
+
+    "product1_title": "GEorGE Sculpture Face Cream from the Aurum ",
+    "product1_shorterDescription": "Designed for all skin types. It intensively counteracts aging, energizes and balances cells in depth. ",
+    "product1_shortDescription": "GEorGE Sculpture Face Cream from the Aurum series is designed for all skin types. It intensively counteracts aging, energizes and balances cells in depth.",
+    "product1_description": "The unique combination of the implemented active ingredients  makes the skin tighter, softer, denser, more hydrated and more radiant. The cream is light and absorbs quickly. It is also suitable as a make-up base. With a hypoallergenic delicate fragrance of flowers and fruits, created in France especially for Anti-age care. Vegan formula. 97% of its ingredients are of natural origin.",
+    "product1_instructions_for_use": "Apply the cream twice a day – morning and evening, on well-cleansed face and neck. For best results, use the other products in the pure 24-karat gold series beforehand.",
+    "product1_storage_conditions": "Store Sculpture Face Cream 7/24K Gold at a temperature of 5 to 30 degrees Celsius, away from direct sunlight. Keep away from children.",
+    "product1_benefits": "<li>Powerful antioxidant</li><li>Improves cell texture</li><li>Balances the skin microbiome</li><li>Increases elasticity</li><li>Moisturizes for a long time</li><li>Removes fine lines and wrinkles</li><li>Dermatologically and clinically tested</li>",
+    "product1_key_ingredients": "<li>Colloidal gold</li><li>Colloidal silver</li><li>Hydrolyzed hyaluronic acid</li><li>Phytocomplex with active bio-availability</li><li>Hazelnut oil</li><li>Prebiotic</li>",
+
+    "product2_title": "GEorGE Rejuvenation Intense Serum Face&Eyes",
+    "product2_shorterDescription": "Provides strong antioxidant protection, reduces puffiness and dark circles. Light and delicate, the serum balances, nourishes and energizes skin cells. ",
+    "prodcut2_shortDescription": "GEorGE Rejuvenation Intense Serum Face&Eyes contains a combination of concentrated selected active ingredients that supports collagen production, improves skin texture and remodels facial contours. Provides strong antioxidant protection, reduces puffiness and dark circles. ",
+    "product2_description": "Light and delicate, the serum balances, nourishes and energizes skin cells. The product has a vegan formula and a gentle hypoallergenic  fragrance of fruits and flowers, specially created by French perfumers for Anti-age care.",
+    "product2_instructions_for_use": "Apply Rejuvenation Intense Serum Face&Eyes once or twice a day on well-cleansed skin. Avoid direct contact with eyes. If the product gets into the eyes, rinse them thoroughly with water. For maximum results, use the entire GEorGE Gold Series.",
+    "product2_storage_conditions": "Store the product at a temperature of 5 to 30 degrees Celsius, away from direct sunlight, out of the reach of children.",
+    "product2_benefits": "<li>Increases elasticity and improves texture</li><li>Removes fine lines and wrinkles</li><li>Balances the skin microbiome and deeply moisturizes</li><li>Dermatologically and clinically tested</li><li>Suitable for all skin types</li>",
+    "product2_key_ingredients": "<li>Colloidal gold</li><li>Colloidal silver</li><li>Hydrolyzed hyaluronic acid</li><li>Phytocomplex with active bio-availability</li><li>Hazelnut oil</li><li>Prebiotic</li><li>Organic aloe vera juice</li><li>97% natural origin</li>"
 }

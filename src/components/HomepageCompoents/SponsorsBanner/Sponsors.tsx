@@ -1,6 +1,7 @@
 // next
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+import { partners } from "@/partners/partners";
 
 // styles
 import styles from "./Sonsors.module.scss";
@@ -13,14 +14,22 @@ export default function Sponsors() {
             <h2>{translate("partnersTitle")}</h2>
 
             <div className={styles.SponsorsCardContainer}>
-                <div className={styles.SponsorsCard}>
-                    <h3>“Мирая 09 “-ЕООД гр.Варна </h3>
-                    <h4>Тихомира Илиева Янакиева</h4>
-                    <a href="tel:0898577280">0898577280</a>
-                    <a href="mailto: tihomira.yanakieva13@abv.bg">
-                        tihomira.yanakieva13@abv.bg
-                    </a>
-                </div>
+                {partners.map((partner: any, index: number) => (
+                    <div className={styles.SponsorsCard} key={partner.id}>
+                        <h3>{partner.title}</h3>
+                        <h4>{partner.name}</h4>
+                        <h5>{partner.address}</h5>
+                        <a
+                            href={`https://${partner.href}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {partner.href}
+                        </a>
+                        <a href={`tel:${partner.number}`}>{partner.number}</a>
+                        <a href={`mailto: ${partner.email}`}>{partner.email}</a>
+                    </div>
+                ))}
             </div>
         </div>
     );

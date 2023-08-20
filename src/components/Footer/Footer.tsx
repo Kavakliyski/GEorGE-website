@@ -19,7 +19,7 @@ export default function Footer() {
             <div className={styles.FooterWrapper}>
                 <div className={styles.FooterContainer}>
                     <div className={styles.FooterContacts}>
-                        <h1>Контакти</h1>
+                        <h1>{translate("contacts")}</h1>
                         <div className={styles.ContactsOnline}>
                             <Image src={PhoneSVG} alt="" width={30} />
                             <h2>+359 876 570 471</h2>
