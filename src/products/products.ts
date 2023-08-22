@@ -18,7 +18,7 @@ export const georgeProducts: IProduct[] = [
     },
     {
         id: 2,
-        name: "Серум за интензивно подмладяване на GEorGE",
+        name: "product2_title",
         shorterDescription: "product2_shorterDescription",
         shortDescription: "prodcut2_shortDescription",
         description: "product2_description",

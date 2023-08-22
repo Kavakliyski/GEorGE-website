@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 import styles from "./FeaturedProducts.module.scss";
 
@@ -23,7 +24,9 @@ export const FeaturedProducts = () => {
                     <div className={styles.BoxContent}>
                         <div>
                             <h2>
-                                <Trans i18nKey={t("box1")} />
+                                <Link href={"/product/cream"}>
+                                    <Trans i18nKey={t("box1")} />
+                                </Link>
                             </h2>
                         </div>
                     </div>
@@ -40,7 +43,9 @@ export const FeaturedProducts = () => {
                     <div className={styles.BoxContent}>
                         <div>
                             <h2>
-                                <Trans i18nKey={t("box2")} />
+                                <Link href={"/product/cream"}>
+                                    <Trans i18nKey={t("box2")} />
+                                </Link>
                             </h2>
                         </div>
                     </div>
@@ -57,7 +62,9 @@ export const FeaturedProducts = () => {
                     <div className={styles.BoxContent}>
                         <div>
                             <h2>
-                                <Trans i18nKey={t("box3")} />
+                                <Link href={"/product/serum"}>
+                                    <Trans i18nKey={t("box3")} />
+                                </Link>
                             </h2>
                         </div>
                     </div>
@@ -74,7 +81,9 @@ export const FeaturedProducts = () => {
                     <div className={styles.BoxContent}>
                         <div>
                             <h2>
-                                <Trans i18nKey={t("box4")} />
+                                <Link href={"/product/serum"}>
+                                    <Trans i18nKey={t("box4")} />
+                                </Link>
                             </h2>
                         </div>
                     </div>
