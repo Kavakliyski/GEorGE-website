@@ -1,3 +1,5 @@
+"use client";
+
 // interface
 import { IProduct } from "@/interfaces/Iproducts";
 
@@ -45,7 +47,6 @@ export default function ProductPage({ product }: IProduct) {
     if (product)
         return (
             <div className={styles.productWrapper}>
-                
                 <div className={styles.productCardContainer}>
                     <h1>{t(product.name)}</h1>
 
