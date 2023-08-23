@@ -31,7 +31,7 @@ export default function Checkout() {
 
     const { totalSum, productCountMap } = calculateTotal();
 
-    const handleSubmit = (e: React.FormEvent<EventTarget>) => {
+    const handleSubmit = async (e: React.FormEvent<EventTarget>) => {
         if (cartProducts?.length == 0) {
             e.preventDefault();
             return alert(translate("alert"));
@@ -43,6 +43,33 @@ export default function Checkout() {
         }
         e.preventDefault();
         console.log({ firstName, lastName, email, address, phoneNumber });
+
+        try {
+            const response = await fetch("/api/sendEmail", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "firstName": firstName,
+                    "lastName": lastName,
+                    "email": email,
+                    "address": address,
+                    "phoneNumber": phoneNumber,
+                    "notes": notes,
+                    "cartProducts": cartProducts,
+                }),
+            });
+
+            if (response.ok) {
+                console.log("Email sent successfully");
+            } else {
+                console.error("Failed to send email");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+        }
+
         setCartProducts([]);
     };
 
