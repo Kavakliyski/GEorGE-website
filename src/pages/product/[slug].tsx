@@ -156,12 +156,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            product,
             ...(await serverSideTranslations(locale, [
                 "common",
                 "header",
                 "product",
             ])),
+            product,
         },
     };
 }
