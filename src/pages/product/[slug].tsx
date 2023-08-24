@@ -1,5 +1,3 @@
-"use client";
-
 // interface
 import { IProduct } from "@/interfaces/Iproducts";
 
@@ -38,7 +36,7 @@ const config = {
 };
 
 export default function ProductPage({ product }: IProduct) {
-    const { t } = useTranslation("product");
+    const { t: transalte } = useTranslation("product");
 
     const { addToCart } = useContext(CartContext);
     const [confettiActive, setConfettiActive] = useState(false);
@@ -48,7 +46,7 @@ export default function ProductPage({ product }: IProduct) {
         return (
             <div className={styles.productWrapper}>
                 <div className={styles.productCardContainer}>
-                    <h1>{t(product.name)}</h1>
+                    <h1>{transalte(product.name)}</h1>
 
                     <div className={styles.productDescription}>
                         <div className={styles.productCardImage}>
@@ -65,12 +63,12 @@ export default function ProductPage({ product }: IProduct) {
                         </div>
 
                         <div className={styles.productDescriptionPrice}>
-                            <h4>{t(product.shortDescription)}</h4>
+                            <h4>{transalte(product.shortDescription)}</h4>
                             <div className={styles.productPriceButton}>
                                 <h3>
                                     {`
                                         ${product.price} 
-                                        ${t("currency")}
+                                        ${transalte("currency")}
                                     `}
                                 </h3>
                                 <Confetti
@@ -93,36 +91,36 @@ export default function ProductPage({ product }: IProduct) {
                                         active={confettiActive}
                                         config={config}
                                     />
-                                    {isAdded ? t("addedToCart") : t("buy")}
+                                    {isAdded ? transalte("addedToCart") : transalte("buy")}
                                 </button>
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.productAdditional}>
-                        <p>{t(product.description)}</p>
-                        <h5>{t("instructions_for_use")}</h5>
-                        <p>{t(product.instructions_for_use)}</p>
-                        <h5>{t("storage_conditions")}</h5>
-                        <p>{t(product.storage_conditions)}</p>
-                        <h5>{t("benefits")}</h5>
+                        <p>{transalte(product.description)}</p>
+                        <h5>{transalte("instructions_for_use")}</h5>
+                        <p>{transalte(product.instructions_for_use)}</p>
+                        <h5>{transalte("storage_conditions")}</h5>
+                        <p>{transalte(product.storage_conditions)}</p>
+                        <h5>{transalte("benefits")}</h5>
                         <ul
                             dangerouslySetInnerHTML={{
-                                __html: t(product.benefits) as string,
+                                __html: transalte(product.benefits) as string,
                             }}
                         />
-                        <h5>{t("key_ingredients")}</h5>
+                        <h5>{transalte("key_ingredients")}</h5>
                         <ul
                             dangerouslySetInnerHTML={{
-                                __html: t(product.key_ingredients) as string,
+                                __html: transalte(product.key_ingredients) as string,
                             }}
                         />
                         <div>
                             <h5>
-                                {t("quantity")} <br />
+                                {transalte("quantity")} <br />
                                 {`
                                     ${product.quantity}
-                                    ${t("ml")}
+                                    ${transalte("ml")}
                                 `}
                             </h5>
                         </div>

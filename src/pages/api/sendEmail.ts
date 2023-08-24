@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { EmailTemplate } from "@/components/emailTemplate";
 
-const resend = new Resend("");
+const resend = new Resend(process.env.RESEND_API);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "GET") {
@@ -18,15 +18,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             phoneNumber,
             notes,
             cartProducts,
+            totalSum,
         } = req.body;
 
-        console.log(req.body);
+        const dateInBulgaria = new Date().toLocaleString("bg-BG", { timeZone: "Europe/Sofia" });
 
         try {
             const data = await resend.emails.send({
                 from: "Поръчка <order@resend.dev>",
                 to: ["george.customers.sender@gmail.com"],
-                subject: "Нова Поръчка",
+                subject: `Нова Поръчка - ${dateInBulgaria} - ${firstName} ${lastName}`,
                 react: EmailTemplate({
                     firstName: firstName,
                     lastName: lastName,
@@ -35,10 +36,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     phoneNumber: phoneNumber,
                     notes: notes,
                     cartProducts: cartProducts,
+                    totalSum: totalSum,
                 }),
             });
 
-            res.status(200).json(data);
+            res.status(200).json(req.body);
         } catch (error) {
             res.status(400).json(error);
         }

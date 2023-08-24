@@ -11,7 +11,12 @@ import styles from "@/styles/pages/checkout.module.scss";
 // context
 import { CartContext } from "@/context/CartContext";
 
+// axios
+import axios from "axios";
+
 export default function Checkout() {
+    const { t: translate } = useTranslation("header");
+    const { t: translateProduct } = useTranslation("product");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -19,8 +24,7 @@ export default function Checkout() {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [notes, setNotes] = useState("");
 
-    const { t: translate } = useTranslation("header");
-    const { t: translateProduct } = useTranslation("product");
+    const [showPopup, setShowPopup] = useState(false);
 
     const {
         cartProducts,
@@ -42,35 +46,25 @@ export default function Checkout() {
             return;
         }
         e.preventDefault();
-        console.log({ firstName, lastName, email, address, phoneNumber });
 
         try {
-            const response = await fetch("/api/sendEmail", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    "firstName": firstName,
-                    "lastName": lastName,
-                    "email": email,
-                    "address": address,
-                    "phoneNumber": phoneNumber,
-                    "notes": notes,
-                    "cartProducts": cartProducts,
-                }),
+            const response = await axios.post("/api/sendEmail", {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                address: address,
+                phoneNumber: phoneNumber,
+                notes: notes,
+                cartProducts: cartProducts,
+                totalSum: totalSum,
             });
 
-            if (response.ok) {
-                console.log("Email sent successfully");
-            } else {
-                console.error("Failed to send email");
-            }
+            if (response) console.log("Email sent successfully");
         } catch (error) {
             console.error("Error sending email:", error);
         }
 
-        setCartProducts([]);
+        // setCartProducts([]);
     };
 
     return (
