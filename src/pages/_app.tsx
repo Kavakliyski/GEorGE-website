@@ -25,9 +25,9 @@ function App({ Component, pageProps }: AppProps) {
                 <title>GEorGE • Cosmetic</title>
                 <meta charSet="UTF-8" />
                 <link rel="shortcut icon" href="/favicon.png" />
-                <link rel="Website Icon" type="png" href="favicon.png" />
-                <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+                <link rel="Website Icon" type="png" href="/favicon.png" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 
                 <meta name="theme-color" content="#191716" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />

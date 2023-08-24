@@ -25,6 +25,7 @@ export default function Slider() {
             >
                 <SplideSlide>
                     <Image
+                        priority
                         src="/static/nach-str-za-vas.jpg"
                         alt="Image 1"
                         width={5000}
@@ -33,6 +34,7 @@ export default function Slider() {
                 </SplideSlide>
                 <SplideSlide>
                     <Image
+                        priority
                         src="/static/nachalo.jpg"
                         alt="Image 2"
                         width={5000}

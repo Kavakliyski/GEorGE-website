@@ -5,7 +5,7 @@ import { IProduct } from "@/interfaces/Iproducts";
 import { GetStaticPaths } from "next";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useContext, useState } from "react";
 
@@ -47,6 +47,7 @@ export default function ProductPage({ product }: IProduct) {
             <div className={styles.productWrapper}>
                 <div className={styles.productCardContainer}>
                     <h1>{transalte(product.name)}</h1>
+                    <Trans i18nKey={transalte(product.name)} />
 
                     <div className={styles.productDescription}>
                         <div className={styles.productCardImage}>
@@ -134,12 +135,18 @@ export default function ProductPage({ product }: IProduct) {
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale, params } = context;
 
+    console.log("locale", locale);
+    
+
     if (!locale) {
         throw new Error("Locale is not available in context");
     }
 
     const productSlug = params?.slug;
     const product = georgeProducts.find((p) => p.slug === productSlug);
+
+    console.log('product', product);
+    
 
     if (!productSlug || !product) {
         return {
