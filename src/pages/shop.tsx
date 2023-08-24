@@ -7,6 +7,7 @@ import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 // interface
 import { IProduct } from "@/interfaces/Iproducts";
@@ -39,8 +40,10 @@ export default function Shop() {
                     {productsData.map((product, index) => (
                         <div className={styles.card} key={index}>
                             <div className={styles.imgBox}>
-                                <img
-                                    src={product.imageUrl}
+                                <Image
+                                    width={225}
+                                    height={150}
+                                    src={product.imageUrl || ''}
                                     alt={product.name}
                                     className={styles.productImage}
                                 />

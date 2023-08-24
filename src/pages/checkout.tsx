@@ -41,7 +41,7 @@ export default function Checkout() {
             return alert(translate("alert"));
         }
         if (!firstName || !lastName || !email || !address || !phoneNumber) {
-            // alert("All fields are required!");
+            alert("All fields are required!");
             e.preventDefault();
             return;
         }
@@ -64,7 +64,8 @@ export default function Checkout() {
             console.error("Error sending email:", error);
         }
 
-        // setCartProducts([]);
+        alert("Order success    ")
+        setCartProducts([]);
     };
 
     return (
