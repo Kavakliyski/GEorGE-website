@@ -5,7 +5,7 @@ import { IProduct } from "@/interfaces/Iproducts";
 import { GetStaticPaths } from "next";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Trans, useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { useContext, useState } from "react";
 
@@ -47,7 +47,6 @@ export default function ProductPage({ product }: IProduct) {
             <div className={styles.productWrapper}>
                 <div className={styles.productCardContainer}>
                     <h1>{transalte(product.name)}</h1>
-                    <Trans i18nKey={transalte(product.name)} />
 
                     <div className={styles.productDescription}>
                         <div className={styles.productCardImage}>
@@ -92,7 +91,9 @@ export default function ProductPage({ product }: IProduct) {
                                         active={confettiActive}
                                         config={config}
                                     />
-                                    {isAdded ? transalte("addedToCart") : transalte("buy")}
+                                    {isAdded
+                                        ? transalte("addedToCart")
+                                        : transalte("buy")}
                                 </button>
                             </div>
                         </div>
@@ -113,7 +114,9 @@ export default function ProductPage({ product }: IProduct) {
                         <h5>{transalte("key_ingredients")}</h5>
                         <ul
                             dangerouslySetInnerHTML={{
-                                __html: transalte(product.key_ingredients) as string,
+                                __html: transalte(
+                                    product.key_ingredients
+                                ) as string,
                             }}
                         />
                         <div>
@@ -136,7 +139,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale, params } = context;
 
     console.log("locale", locale);
-    
 
     if (!locale) {
         throw new Error("Locale is not available in context");
@@ -145,8 +147,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     const productSlug = params?.slug;
     const product = georgeProducts.find((p) => p.slug === productSlug);
 
-    console.log('product', product);
-    
+    console.log("product", product);
 
     if (!productSlug || !product) {
         return {
@@ -167,9 +168,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = georgeProducts.map((product) => ({
-        params: { slug: product.slug.toString() }, // Ensure slug is a string
-    }));
+    const paths = georgeProducts
+        .map((product) => {
+            return [
+                { params: { slug: product.slug.toString() }, locale: "en" },
+                { params: { slug: product.slug.toString() }, locale: "bg" },
+            ];
+        })
+        .flat();
 
     return {
         paths,
