@@ -39,7 +39,7 @@ export const Drawer = () => {
         }
     }, [isDrawerOpen]);
 
-    console.log("cartProducts", cartProducts);
+    // console.log("cartProducts", cartProducts);
 
     return (
         <>

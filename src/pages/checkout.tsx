@@ -59,7 +59,9 @@ export default function Checkout() {
                 totalSum: totalSum,
             });
 
-            if (response) console.log("Email sent successfully");
+            if (response.status === 200) {
+                console.log("successfully");
+            }
         } catch (error) {
             console.error("Error sending email:", error);
         }

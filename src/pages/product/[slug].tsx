@@ -138,16 +138,12 @@ export default function ProductPage({ product }: IProduct) {
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale, params } = context;
 
-    console.log("locale", locale);
-
     if (!locale) {
         throw new Error("Locale is not available in context");
     }
 
     const productSlug = params?.slug;
     const product = georgeProducts.find((p) => p.slug === productSlug);
-
-    console.log("product", product);
 
     if (!productSlug || !product) {
         return {
