@@ -26,7 +26,7 @@
     "email": "Email",
     "address": "Address for delivery",
     "phonenumber": "Phone number",
-    "gdpr": "im agree gdpr",
+    "gdpr": "I agree with the privacy policy",
     "alert": "No products in cart",
     "notes": "Notes for order"
 }

@@ -8,6 +8,7 @@ import { FeaturedProducts } from "@/components/HomepageCompoents/FeatruredProduc
 // import { HeroBanner } from "@/components/HomepageCompoents/HeroBanner/HeroBanner";
 import Slider from "@/components/HomepageCompoents/HomeSlider/Slider";
 import Sponsors from "@/components/HomepageCompoents/SponsorsBanner/Sponsors";
+import BuyingOptions from "@/components/HomepageCompoents/BuyingOptions/BuyingOptions";
 
 export default function Home() {
     const { t: translate } = useTranslation("common");
@@ -20,6 +21,7 @@ export default function Home() {
                 {/* <HeroBanner /> */}
                 <Sponsors />
                 <br />
+                <BuyingOptions />
                 <br />
             </main>
         </>

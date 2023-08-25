@@ -1,0 +1,48 @@
+@import "../../../styles//variables";
+
+.BuyingOptionsWrapper {
+    padding: 20px 20px 20px 20px;
+    width: min(100%, 1440px);
+    margin: 50px auto;
+    background-color: $color-tertiary;
+    border-radius: 15px;
+    box-shadow: $color-tertiary 0px 0px 10px 1px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    h2 {
+        font-size: 50px;
+        text-transform: uppercase;
+    }
+
+    .gridContainer {
+        padding: 45px 0px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        @media (max-width: 1120px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        gap: 25px;
+    }
+}
+
+.Box {
+    border: 1px solid $color-primary;
+    border-radius: 18px;
+    width: 100%;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    text-align: center;
+    font-size: 24px;
+}

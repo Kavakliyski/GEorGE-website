@@ -51,6 +51,84 @@
 
                 font-size: 26px;
 
+                .gdpr {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    padding: 10px 0px;
+
+                    a{
+                        // text-decoration: dotted;
+                    }
+
+                    #checkbox {
+                        width: 40px;
+                    }
+
+                    /* Style the custom checkbox container */
+                    .customCheckbox {
+                        position: relative;
+                        padding-left: 35px;
+                        cursor: pointer;
+                        font-size: 22px;
+                        user-select: none;
+                    }
+
+                    /* Hide the default checkbox */
+                    .customCheckbox input[type="checkbox"] {
+                        // position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                    }
+
+                    /* Create a custom checkbox */
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 30px;
+                        width: 30px;
+                        background-color: #eee;
+                        border: 2px solid #555;
+                        border-radius: 4px;
+                    }
+
+                    /* On mouse-over, add a grey background color */
+                    .customCheckbox:hover input ~ .checkmark {
+                        background-color: #ccc;
+                    }
+
+                    /* When the checkbox is checked, add a blue background */
+                    .customCheckbox input:checked ~ .checkmark {
+                        background-color: $color-secondary;
+                    }
+
+                    /* Create the checkmark/indicator (hidden when not checked) */
+                    .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                    }
+
+                    /* Show the checkmark when checked */
+                    .customCheckbox input:checked ~ .checkmark:after {
+                        display: block;
+                    }
+
+                    /* Style the checkmark/indicator */
+                    .customCheckbox .checkmark:after {
+                        left: 9px;
+                        top: 5px;
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        transform: rotate(45deg);
+                    }
+                }
+
                 #textArea {
                     width: 100%;
                     height: 200px;
@@ -73,7 +151,7 @@
                 }
 
                 input {
-                    display: flex;
+                    // display: flex;
                     flex-direction: row;
                     align-items: flex-start;
                     margin-top: 10px;

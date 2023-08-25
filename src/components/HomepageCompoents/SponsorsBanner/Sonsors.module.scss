@@ -1,9 +1,9 @@
 @import "../../../styles/variables";
 
 .SponsorsWrapper {
-    padding: 20px 20px;
+    padding: 20px 0px 0px 0px;
     width: min(100%, 1440px);
-    margin: 0 auto;
+    margin: 50px auto;
     background-color: $color-tertiary;
     border-radius: 15px;
     box-shadow: $color-tertiary 0px 0px 10px 1px;
@@ -18,7 +18,7 @@
         text-transform: uppercase;
     }
 
-    .SponsorsCardContainer{
+    .SponsorsCardContainer {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -29,9 +29,10 @@
         justify-content: center;
         align-items: center;
 
-        .SponsorsCard{
+        .SponsorsCard {
+            font-size: 20px;
 
-            a{
+            a {
                 text-decoration: none;
             }
 
@@ -39,8 +40,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            
         }
-
     }
 }

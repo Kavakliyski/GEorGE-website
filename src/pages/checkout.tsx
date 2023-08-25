@@ -22,6 +22,7 @@ export default function Checkout() {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [gdpr, setGdpr] = useState<Boolean>(false);
     const [notes, setNotes] = useState("");
 
     const [showPopup, setShowPopup] = useState(false);
@@ -45,6 +46,12 @@ export default function Checkout() {
             e.preventDefault();
             return;
         }
+
+        if (!gdpr) {
+            e.preventDefault();
+            return alert("privacy policy");
+        }
+
         e.preventDefault();
 
         try {
@@ -66,7 +73,7 @@ export default function Checkout() {
             console.error("Error sending email:", error);
         }
 
-        alert("Order success    ")
+        alert("Order success");
         setCartProducts([]);
     };
 
@@ -128,7 +135,22 @@ export default function Checkout() {
                             />
                         </label>
 
-                        <div>{translate("gdpr")}</div>
+                        <div className={styles.gdpr}>
+                            <label className={styles.customCheckbox}>
+                                <input
+                                    type="checkbox"
+                                    onClick={() => setGdpr(!gdpr)}
+                                />
+                                <span className={styles.checkmark}></span>
+                            </label>
+
+                            <a
+                                href="/Personal data privacy policy.pdf"
+                                target="_blank"
+                            >
+                                <div>{translate("gdpr")}</div>
+                            </a>
+                        </div>
 
                         <label>
                             {translate("notes")}

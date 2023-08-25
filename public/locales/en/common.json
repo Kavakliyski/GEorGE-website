@@ -14,5 +14,11 @@
     "seeMore": "see more",
     "buy": "buy",
     "currency": "BGN",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+
+    "purchase_options": "Purchase options",
+    "buysponsors": "Buy from our partners",
+    "addr": "Visit us at: Sofia, 'Hadji Dimitar' quarter, bl. 55B, entrance B",
+    "orderbyphone": "Order by phone",
+    "orderonline": "Order online"
 }
