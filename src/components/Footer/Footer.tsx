@@ -40,20 +40,20 @@ export default function Footer() {
 
                     <div className={styles.FooterProducts}>
                         <h1>{translate("products")}</h1>
-                        <Link href={"products/stop_aging"}>
+                        <Link href={"/products/stop_aging"}>
                             <h2>{translate("stop_aging")}</h2>
                         </Link>
-                        <Link href={"products/аnti_acne"}>
+                        <Link href={"/products/аnti_acne"}>
                             <h2>{translate("аnti_acne")}</h2>
                         </Link>
                     </div>
 
                     <div className={styles.FooterSeries}>
                         <h1>{translate("series")}</h1>
-                        <Link href={"series/aurum"}>
+                        <Link href={"/series/aurum"}>
                             <h2>{translate("аurum")}</h2>
                         </Link>
-                        <Link href={"series/coming_soon"}>
+                        <Link href={"/series/coming_soon"}>
                             <h2>{translate("coming_soon")}</h2>
                         </Link>
                     </div>

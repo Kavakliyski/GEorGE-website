@@ -1,9 +1,9 @@
-@import '../variables';
-
+@import "../variables";
 
 .NotFoundPageWrapper {
     margin-top: 4vw;
     padding-top: 10vh;
+    padding-bottom: 10vh;
 
     color: $color-tertiary;
 
@@ -21,5 +21,12 @@
     h1 {
         font-size: 80px;
         text-transform: uppercase;
+    }
+
+    @media (max-width: 1120px) {
+        h1 {
+            font-size: 40px;
+            text-transform: uppercase;
+        }
     }
 }

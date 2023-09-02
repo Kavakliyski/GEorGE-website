@@ -104,6 +104,7 @@ export const Navbar = () => {
                     <ul>
                         <li>
                             <DropdownBlack
+                                onClick={() => setIsMenuOpen(false)}
                                 text={translate("products")}
                                 parent_link={"products"}
                                 links={[
@@ -120,6 +121,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <DropdownBlack
+                                onClick={() => setIsMenuOpen(false)}
                                 text={translate("series")}
                                 parent_link={"series"}
                                 links={[
@@ -157,6 +159,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <DropdownBlack
+                                onClick={() => setIsMenuOpen(false)}
                                 text={translate("products")}
                                 parent_link={"products"}
                                 links={[
@@ -173,6 +176,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <DropdownBlack
+                                onClick={() => setIsMenuOpen(false)}
                                 text={translate("series")}
                                 parent_link={"series"}
                                 links={[
