@@ -9,7 +9,7 @@ interface DropdownProps {
         href: string;
     }[];
     parent_link: string;
-    onClick: (isOpen: boolean) => void;  
+    onClick?: (isOpen: boolean) => void;  
 }
 // for header
 export const DropdownWhite = ({ text, parent_link, links }: DropdownProps) => {
