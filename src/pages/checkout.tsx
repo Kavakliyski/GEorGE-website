@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
 import { useContext, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // styles
 import styles from "@/styles/pages/checkout.module.scss";
@@ -23,9 +24,12 @@ export default function Checkout() {
     const [address, setAddress] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [gdpr, setGdpr] = useState<Boolean>(false);
+    const [invoice, setInvoice] = useState<Boolean>(false);
     const [notes, setNotes] = useState("");
 
     const [showPopup, setShowPopup] = useState(false);
+
+    const router = useRouter();
 
     const {
         cartProducts,
@@ -41,15 +45,17 @@ export default function Checkout() {
             e.preventDefault();
             return alert(translate("alert"));
         }
-        if (!firstName || !lastName || !email || !address || !phoneNumber) {
-            alert("All fields are required!");
+        if (
+            !firstName ||
+            !lastName ||
+            !email ||
+            !address ||
+            !phoneNumber ||
+            !gdpr
+        ) {
+            alert(translate("fields"));
             e.preventDefault();
             return;
-        }
-
-        if (!gdpr) {
-            e.preventDefault();
-            return alert("privacy policy");
         }
 
         e.preventDefault();
@@ -64,17 +70,18 @@ export default function Checkout() {
                 notes: notes,
                 cartProducts: cartProducts,
                 totalSum: totalSum,
+                invoice: invoice,
             });
 
             if (response.status === 200) {
                 console.log("successfully");
+                alert(translate("orderSuccess"));
+                setCartProducts([]);
+                router.reload();
             }
         } catch (error) {
             console.error("Error sending email:", error);
         }
-
-        alert("Order success");
-        setCartProducts([]);
     };
 
     return (
@@ -86,7 +93,7 @@ export default function Checkout() {
 
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <label>
-                            {translate("firstname")}
+                            {translate("firstname")}*
                             <input
                                 type="text"
                                 value={firstName}
@@ -96,7 +103,7 @@ export default function Checkout() {
                         </label>
 
                         <label>
-                            {translate("lastname")}
+                            {translate("lastname")}*
                             <input
                                 type="text"
                                 value={lastName}
@@ -106,7 +113,7 @@ export default function Checkout() {
                         </label>
 
                         <label>
-                            {translate("email")}
+                            {translate("email")}*
                             <input
                                 type="email"
                                 value={email}
@@ -116,7 +123,7 @@ export default function Checkout() {
                         </label>
 
                         <label>
-                            {translate("address")}
+                            {translate("address")}*
                             <input
                                 type="text"
                                 value={address}
@@ -126,7 +133,7 @@ export default function Checkout() {
                         </label>
 
                         <label>
-                            {translate("phonenumber")}
+                            {translate("phonenumber")}*
                             <input
                                 type="tel"
                                 value={phoneNumber}
@@ -134,6 +141,17 @@ export default function Checkout() {
                                 required
                             />
                         </label>
+
+                        <div className={styles.gdpr}>
+                            <label className={styles.customCheckbox}>
+                                <input
+                                    type="checkbox"
+                                    onClick={() => setInvoice(!invoice)}
+                                />
+                                <span className={styles.checkmark}></span>
+                            </label>
+                            <div>{translate("invoice")}</div>
+                        </div>
 
                         <div className={styles.gdpr}>
                             <label className={styles.customCheckbox}>
@@ -148,7 +166,7 @@ export default function Checkout() {
                                 href="/Personal data privacy policy.pdf"
                                 target="_blank"
                             >
-                                <div>{translate("gdpr")}</div>
+                                <div>{translate("gdpr")}*</div>
                             </a>
                         </div>
 

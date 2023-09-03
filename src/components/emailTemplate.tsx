@@ -26,6 +26,7 @@ interface EmailTemplateProps {
     notes: string;
     cartProducts: CartProduct[];
     totalSum: number;
+    invoice: string;
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
@@ -37,6 +38,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     notes,
     cartProducts,
     totalSum,
+    invoice
 }) => (
     <div>
         <h2>Име {firstName}</h2>
@@ -44,6 +46,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         <h2>Имейл адрес: {email}</h2>
         <h2>Адрес: {address}</h2>
         <h2>Телефон: {phoneNumber}</h2>
+        <h2>Фактура: {invoice ? 'Да, желая фактура' : 'Не, не желая фактура'}</h2>
         <h2>
             Бележки към поръчката: <p>{notes}</p>
         </h2>

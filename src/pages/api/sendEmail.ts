@@ -19,7 +19,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             notes,
             cartProducts,
             totalSum,
+            invoice
         } = req.body;
+
+        console.log(req.body);
+        
 
         const dateInBulgaria = new Date().toLocaleString("bg-BG", { timeZone: "Europe/Sofia" });
 
@@ -37,6 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     notes: notes,
                     cartProducts: cartProducts,
                     totalSum: totalSum,
+                    invoice: invoice,
                 }),
             });
 

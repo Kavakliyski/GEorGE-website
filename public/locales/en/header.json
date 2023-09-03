@@ -28,5 +28,8 @@
     "phonenumber": "Phone number",
     "gdpr": "I agree with the privacy policy",
     "alert": "No products in cart",
-    "notes": "Notes for order"
+    "notes": "Notes for order",
+    "fields": "All fields with a star are required!",
+    "orderSuccess": "Order Success!",
+    "invoice": "I want an invoice"
 }
