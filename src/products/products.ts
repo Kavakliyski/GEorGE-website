@@ -49,7 +49,7 @@ export const georgeProducts: IProduct[] = [
         instructions_for_use: "product3_instructions_for_use",
         storage_conditions: "product3_storage_conditions",
         benefits: "product3_benefits",
-        backgroundColor: "#C0C0C0",
+        backgroundColor: "#808080",
         key_ingredients: "product3_key_ingredients",
         quantity: "50",
     },
@@ -68,7 +68,7 @@ export const georgeProducts: IProduct[] = [
         storage_conditions: "product4_storage_conditions",
         benefits: "product4_benefits",
         key_ingredients: "product4_key_ingredients",
-        backgroundColor: "#C0C0C0",
+        backgroundColor: "#808080",
         quantity: "50",
     },
 ];

@@ -39,8 +39,6 @@ export const Drawer = () => {
         }
     }, [isDrawerOpen]);
 
-    // console.log("cartProducts", cartProducts);
-
     return (
         <>
             <div
@@ -56,11 +54,11 @@ export const Drawer = () => {
                 }`}
             >
                 <div className={styles.DrawerContainer}>
-                    <div className={styles.ButtonClose} onClick={() => setIsDrawerOpen(false)}>
-                        <Image
-                            src={XIcon}
-                            alt="X"
-                        />
+                    <div
+                        className={styles.ButtonClose}
+                        onClick={() => setIsDrawerOpen(false)}
+                    >
+                        <Image src={XIcon} alt="X" />
                     </div>
 
                     {cartProducts?.length ? (

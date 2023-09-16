@@ -18,6 +18,9 @@ import axios from "axios";
 export default function Checkout() {
     const { t: translate } = useTranslation("header");
     const { t: translateProduct } = useTranslation("product");
+
+    const [loading, setLoading] = useState(false);
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -59,6 +62,7 @@ export default function Checkout() {
         }
 
         e.preventDefault();
+        setLoading(true);
 
         try {
             const response = await axios.post("/api/sendEmail", {
@@ -74,12 +78,14 @@ export default function Checkout() {
             });
 
             if (response.status === 200) {
-                console.log("successfully");
+                setLoading(false);
+                // console.log("successfully");
                 alert(translate("orderSuccess"));
                 setCartProducts([]);
                 router.reload();
             }
         } catch (error) {
+            setLoading(false);
             console.error("Error sending email:", error);
         }
     };
@@ -186,7 +192,9 @@ export default function Checkout() {
                             value="submit"
                             onClick={handleSubmit}
                         >
-                            {translate("checkout")}
+                            {loading
+                                ? translate("loading")
+                                : translate("checkout")}
                         </button>
                     </form>
                 </div>
