@@ -1,5 +1,7 @@
 export interface IProduct {
     id: number;
+    page?: string;
+    product_name?: string;
     name: string;
     description: string;
     price: number;
@@ -16,6 +18,8 @@ export interface IProduct {
 
     product?: {
         id: number;
+        page?: string;
+        product_name?: string;
         name: string;
         description: string;
         price: number;

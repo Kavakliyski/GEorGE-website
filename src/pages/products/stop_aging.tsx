@@ -2,7 +2,7 @@
 import styles from "@/styles/pages/products/stop_aging.module.scss";
 
 // next, react
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
@@ -17,8 +17,9 @@ import { georgeProducts } from "@/products/products";
 import Head from "next/head";
 
 export default function Stop_aging() {
-    const [productsData, setProductsData] =
-        useState<IProduct[]>(georgeProducts);
+    const [productsData, setProductsData] = useState<IProduct[]>(
+        georgeProducts.filter((product) => product.page === "aurum")
+    );
 
     const { t } = useTranslation("product");
 

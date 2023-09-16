@@ -3,6 +3,8 @@ import { IProduct } from "@/interfaces/Iproducts";
 export const georgeProducts: IProduct[] = [
     {
         id: 1,
+        page: "aurum",
+        product_name: "Aurum Cream",
         name: "product1_title",
         shorterDescription: "product1_shorterDescription",
         shortDescription: "product1_shortDescription",
@@ -18,6 +20,8 @@ export const georgeProducts: IProduct[] = [
     },
     {
         id: 2,
+        page: "aurum",
+        product_name: "Aurum Serum",
         name: "product2_title",
         shorterDescription: "product2_shorterDescription",
         shortDescription: "prodcut2_shortDescription",
@@ -33,6 +37,8 @@ export const georgeProducts: IProduct[] = [
     },
     {
         id: 3,
+        page: "znag",
+        product_name: "ZnAg Cream",
         name: "product3_title",
         shorterDescription: "product3_shorterDescription",
         shortDescription: "prodcut3_shortDescription",
@@ -49,6 +55,8 @@ export const georgeProducts: IProduct[] = [
     },
     {
         id: 4,
+        page: "znag",
+        product_name: "ZnAg Mask",
         name: "product4_title",
         shorterDescription: "product4_shorterDescription",
         shortDescription: "prodcut4_shortDescription",

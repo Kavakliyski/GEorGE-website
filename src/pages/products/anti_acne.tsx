@@ -1,16 +1,86 @@
+// styles
+import styles from "@/styles/pages/products/stop_aging.module.scss";
+
+// next, react
+import { useState } from "react";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
-import styles from "@/styles/pages/coming_soon.module.scss";
+// interface
+import { IProduct } from "@/interfaces/Iproducts";
+
+// prodcuts
+import { georgeProducts } from "@/products/products";
+import Head from "next/head";
 
 export default function Anti_acne() {
-    const { t: translate } = useTranslation("header");
+    const [productsData, setProductsData] = useState<IProduct[]>(
+        georgeProducts.filter((product) => product.page === "znag")
+    );
+
+    const { t } = useTranslation("product");
+
+    if (!productsData) {
+        return <p className={styles.loadingFetch}>Няма продукти</p>;
+    }
 
     return (
-        <div className={styles.CommingSoonWrapper}>
-            <h1>{translate("coming_soon")}</h1>
-        </div>
+        <>
+            <Head>
+                <title>GEorGE • Cosmetic • Products</title>
+            </Head>
+
+            <div className={styles.ShopWrapper}>
+                <div className={styles.ProdcutsContainer}>
+                    {productsData &&
+                        productsData.map((product, index) => (
+                            <div
+                                className={styles.card}
+                                key={index}
+                                style={
+                                    {
+                                        "--card-bg-color":
+                                            product.backgroundColor ||
+                                            "#bf8b00",
+                                    } as React.CSSProperties
+                                }
+                            >
+                                <div className={styles.imgBox}>
+                                    <Image
+                                        width={900}
+                                        height={900}
+                                        src={product.imageUrl || ""}
+                                        alt={product.name}
+                                        className={styles.productImage}
+                                    />
+                                </div>
+
+                                <div className={styles.contentBox}>
+                                    <h3>{t(product.name)}</h3>
+                                    <h2 className={styles.productPrice}>
+                                        {`
+                                        ${product.price || ""} 
+                                        ${t("currency")}
+                                        `}
+                                    </h2>
+                                    <Link
+                                        href={`/product/${product.slug}`}
+                                        className={styles.productsBuy}
+                                    >
+                                        {t("seeMore")}
+                                    </Link>
+                                    <div className={styles.productDescription}>
+                                        {t(product.shorterDescription || "")}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                </div>
+            </div>
+        </>
     );
 }
 
@@ -23,7 +93,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "header"])),
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "header",
+                "product",
+            ])),
         },
     };
 }
