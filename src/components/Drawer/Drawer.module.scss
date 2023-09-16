@@ -59,9 +59,8 @@
     .ButtonClose {
         display: flex;
         justify-content: right;
-
+        cursor: pointer;
         img {
-            cursor: pointer;
             height: 50px;
             width: 50px;
         }

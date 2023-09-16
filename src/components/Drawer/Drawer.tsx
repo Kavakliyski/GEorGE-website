@@ -56,11 +56,10 @@ export const Drawer = () => {
                 }`}
             >
                 <div className={styles.DrawerContainer}>
-                    <div className={styles.ButtonClose}>
+                    <div className={styles.ButtonClose} onClick={() => setIsDrawerOpen(false)}>
                         <Image
                             src={XIcon}
                             alt="X"
-                            onClick={() => setIsDrawerOpen(false)}
                         />
                     </div>
 

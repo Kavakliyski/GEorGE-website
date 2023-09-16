@@ -53,8 +53,8 @@ export default function Footer() {
                         <Link href={"/series/aurum"}>
                             <h2>{translate("аurum")}</h2>
                         </Link>
-                        <Link href={"/series/coming_soon"}>
-                            <h2>{translate("coming_soon")}</h2>
+                        <Link href={"/series/znag"}>
+                            <h2>{translate("ZnAg")}</h2>
                         </Link>
                     </div>
                 </div>

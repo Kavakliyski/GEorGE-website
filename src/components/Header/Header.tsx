@@ -122,9 +122,9 @@ export default function Header() {
                                                 },
                                                 {
                                                     label: translate(
-                                                        "coming_soon"
+                                                        "ZnAg"
                                                     ),
-                                                    href: "coming_soon",
+                                                    href: "znag",
                                                 },
                                             ]}
                                         />

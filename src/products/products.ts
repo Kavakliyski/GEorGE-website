@@ -1,4 +1,4 @@
-import { IProduct } from "@/interfaces/Iproducts"
+import { IProduct } from "@/interfaces/Iproducts";
 
 export const georgeProducts: IProduct[] = [
     {
@@ -7,7 +7,7 @@ export const georgeProducts: IProduct[] = [
         shorterDescription: "product1_shorterDescription",
         shortDescription: "product1_shortDescription",
         description: "product1_description",
-        price: 240.00,
+        price: 240.0,
         imageUrl: "/productsIMG/2/produkt-crem.jpg",
         slug: "cream",
         instructions_for_use: "product1_instructions_for_use",
@@ -22,7 +22,7 @@ export const georgeProducts: IProduct[] = [
         shorterDescription: "product2_shorterDescription",
         shortDescription: "prodcut2_shortDescription",
         description: "product2_description",
-        price: 160.00,
+        price: 160.0,
         imageUrl: "/productsIMG/1/produkt-serum.jpg",
         slug: "serum",
         instructions_for_use: "product2_instructions_for_use",
@@ -30,5 +30,37 @@ export const georgeProducts: IProduct[] = [
         benefits: "product2_benefits",
         key_ingredients: "product2_key_ingredients",
         quantity: "20",
-    }
-]
+    },
+    {
+        id: 3,
+        name: "product3_title",
+        shorterDescription: "product3_shorterDescription",
+        shortDescription: "prodcut3_shortDescription",
+        description: "product3_description",
+        price: 130.0,
+        imageUrl: "/productsIMG/3/znag-cream.jpg",
+        slug: "znag-cream",
+        instructions_for_use: "product3_instructions_for_use",
+        storage_conditions: "product3_storage_conditions",
+        benefits: "product3_benefits",
+        backgroundColor: "#C0C0C0",
+        key_ingredients: "product3_key_ingredients",
+        quantity: "50",
+    },
+    {
+        id: 4,
+        name: "product4_title",
+        shorterDescription: "product4_shorterDescription",
+        shortDescription: "prodcut4_shortDescription",
+        description: "product4_description",
+        price: 129.0,
+        imageUrl: "/productsIMG/4/znag-mask.jpg",
+        slug: "znag-mask",
+        instructions_for_use: "product4_instructions_for_use",
+        storage_conditions: "product4_storage_conditions",
+        benefits: "product4_benefits",
+        key_ingredients: "product4_key_ingredients",
+        backgroundColor: "#C0C0C0",
+        quantity: "50",
+    },
+];

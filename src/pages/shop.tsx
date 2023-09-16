@@ -38,12 +38,14 @@ export default function Shop() {
             <div className={styles.ShopWrapper}>
                 <div className={styles.ProdcutsContainer}>
                     {productsData.map((product, index) => (
-                        <div className={styles.card} key={index}>
+                        <div className={styles.card} key={index}
+                        style={{ '--card-bg-color': product.backgroundColor || '#bf8b00' } as React.CSSProperties}
+                        >
                             <div className={styles.imgBox}>
                                 <Image
                                     width={225}
                                     height={150}
-                                    src={product.imageUrl || ''}
+                                    src={product.imageUrl || ""}
                                     alt={product.name}
                                     className={styles.productImage}
                                 />

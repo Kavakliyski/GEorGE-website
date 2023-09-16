@@ -12,6 +12,7 @@ export interface IProduct {
     key_ingredients?: string;
     quantity?: string;
     shorterDescription?: string;
+    backgroundColor?: string;
 
     product?: {
         id: number;
@@ -26,5 +27,6 @@ export interface IProduct {
         benefits: string;
         key_ingredients: string;
         quantity?: string;
+        backgroundColor?: string;
     };
 }

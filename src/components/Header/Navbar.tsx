@@ -130,8 +130,8 @@ export const Navbar = () => {
                                         href: "aurum",
                                     },
                                     {
-                                        label: translate("coming_soon"),
-                                        href: "coming_soon",
+                                        label: translate("ZnAg"),
+                                        href: "znag",
                                     },
                                 ]}
                             />
@@ -185,8 +185,8 @@ export const Navbar = () => {
                                         href: "aurum",
                                     },
                                     {
-                                        label: translate("coming_soon"),
-                                        href: "coming_soon",
+                                        label: translate("ZnAg"),
+                                        href: "znag",
                                     },
                                 ]}
                             />
