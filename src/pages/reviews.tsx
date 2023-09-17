@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import Image from "next/image";
 
 import styles from "@/styles/pages/reviews.module.scss";
@@ -10,6 +10,7 @@ import { reviews } from "@/reviews/reviews";
 
 export default function Reviews() {
     const { t: translate } = useTranslation("header");
+    const { t: translateReview } = useTranslation("reviews");
 
     return (
         <>
@@ -35,12 +36,16 @@ export default function Reviews() {
                                     animationDelay: `${0.5 + index * 0.5}s`,
                                 }}
                             >
-                                <h2>{review.name}</h2>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: review.text,
-                                    }}
-                                />
+                                <h2>
+                                    <Trans
+                                        i18nKey={translateReview(review.name)}
+                                    />
+                                </h2>
+                                <p>
+                                    <Trans
+                                        i18nKey={translateReview(review.text)}
+                                    />
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -59,7 +64,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "header"])),
+            ...(await serverSideTranslations(locale, [
+                "common",
+                "header",
+                "reviews",
+            ])),
         },
     };
 }
