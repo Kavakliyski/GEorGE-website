@@ -5,6 +5,7 @@ export const reviews: IReviews[] = [
         id: 1,
         name: "r1_name",
         text: "r1_text",
+        img: ['/reviewsImages/dori.jpg', '/reviewsImages/dori2.jpg']
     },
     {
         id: 2,
@@ -15,6 +16,7 @@ export const reviews: IReviews[] = [
         id: 3,
         name: "r3_name",
         text: "r3_text",
+        img: ['/reviewsImages/mladej.jpg']
     },
     {
         id: 4,
@@ -25,6 +27,7 @@ export const reviews: IReviews[] = [
         id: 5,
         name: "r5_name",
         text: "r5_text",
+        img: ['/reviewsImages/a.png']
     },
     {
         id: 6,

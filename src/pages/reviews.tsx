@@ -46,6 +46,16 @@ export default function Reviews() {
                                         i18nKey={translateReview(review.text)}
                                     />
                                 </p>
+                                {review.img &&
+                                    review.img.map((src, index) => (
+                                        <Image
+                                            key={index}
+                                            alt=""
+                                            width={100}
+                                            height={100}
+                                            src={src}
+                                        />
+                                    ))}
                             </div>
                         ))}
                     </div>

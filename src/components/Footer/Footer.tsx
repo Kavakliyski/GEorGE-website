@@ -43,7 +43,7 @@ export default function Footer() {
                         <Link href={"/products/stop_aging"}>
                             <h2>{translate("stop_aging")}</h2>
                         </Link>
-                        <Link href={"/products/аnti_acne"}>
+                        <Link href={"/products/anti_acne"}>
                             <h2>{translate("аnti_acne")}</h2>
                         </Link>
                     </div>

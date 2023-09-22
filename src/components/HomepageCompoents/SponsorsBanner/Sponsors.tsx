@@ -1,6 +1,7 @@
 // next
 import { useTranslation } from "next-i18next";
 
+// partners
 import { partners } from "@/partners/partners";
 
 // styles
