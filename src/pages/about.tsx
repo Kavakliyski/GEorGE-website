@@ -18,7 +18,6 @@ import { Parser } from "html-to-react";
 // interface
 import { PagePropsData } from "@/interfaces/Ipostdata";
 
-
 export default function About({ posts }: PagePropsData) {
     const { t } = useTranslation("about");
 
@@ -71,7 +70,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         },
     });
 
-
     if (!locale) {
         throw new Error("Locale is not available in context");
     }
@@ -85,5 +83,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
             ])),
             posts: data.posts.edges[0].node.content,
         },
+        revalidate: 60,
     };
 }

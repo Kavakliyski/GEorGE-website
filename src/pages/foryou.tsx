@@ -21,7 +21,6 @@ import { PagePropsData } from "@/interfaces/Ipostdata";
 
 export default function Foryou({ posts }: PagePropsData) {
     const { t } = useTranslation("foryou");
-    console.log(posts);
 
     return (
         <>
@@ -86,5 +85,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
             ])),
             posts: data.posts.edges[0].node.content,
         },
+        revalidate: 60,
     };
 }
