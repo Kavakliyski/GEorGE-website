@@ -1,12 +1,25 @@
-import { useTranslation } from "next-i18next";
-import Head from "next/head";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticPropsContext } from "next";
+// styles
 import styles from "@/styles/pages/about.module.scss";
-import Image from "next/image";
-import { Trans } from "next-i18next";
 
-export default function About() {
+// next
+import Head from "next/head";
+import Image from "next/image";
+import { GetStaticPropsContext } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+// apolo, gql
+import apolloClient from "@/lib/apollo-client";
+import { GET_POSTS } from "@/lib/queries";
+
+// parser
+import { Parser } from "html-to-react";
+
+// interface
+import { PagePropsData } from "@/interfaces/Ipostdata";
+
+
+export default function About({ posts }: PagePropsData) {
     const { t } = useTranslation("about");
 
     return (
@@ -30,20 +43,16 @@ export default function About() {
 
             <div className={styles.AboutPageWrapper}>
                 <div className={styles.aboutContainer}>
-
-                    <Image width={200} height={200} alt="" src={"/favicon.png"} />
+                    <Image
+                        width={200}
+                        height={200}
+                        alt=""
+                        src={"/favicon.png"}
+                    />
                     <h1>{t("about")}</h1>
 
                     <div className={styles.aboutText}>
-                        <p className={styles.textCard}>
-                            <Trans i18nKey={t("paragraph1")} />
-                        </p>
-                        <p className={styles.textCard}>
-                            <Trans i18nKey={t("paragraph2")} />
-                        </p>
-                        <p className={styles.textCard}>
-                            <Trans i18nKey={t("paragraph3")} />
-                        </p>
+                        {Parser().parse(posts)}
                     </div>
                 </div>
             </div>
@@ -53,6 +62,15 @@ export default function About() {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale } = context;
+    const client = apolloClient();
+
+    const { data } = await client.query({
+        query: GET_POSTS,
+        variables: {
+            title: `${locale === "en" ? "about us" : "за нас"}`,
+        },
+    });
+
 
     if (!locale) {
         throw new Error("Locale is not available in context");
@@ -65,6 +83,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
                 "header",
                 "about",
             ])),
+            posts: data.posts.edges[0].node.content,
         },
     };
 }

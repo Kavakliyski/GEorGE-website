@@ -1,13 +1,25 @@
-import { GetStaticPropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Head from "next/head";
-import { useTranslation } from "next-i18next";
-import { Trans } from "next-i18next";
-import Image from "next/image";
-
+// stlyes
 import styles from "@/styles/pages/foryou.module.scss";
 
-export default function Foryou() {
+// next
+import Head from "next/head";
+import Image from "next/image";
+import { Trans } from "next-i18next";
+import { GetStaticPropsContext } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+// apolo, gql
+import apolloClient from "@/lib/apollo-client";
+import { GET_POSTS } from "@/lib/queries";
+
+// parser
+import { Parser } from "html-to-react";
+
+//interface
+import { PagePropsData } from "@/interfaces/Ipostdata";
+
+export default function Foryou({ posts }: PagePropsData) {
     const { t } = useTranslation("foryou");
 
     return (
@@ -41,38 +53,7 @@ export default function Foryou() {
                     </div>
 
                     <div className={styles.foryouText}>
-                        <ul>
-                            <li>
-                                <Trans i18nKey={t("li1")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li2")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li3")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li4")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li6")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li5")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li7")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li8")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li9")} />
-                            </li>
-                            <li>
-                                <Trans i18nKey={t("li10")} />
-                            </li>
-                        </ul>
+                        {Parser().parse(posts)}
                     </div>
                 </div>
             </div>
@@ -82,6 +63,14 @@ export default function Foryou() {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale } = context;
+    const client = apolloClient();
+
+    const { data } = await client.query({
+        query: GET_POSTS,
+        variables: {
+            title: `${locale === "en" ? "for you" : "за вас"}`,
+        },
+    });
 
     if (!locale) {
         throw new Error("Locale is not available in context");
@@ -94,6 +83,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
                 "header",
                 "foryou",
             ])),
+            posts: data.posts.edges[0].node.content,
         },
     };
 }
