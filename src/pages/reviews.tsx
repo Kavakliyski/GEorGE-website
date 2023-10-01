@@ -1,16 +1,21 @@
-import { GetStaticPropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Head from "next/head";
-import { Trans, useTranslation } from "next-i18next";
-import Image from "next/image";
-
+// styles
 import styles from "@/styles/pages/reviews.module.scss";
 
-import { reviews } from "@/reviews/reviews";
+// next
+import Head from "next/head";
+import Image from "next/image";
+import { GetStaticPropsContext } from "next";
+import { Trans, useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export default function Reviews() {
+// apollo, gql
+import apolloClient from "@/lib/apollo-client";
+import { GET_REVIEWS } from "@/lib/queries";
+
+//interface
+
+export default function Reviews({ reviews, locale }: any) {
     const { t: translate } = useTranslation("header");
-    const { t: translateReview } = useTranslation("reviews");
 
     return (
         <>
@@ -28,34 +33,42 @@ export default function Reviews() {
                     />
                     <h1>{translate("reviews")}</h1>
                     <div className={styles.Reviews}>
-                        {reviews.map((review, index) => (
+                        {reviews.map((review: any, index: number) => (
                             <div
-                                key={index}
                                 className={styles.singleReview}
+                                key={index}
                                 style={{
                                     animationDelay: `${0.5 + index * 0.5}s`,
                                 }}
                             >
-                                <h2>
-                                    <Trans
-                                        i18nKey={translateReview(review.name)}
+                                {locale === "en" ? (
+                                    <>
+                                        <h2>{review.acfReviews.nameEn}</h2>
+                                        <p>{review.acfReviews.textEn}</p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <h2>{review.acfReviews.nameBg}</h2>
+                                        <p>{review.acfReviews.textBg}</p>
+                                    </>
+                                )}
+
+                                {review?.acfReviews?.image1 && (
+                                    <Image
+                                        alt=""
+                                        width={500}
+                                        height={500}
+                                        src={review.acfReviews.image1.sourceUrl}
                                     />
-                                </h2>
-                                <p>
-                                    <Trans
-                                        i18nKey={translateReview(review.text)}
+                                )}
+                                {review?.acfReviews?.image2 && (
+                                    <Image
+                                        alt=""
+                                        width={500}
+                                        height={500}
+                                        src={review.acfReviews.image2.sourceUrl}
                                     />
-                                </p>
-                                {review.img &&
-                                    review.img.map((src, index) => (
-                                        <Image
-                                            key={index}
-                                            alt=""
-                                            width={100}
-                                            height={100}
-                                            src={src}
-                                        />
-                                    ))}
+                                )}
                             </div>
                         ))}
                     </div>
@@ -67,6 +80,11 @@ export default function Reviews() {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale } = context;
+    const client = apolloClient();
+
+    const { data } = await client.query({
+        query: GET_REVIEWS,
+    });
 
     if (!locale) {
         throw new Error("Locale is not available in context");
@@ -79,6 +97,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
                 "header",
                 "reviews",
             ])),
+            reviews: data.posts.nodes,
+            locale: locale,
+            revalidate: 60,
         },
     };
 }

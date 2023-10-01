@@ -12,3 +12,26 @@ export const GET_POSTS = gql`
         }
     }
 `;
+
+export const GET_REVIEWS = gql`
+    query postsByCategory {
+        posts(where: { categoryName: "reviews" }) {
+            nodes {
+                title
+                acfReviews {
+                    fieldGroupName
+                    nameBg
+                    nameEn
+                    textBg
+                    textEn
+                    image1 {
+                        sourceUrl
+                    }
+                    image2 {
+                        sourceUrl
+                    }
+                }
+            }
+        }
+    }
+`;
