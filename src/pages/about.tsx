@@ -85,6 +85,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
             ])),
             posts: data.posts.edges[0].node.content,
         },
-        revalidate: 60,
+        // revalidate: 60,
     };
 }
