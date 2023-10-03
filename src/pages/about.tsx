@@ -86,5 +86,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             ])),
             posts: data.posts.edges[0].node.content,
         },
+        reloadOnPrerender: true
     };
 }
