@@ -4,9 +4,9 @@ import styles from "@/styles/pages/about.module.scss";
 // next
 import Head from "next/head";
 import Image from "next/image";
-import { GetStaticPropsContext } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetServerSidePropsContext } from "next";
 
 // apolo, gql
 import apolloClient from "@/lib/apollo-client";
@@ -61,8 +61,13 @@ export default function About({ posts }: PagePropsData) {
     );
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
     const { locale } = context;
+
+    if (!locale) {
+        throw new Error("Locale is not available in context");
+    }
+
     const client = apolloClient();
 
     const { data } = await client.query({
@@ -72,10 +77,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         },
     });
 
-    if (!locale) {
-        throw new Error("Locale is not available in context");
-    }
-
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -84,7 +85,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
                 "about",
             ])),
             posts: data.posts.edges[0].node.content,
-            revalidate: 60,
         },
     };
 }
