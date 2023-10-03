@@ -4,9 +4,9 @@ import styles from "@/styles/pages/about.module.scss";
 // next
 import Head from "next/head";
 import Image from "next/image";
+import { GetStaticPropsContext } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetServerSidePropsContext } from "next";
 
 // apolo, gql
 import apolloClient from "@/lib/apollo-client";
@@ -61,7 +61,7 @@ export default function About({ posts }: PagePropsData) {
     );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale } = context;
 
     if (!locale) {
@@ -86,6 +86,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             ])),
             posts: data.posts.edges[0].node.content,
         },
-        reloadOnPrerender: true
+        revalidate: 10
     };
 }
