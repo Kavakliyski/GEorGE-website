@@ -20,6 +20,8 @@ import { PagePropsData } from "@/interfaces/Ipostdata";
 
 export default function About({ posts }: PagePropsData) {
     const { t } = useTranslation("about");
+    const { t: translate } = useTranslation("header");
+    const { t: translateTwo } = useTranslation("common");
 
     return (
         <>
