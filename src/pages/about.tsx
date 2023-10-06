@@ -17,7 +17,7 @@ import { GET_POSTS } from "@/lib/queries";
 // parser
 import { Parser } from "html-to-react";
 
-export default function About(locale: string) {
+export default function About({ locale }: any) {
     const { t } = useTranslation("about");
 
     const [posts, setPosts] = useState(null);
