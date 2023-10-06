@@ -1,5 +1,6 @@
 // styles
 import styles from "@/styles/pages/about.module.scss";
+import spinnerStyle from "@/styles/spinner.module.scss";
 
 // next
 import Head from "next/head";
@@ -7,6 +8,7 @@ import Image from "next/image";
 import { GetStaticPropsContext } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useState, useEffect } from "react";
 
 // apolo, gql
 import apolloClient from "@/lib/apollo-client";
@@ -15,13 +17,34 @@ import { GET_POSTS } from "@/lib/queries";
 // parser
 import { Parser } from "html-to-react";
 
-// interface
-import { PagePropsData } from "@/interfaces/Ipostdata";
-
-export default function About({ posts }: PagePropsData) {
+export default function About(locale: string) {
     const { t } = useTranslation("about");
-    const { t: translate } = useTranslation("header");
-    const { t: translateTwo } = useTranslation("common");
+
+    const [posts, setPosts] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const client = apolloClient();
+            const { data } = await client.query({
+                query: GET_POSTS,
+                variables: {
+                    title: `${locale === "en" ? "about us" : "за нас"}`,
+                },
+            });
+
+            setPosts(data.posts.edges[0].node.content);
+        };
+
+        fetchData();
+    }, [locale]);
+
+    if (!posts) {
+        return (
+            <div className={styles.TempContainer}>
+                <div className={spinnerStyle.Spinner}></div>
+            </div>
+        );
+    }
 
     return (
         <>
@@ -67,16 +90,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     if (!locale) {
         throw new Error("Locale is not available in context");
     }
-
-    const client = apolloClient();
-
-    const { data } = await client.query({
-        query: GET_POSTS,
-        variables: {
-            title: `${locale === "en" ? "about us" : "за нас"}`,
-        },
-    });
-
     return {
         props: {
             ...(await serverSideTranslations(locale, [
@@ -84,8 +97,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
                 "header",
                 "about",
             ])),
-            posts: data.posts.edges[0].node.content,
+            locale: locale,
         },
-        revalidate: 10
     };
 }

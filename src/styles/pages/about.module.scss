@@ -1,5 +1,12 @@
 @import "../variables";
 
+.TempContainer {
+    min-height: 660px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .AboutPageWrapper {
     padding: 150px 0px;
 
@@ -30,7 +37,6 @@
         padding: 24px;
 
         .aboutText {
-
             animation: Entrance 1s ease 0s 1 normal forwards;
 
             font-size: 24px;
@@ -51,11 +57,11 @@
 }
 
 @keyframes Entrance {
-	0% {
-		transform: scale(0);
-	}
+    0% {
+        transform: scale(0);
+    }
 
-	100% {
-		transform: scale(1);
-	}
+    100% {
+        transform: scale(1);
+    }
 }
