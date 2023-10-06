@@ -1,5 +1,10 @@
 @import "../variables.scss";
 
+.TempContainer {
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
 .ForyouPageWrapper {
     padding: 150px 0px;
 
@@ -30,8 +35,7 @@
         padding: 24px;
 
         .foryouPageTitle {
-
-            h1{
+            h1 {
                 z-index: 1;
             }
 

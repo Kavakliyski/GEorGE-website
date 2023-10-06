@@ -1,5 +1,6 @@
 // stlyes
 import styles from "@/styles/pages/foryou.module.scss";
+import spinnerStyle from "@/styles/spinner.module.scss";
 
 // next
 import Head from "next/head";
@@ -7,6 +8,7 @@ import Image from "next/image";
 import { GetStaticPropsContext } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useEffect, useState } from "react";
 
 // apollo, gql
 import apolloClient from "@/lib/apollo-client";
@@ -15,11 +17,26 @@ import { GET_POSTS } from "@/lib/queries";
 // parser
 import { Parser } from "html-to-react";
 
-//interface
-import { PagePropsData } from "@/interfaces/Ipostdata";
+export default function Foryou({ locale }: any) {
+    const [posts, setPosts] = useState(null);
 
-export default function Foryou({ posts }: PagePropsData) {
     const { t } = useTranslation("foryou");
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const client = apolloClient();
+            const { data } = await client.query({
+                query: GET_POSTS,
+                variables: {
+                    title: `${locale === "en" ? "for you" : "за вас"}`,
+                },
+            });
+
+            setPosts(data.posts.edges[0].node.content);
+        };
+
+        fetchData();
+    }, [locale]);
 
     return (
         <>
@@ -51,9 +68,15 @@ export default function Foryou({ posts }: PagePropsData) {
                         <h1>{t("title")}</h1>
                     </div>
 
-                    <div className={styles.foryouText}>
-                        {Parser().parse(posts)}
-                    </div>
+                    {posts ? (
+                        <div className={styles.foryouText}>
+                            {Parser().parse(posts)}
+                        </div>
+                    ) : (
+                        <div className={styles.TempContainer}>
+                            <div className={spinnerStyle.Spinner}></div>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
@@ -62,14 +85,6 @@ export default function Foryou({ posts }: PagePropsData) {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
     const { locale } = context;
-    const client = apolloClient();
-
-    const { data } = await client.query({
-        query: GET_POSTS,
-        variables: {
-            title: `${locale === "en" ? "for you" : "за вас"}`,
-        },
-    });
 
     if (!locale) {
         throw new Error("Locale is not available in context");
@@ -82,8 +97,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
                 "header",
                 "foryou",
             ])),
-            posts: data.posts.edges[0].node.content,
-            revalidate: 60,
+            locale: locale,
         },
     };
 }

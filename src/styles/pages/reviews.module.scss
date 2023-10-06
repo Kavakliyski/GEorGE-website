@@ -1,5 +1,12 @@
 @import "../variables";
 
+.TempContainer {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .reviewsWrapper {
     padding: 150px 0px;
 
@@ -50,7 +57,7 @@
                 animation: slide-in 0.5s forwards;
                 opacity: 0;
 
-                img{
+                img {
                     width: min(100%, 400px);
                     height: auto;
                 }
