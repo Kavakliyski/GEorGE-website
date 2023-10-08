@@ -52,50 +52,77 @@ export default function Reviews({ locale }: any) {
 
                     {!loading ? (
                         <div className={styles.Reviews}>
-                            {reviews.map((review: any, index: number) => (
-                                <div
-                                    className={styles.singleReview}
-                                    key={index}
-                                    style={{
-                                        animationDelay: `${0.5 + index * 0.5}s`,
-                                    }}
-                                >
-                                    {locale === "en" ? (
-                                        <>
-                                            <h2>{review.acfReviews.nameEn}</h2>
-                                            <p>{review.acfReviews.textEn}</p>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <h2>{review.acfReviews.nameBg}</h2>
-                                            <p>{review.acfReviews.textBg}</p>
-                                        </>
-                                    )}
+                            {reviews.map(
+                                (review: any, index: number) =>
+                                    (review.acfReviews.nameEn &&
+                                        locale === "en") ||
+                                    locale === "bg" ? (
+                                        <div
+                                            className={styles.singleReview}
+                                            key={index}
+                                            style={{
+                                                animationDelay: `${
+                                                    0.5 + index * 0.5
+                                                }s`,
+                                            }}
+                                        >
+                                            {locale === "en" ? (
+                                                <div className={styles.text}>
+                                                    <h2>
+                                                        {
+                                                            review.acfReviews
+                                                                .nameEn
+                                                        }
+                                                    </h2>
+                                                    <p>
+                                                        {
+                                                            review.acfReviews
+                                                                .textEn
+                                                        }
+                                                    </p>
+                                                </div>
+                                            ) : (
+                                                <div className={styles.text}>
+                                                    <h2>
+                                                        {
+                                                            review.acfReviews
+                                                                .nameBg
+                                                        }
+                                                    </h2>
+                                                    <p>
+                                                        {
+                                                            review.acfReviews
+                                                                .textBg
+                                                        }
+                                                    </p>
+                                                </div>
+                                            )}
 
-                                    {review?.acfReviews?.image1 && (
-                                        <Image
-                                            alt=""
-                                            width={500}
-                                            height={500}
-                                            src={
-                                                review.acfReviews.image1
-                                                    .sourceUrl
-                                            }
-                                        />
-                                    )}
-                                    {review?.acfReviews?.image2 && (
-                                        <Image
-                                            alt=""
-                                            width={500}
-                                            height={500}
-                                            src={
-                                                review.acfReviews.image2
-                                                    .sourceUrl
-                                            }
-                                        />
-                                    )}
-                                </div>
-                            ))}
+                                            {review?.acfReviews?.image1 && (
+                                                <Image
+                                                    alt=""
+                                                    width={500}
+                                                    height={500}
+                                                    src={
+                                                        review.acfReviews.image1
+                                                            .sourceUrl
+                                                    }
+                                                />
+                                            )}
+                                            {review?.acfReviews?.image2 && (
+                                                <Image
+                                                    alt=""
+                                                    width={500}
+                                                    height={500}
+                                                    src={
+                                                        review.acfReviews.image2
+                                                            .sourceUrl
+                                                    }
+                                                />
+                                            )}
+                                        </div>
+                                    ) : null // If review.acfReviews.nameBg doesn't exist, render null
+                            )}
                         </div>
                     ) : (
                         <div className={styles.TempContainer}>

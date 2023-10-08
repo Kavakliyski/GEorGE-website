@@ -3,8 +3,9 @@
 .TempContainer {
     min-height: 700px;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
+    padding-top: 100px;
 }
 
 .reviewsWrapper {
@@ -52,14 +53,27 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
+            padding: 26px 10px;
 
             .singleReview {
                 animation: slide-in 0.5s forwards;
                 opacity: 0;
 
+                display: flex;
+
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: start;
+                    padding: 0 10px;
+                }
+
                 img {
                     width: min(100%, 400px);
                     height: auto;
+                    border-radius: 5px;
+                    box-shadow: 4px 4px 25px 15px rgba(0, 0, 0, 0.3);
                 }
             }
         }
