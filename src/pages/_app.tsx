@@ -48,9 +48,11 @@ function App({ Component, pageProps }: AppProps) {
                     content="Брандът GEorGE е създаден въз основа на иновативните технологии в световната козметична индустрия. Смело можем да твърдим, че ние сме революционери в разработването на собствени натурални продукти с колоидно злато, колоидно сребро и хидролизиран хиалурон, които от своя страна действат на дълбоко клетъчно ниво и подпомагат регенерацията на кожата."
                 />
                 <meta name="keywords" content="keyword1, keyword2, keyword3" />
-                <Script>
-                    {/* Google tag Manager */}
-                    {`
+            </Head>
+
+            <Script id="Google tag Manager">
+                {/* Google tag Manager */}
+                {`
                     (function(w,d,s,l,i){
                         w[l]=w[l]||[];
                         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
@@ -61,21 +63,22 @@ function App({ Component, pageProps }: AppProps) {
                         f.parentNode.insertBefore(j,f);
                     })(window,document,'script','dataLayer','GTM-PC3ZHPZB');
                 `}
-                </Script>
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-EY5V50HHTF"
-                    strategy="lazyOnload"
-                />
-                <Script strategy="lazyOnload">
-                    {`
+            </Script>
+            <Script
+                id="Google tag Manager2"
+                src="https://www.googletagmanager.com/gtag/js?id=G-EY5V50HHTF"
+                strategy="lazyOnload"
+            />
+            <Script id="Google tag Manager3" strategy="lazyOnload">
+                {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
 
                     gtag('config', 'G-EY5V50HHTF');
                 `}
-                </Script>
-            </Head>
+            </Script>
+
             <noscript>
                 <iframe
                     src="https://www.googletagmanager.com/ns.html?id=GTM-PC3ZHPZB"
@@ -84,6 +87,7 @@ function App({ Component, pageProps }: AppProps) {
                     style={{ display: "none", visibility: "hidden" }}
                 ></iframe>
             </noscript>
+
             <InternalizationContextProvider>
                 <CartContextProvider>
                     <Topnav />
