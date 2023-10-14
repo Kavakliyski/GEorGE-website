@@ -36,26 +36,35 @@ export default function Reviews() {
                                     animationDelay: `${0.5 + index * 0.5}s`,
                                 }}
                             >
-                                <h2>
-                                    <Trans
-                                        i18nKey={translateReview(review.name)}
-                                    />
-                                </h2>
-                                <p>
-                                    <Trans
-                                        i18nKey={translateReview(review.text)}
-                                    />
-                                </p>
-                                {review.img &&
-                                    review.img.map((src, index) => (
-                                        <Image
-                                            key={index}
-                                            alt=""
-                                            width={100}
-                                            height={100}
-                                            src={src}
+                                <div className={styles.text}>
+                                    <h2>
+                                        <Trans
+                                            i18nKey={translateReview(
+                                                review.name
+                                            )}
                                         />
-                                    ))}
+                                    </h2>
+                                    <p>
+                                        <Trans
+                                            i18nKey={translateReview(
+                                                review.text
+                                            )}
+                                        />
+                                    </p>
+                                </div>
+
+                                <div className={styles.Images}>
+                                    {review.img &&
+                                        review.img.map((src, index) => (
+                                            <Image
+                                                key={index}
+                                                alt=""
+                                                width={100}
+                                                height={100}
+                                                src={src}
+                                            />
+                                        ))}
+                                </div>
                             </div>
                         ))}
                     </div>

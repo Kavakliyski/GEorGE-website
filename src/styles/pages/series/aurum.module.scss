@@ -35,6 +35,8 @@
             img {
                 width: 70%;
                 height: 70%;
+                box-shadow: 4px 4px 25px 15px rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
 
                 @media (max-width: 1120px) {
                     width: 100%;
@@ -51,7 +53,7 @@
             flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-            gap: 24px;
+            gap: 32px;
 
             padding: 0 10px;
 
